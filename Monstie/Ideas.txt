@@ -1,0 +1,15 @@
+Items: 
+	Having a random chance of making one of these items appear:
+		Demondrug - Increasing attack with 5% for 2 minutes
+		Mega Demondrug - Increasing attack with 5% for 5 minutes
+		Might Pill - Increasing attack with 20% for 20 second
+	
+	Each item will have its corresponding icon and will bounce around the screen for 10 second before disapearing 
+	(Or each one has its own countdown for example: Demondrug stays for 20 second on screen and Might Pill stays for 5 seconds)
+	
+Hunters:
+	4 Hunters can be added via the shop
+	You can choose 14 weapons but not have a hunter for every weapon (Or maybe you can we'll see how it works out)
+	
+	To add a hunter open the hunter menu via the shop and press the 'Add Hunter' button when you have enough Zenny.
+	A new menu will be added in which you can manage your hunter (Increasing attack, Weapon Choice and more)

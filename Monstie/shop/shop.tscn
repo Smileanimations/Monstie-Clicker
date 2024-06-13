@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=3 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
+[ext_resource type="Texture2D" uid="uid://b320m003122x4" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -13,6 +14,13 @@ script = ExtResource("1_yhuup")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-offset_left = 307.0
-offset_right = 587.0
+offset_right = 280.0
 offset_bottom = 648.0
+
+[node name="AttackUp" type="Button" parent="Panel"]
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 59.0
+text = "Increase Attack"
+icon = ExtResource("2_hka7q")
+expand_icon = true

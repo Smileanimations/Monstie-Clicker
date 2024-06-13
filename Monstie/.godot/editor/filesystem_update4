@@ -1,3 +1,6 @@
 res://main/monster.tscn
-res://main/monster.gd
 res://shop/shop.tscn
+res://main/monster.gd
+res://main/main.tscn
+res://monster/monster.tscn
+res://shop/shop.gd

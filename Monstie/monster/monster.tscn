@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://j8e5yfle32sr"]
+[gd_scene load_steps=3 format=3 uid="uid://j8e5yfle32sr"]
 
-[ext_resource type="Script" path="res://main/monster.gd" id="1_1yao5"]
-[ext_resource type="Texture2D" uid="uid://dys6xobrxkfxg" path="res://images/Barroth.png" id="2_m5cjx"]
-[ext_resource type="PackedScene" uid="uid://dx1e6oqmrakdf" path="res://shop/shop.tscn" id="3_rbwet"]
+[ext_resource type="Script" path="res://monster/monster.gd" id="1_i3s2a"]
+[ext_resource type="Texture2D" uid="uid://dys6xobrxkfxg" path="res://images/Barroth.png" id="2_s06go"]
 
 [node name="monster" type="Control"]
 layout_mode = 3
@@ -10,21 +9,21 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
-script = ExtResource("1_1yao5")
+script = ExtResource("1_i3s2a")
 
 [node name="Monster" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -576.0
-offset_right = -76.0
-offset_bottom = 500.0
+offset_left = -386.0
+offset_top = 1.0
+offset_right = 114.0
+offset_bottom = 501.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
-button_mask = 7
-texture_normal = ExtResource("2_m5cjx")
+texture_normal = ExtResource("2_s06go")
 stretch_mode = 4
 
 [node name="Healthbar" type="ProgressBar" parent="."]
@@ -35,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -562.0
-offset_top = 497.0
-offset_right = -100.0
-offset_bottom = 524.0
+offset_left = -372.0
+offset_top = 498.0
+offset_right = 90.0
+offset_bottom = 525.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -54,12 +53,5 @@ offset_left = -576.0
 offset_right = -406.0
 offset_bottom = 50.0
 grow_horizontal = 2
-
-[node name="shop" parent="." instance=ExtResource("3_rbwet")]
-layout_mode = 1
-offset_left = -12.0
-offset_top = 4.0
-offset_right = -12.0
-offset_bottom = 4.0
 
 [connection signal="pressed" from="Monster" to="." method="_on_Monster_pressed"]

@@ -2,7 +2,7 @@ extends Control
 var difficulty_scale = 1
 var value
 var rand_monster
-var damage_amount = 14
+var damage_amount = 10
 var money = 0
 var health = 100
 @onready var Monster_Button = $Monster
@@ -11,12 +11,12 @@ var health = 100
 
 #A Dictionary containing all current monsters
 var monsters = {
-	"Great Jagras": {"health": 250, "zenny": 100, "path": "res://images/Jagras.png"},
-	"Kulu-Ya-Ku": {"health":200, "zenny": 90, "path": "res://images/Kulu.png"},
-	"Pukei-Pukei": {"health":350, "zenny": 130, "path": "res://images/Pukei.png"},
-	"Tobi-Kadachi": {"health":375, "zenny": 150, "path": "res://images/Tobi.png"},
-	"Barroth": {"health":400, "zenny": 140, "path": "res://images/Barroth.png"},
-	"Jyuratodus": {"health":300, "zenny": 110, "path": "res://images/Jyuratodus.png"},
+	"Great Jagras": {"health": 150, "zenny": 100, "path": "res://images/Jagras.png"},
+	"Kulu-Ya-Ku": {"health":100, "zenny": 90, "path": "res://images/Kulu.png"},
+	"Pukei-Pukei": {"health":250, "zenny": 130, "path": "res://images/Pukei.png"},
+	"Tobi-Kadachi": {"health":275, "zenny": 150, "path": "res://images/Tobi.png"},
+	"Barroth": {"health":300, "zenny": 140, "path": "res://images/Barroth.png"},
+	"Jyuratodus": {"health":200, "zenny": 110, "path": "res://images/Jyuratodus.png"},
 }
 
 

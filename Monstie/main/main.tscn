@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://4xcrhxjnwdc4"]
+
+[ext_resource type="PackedScene" uid="uid://j8e5yfle32sr" path="res://monster/monster.tscn" id="1_jdhfo"]
+[ext_resource type="PackedScene" uid="uid://dx1e6oqmrakdf" path="res://shop/shop.tscn" id="2_xntfy"]
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="monster" parent="." instance=ExtResource("1_jdhfo")]
+layout_mode = 1
+
+[node name="shop" parent="." instance=ExtResource("2_xntfy")]
+layout_mode = 1
+offset_left = 872.0
+offset_right = 872.0
