@@ -13,3 +13,11 @@ Hunters:
 	
 	To add a hunter open the hunter menu via the shop and press the 'Add Hunter' button when you have enough Zenny.
 	A new menu will be added in which you can manage your hunter (Increasing attack, Weapon Choice and more)
+
+Monsters:
+	New monsters will be added at certain tresholds.
+	For example after 30 monsters a new group will be added to the monster pool
+	
+	Elder Dragons:
+		After a treshold of 250 monsters has been reached (will most likely change) elder dragons will enter the monster pool.
+		Elder dragons will have a chance to spawn after every 10-20 monsters (again, will most likely change) instead of having a chance to spawn after every kill

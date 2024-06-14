@@ -1,6 +1,8 @@
-res://main/monster.tscn
-res://shop/shop.tscn
-res://main/monster.gd
-res://main/main.tscn
 res://monster/monster.tscn
+res://shop/shop.tscn
+res://main/main.tscn
 res://shop/shop.gd
+res://scripts/data.gd
+res://monster/monster.gd
+res://main/main.gd
+res://Ideas.txt

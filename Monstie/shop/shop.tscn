@@ -24,3 +24,5 @@ offset_bottom = 59.0
 text = "Increase Attack"
 icon = ExtResource("2_hka7q")
 expand_icon = true
+
+[connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]

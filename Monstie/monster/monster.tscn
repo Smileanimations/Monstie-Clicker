@@ -44,14 +44,4 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 rounded = true
 
-[node name="Moneydisp" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -576.0
-offset_right = -406.0
-offset_bottom = 50.0
-grow_horizontal = 2
-
 [connection signal="pressed" from="Monster" to="." method="_on_Monster_pressed"]
