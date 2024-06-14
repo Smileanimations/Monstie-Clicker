@@ -1,6 +1,7 @@
 extends Node
-var zenny = 0
+var zenny = 10000
 var damage = 10
+var affinity = 0
 var difficulty_scale = 1
 var hunter_rank = 0
 signal zenny_updated
@@ -17,8 +18,10 @@ func _process(delta):
 #Function that emits a signal when zenny amount is updated
 func add_money(amount):
 	zenny += amount
+	round(zenny)
 	zenny_updated.emit()
 
 func subtract_money(amount):
 	zenny -= amount
+	round(zenny)
 	zenny_updated.emit()

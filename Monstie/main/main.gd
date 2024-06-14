@@ -16,3 +16,5 @@ func _process(delta):
 #Updates the zenny amount in the top left corner
 func updatedisp():
 	Zenny_display.text = ("Zenny = %s" % Data.zenny)
+
+

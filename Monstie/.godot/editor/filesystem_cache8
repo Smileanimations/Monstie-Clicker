@@ -1,23 +1,28 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1718361810
+::res://::1718372118
 icon.svg::CompressedTexture2D::6235636707871279095::1718312713::1718312799::1::::<><>::
-Ideas.txt::TextFile::-1::1718316157::0::1::::<><>::
-::res://images/::1718313202
+Ideas.txt::TextFile::-1::1718372118::0::1::::<><>::
+::res://images/::1718393695
 Barroth.png::CompressedTexture2D::8882877135675973320::1718312713::1718312713::1::::<><>::
-Girros.png::CompressedTexture2D::5236257150064777728::1718312713::1718312713::1::::<><>::
+Dodogama.png::CompressedTexture2D::3831478911824921481::1718393683::1718393699::1::::<><>::
+Girros.png::CompressedTexture2D::5236257150064777728::1718393683::1718393699::1::::<><>::
 Jagras.png::CompressedTexture2D::7645419476156478079::1718312713::1718312713::1::::<><>::
 Jyuratodus.png::CompressedTexture2D::1956430391509440237::1718312713::1718312713::1::::<><>::
 Kulu.png::CompressedTexture2D::2211121021486623641::1718312713::1718312713::1::::<><>::
 Pukei.png::CompressedTexture2D::4618034024578593562::1718312713::1718312713::1::::<><>::
 Tobi.png::CompressedTexture2D::8233748118662413085::1718312713::1718312713::1::::<><>::
-::res://images/UI Icons/::1718313207
+Tzitzi.png::CompressedTexture2D::7626816441159186933::1718393683::1718393699::1::::<><>::
+::res://images/UI Icons/::1718388743
+AffinityUP.png::CompressedTexture2D::9123005756926206460::1718388742::1718388743::1::::<><>::
 AttackUp.png::CompressedTexture2D::4408987212275535951::1718313204::1718313207::1::::<><>::
-::res://main/::1718345934
-main.tscn::PackedScene::2083109349949342157::1718345934::0::1::::<><>::uid://j8e5yfle32sr::::res://monster/monster.tscn<>uid://dx1e6oqmrakdf::::res://shop/shop.tscn
-::res://monster/::1718345934
-monster.gd::GDScript::-1::1718313072::0::1::::<>Control<>::
-monster.tscn::PackedScene::700121769205169697::1718345934::0::1::::<><>::res://monster/monster.gd<>uid://dys6xobrxkfxg::::res://images/Barroth.png
-::res://Scripts/::1718361810
-::res://shop/::1718360924
-shop.gd::GDScript::-1::1718360924::0::1::::<>Control<>::
-shop.tscn::PackedScene::8827578264553446947::1718360924::0::1::::<><>::res://shop/shop.gd<>uid://b320m003122x4::::res://images/UI Icons/AttackUp.png
+::res://main/::1718392948
+main.tscn::PackedScene::2083109349949342157::1718392948::0::1::::<><>::res://main/main.gd<>uid://j8e5yfle32sr::::res://monster/monster.tscn<>uid://dx1e6oqmrakdf::::res://shop/shop.tscn
+main.gd::GDScript::-1::1718390915::0::1::::<>Control<>::
+::res://monster/::1718392948
+monster.gd::GDScript::-1::1718392760::0::1::::<>Control<>::
+monster.tscn::PackedScene::700121769205169697::1718392948::0::1::::<><>::res://monster/monster.gd<>uid://dys6xobrxkfxg::::res://images/Barroth.png
+::res://scripts/::1718392165
+data.gd::GDScript::-1::1718392165::0::1::::<>Node<>::
+::res://shop/::1718392948
+shop.gd::GDScript::-1::1718392157::0::1::::<>Control<>::
+shop.tscn::PackedScene::8827578264553446947::1718392948::0::1::::<><>::res://shop/shop.gd<>uid://b320m003122x4::::res://images/UI Icons/AttackUp.png<>uid://d28itpfc8mnvo::::res://images/UI Icons/AffinityUP.png

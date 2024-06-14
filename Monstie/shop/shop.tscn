@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=4 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://b320m003122x4" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
+[ext_resource type="Texture2D" uid="uid://d28itpfc8mnvo" path="res://images/UI Icons/AffinityUP.png" id="3_wil57"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -25,4 +26,14 @@ text = "Increase Attack"
 icon = ExtResource("2_hka7q")
 expand_icon = true
 
+[node name="AffinityUp" type="Button" parent="Panel"]
+layout_mode = 0
+offset_top = 64.0
+offset_right = 280.0
+offset_bottom = 123.0
+text = "Increase Affinity"
+icon = ExtResource("3_wil57")
+expand_icon = true
+
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
+[connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
