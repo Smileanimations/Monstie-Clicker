@@ -1,23 +1,31 @@
 Items: 
 	Having a random chance of making one of these items appear:
-		Demondrug - Increasing attack with 5% for 2 minutes
-		Mega Demondrug - Increasing attack with 5% for 5 minutes
-		Might Pill - Increasing attack with 20% for 20 second
+		Demondrug - Increasing attack with 5% for 2 minutes.
+		Mega Demondrug - Increasing attack with 5% for 5 minutes.
+		Might Pill - Increasing attack with 20% for 20 second.
 	
-	Each item will have its corresponding icon and will bounce around the screen for 10 second before disapearing 
-	(Or each one has its own countdown for example: Demondrug stays for 20 second on screen and Might Pill stays for 5 seconds)
+	Each item will have its corresponding icon and will bounce around the screen for 10 second before disapearing.
+	(Or each one has its own countdown for example: Demondrug stays for 20 second on screen and Might Pill stays for 5 seconds).
 	
 Hunters:
-	4 Hunters can be added via the shop
-	You can choose 14 weapons but not have a hunter for every weapon (Or maybe you can we'll see how it works out)
+	4 Hunters can be added via the shop.
+	You can choose 14 weapons but not have a hunter for every weapon (Or maybe you can we'll see how it works out).
 	
 	To add a hunter open the hunter menu via the shop and press the 'Add Hunter' button when you have enough Zenny.
-	A new menu will be added in which you can manage your hunter (Increasing attack, Weapon Choice and more)
+	A new menu will be added in which you can manage your hunter (Increasing attack, Weapon Choice and more).
 
 Monsters:
 	New monsters will be added at certain tresholds.
-	For example after 30 monsters a new group will be added to the monster pool
+	For example after 30 monsters a new group will be added to the monster pool.
+	
+	Instead of having to kill every monster you come across every monster has 2/3 minute (will most likely change) despawning period, meaning that you have 2/3 minutes to fight
+	and kill the monster before despawning and being replaced by a slightly nerfed new monster.
 	
 	Elder Dragons:
 		After a treshold of 250 monsters has been reached (will most likely change) elder dragons will enter the monster pool.
-		Elder dragons will have a chance to spawn after every 10-20 monsters (again, will most likely change) instead of having a chance to spawn after every kill
+		Elder dragons will have a chance to spawn after every 10-20 monsters (again, will most likely change) instead of having a chance to spawn after every kill.
+		
+		Fatalis: 
+			When a Elder Dragon is chosen there is a very slim chance for it to be Fatalis. When Fatalis has been chosen he will fade in while his theme starts playing at 50% mark his second phase
+			theme starts playing.
+			Fatalis will have massive health pool and take a long time to kill he will also have an extended despawning period. 
