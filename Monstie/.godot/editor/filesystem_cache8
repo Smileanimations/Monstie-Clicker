@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1718372118
+::res://::1718479228
 icon.svg::CompressedTexture2D::6235636707871279095::1718312713::1718312799::1::::<><>::
 Ideas.txt::TextFile::-1::1718372118::0::1::::<><>::
-::res://images/::1718393695
+::res://images/::1718393699
 Barroth.png::CompressedTexture2D::8882877135675973320::1718312713::1718312713::1::::<><>::
 Dodogama.png::CompressedTexture2D::3831478911824921481::1718393683::1718393699::1::::<><>::
 Girros.png::CompressedTexture2D::5236257150064777728::1718393683::1718393699::1::::<><>::
@@ -15,14 +15,14 @@ Tzitzi.png::CompressedTexture2D::7626816441159186933::1718393683::1718393699::1:
 ::res://images/UI Icons/::1718388743
 AffinityUP.png::CompressedTexture2D::9123005756926206460::1718388742::1718388743::1::::<><>::
 AttackUp.png::CompressedTexture2D::4408987212275535951::1718313204::1718313207::1::::<><>::
-::res://main/::1718392948
-main.tscn::PackedScene::2083109349949342157::1718392948::0::1::::<><>::res://main/main.gd<>uid://j8e5yfle32sr::::res://monster/monster.tscn<>uid://dx1e6oqmrakdf::::res://shop/shop.tscn
+::res://main/::1718454925
 main.gd::GDScript::-1::1718390915::0::1::::<>Control<>::
-::res://monster/::1718392948
-monster.gd::GDScript::-1::1718392760::0::1::::<>Control<>::
-monster.tscn::PackedScene::700121769205169697::1718392948::0::1::::<><>::res://monster/monster.gd<>uid://dys6xobrxkfxg::::res://images/Barroth.png
+main.tscn::PackedScene::2083109349949342157::1718454925::0::1::::<><>::res://main/main.gd<>uid://j8e5yfle32sr::::res://monster/monster.tscn<>uid://dx1e6oqmrakdf::::res://shop/shop.tscn
+::res://monster/::1718454925
+monster.gd::GDScript::-1::1718402376::0::1::::<>Control<>::
+monster.tscn::PackedScene::700121769205169697::1718454925::0::1::::<><>::res://monster/monster.gd<>uid://dys6xobrxkfxg::::res://images/Barroth.png
 ::res://scripts/::1718392165
 data.gd::GDScript::-1::1718392165::0::1::::<>Node<>::
-::res://shop/::1718392948
+::res://shop/::1718454925
 shop.gd::GDScript::-1::1718392157::0::1::::<>Control<>::
-shop.tscn::PackedScene::8827578264553446947::1718392948::0::1::::<><>::res://shop/shop.gd<>uid://b320m003122x4::::res://images/UI Icons/AttackUp.png<>uid://d28itpfc8mnvo::::res://images/UI Icons/AffinityUP.png
+shop.tscn::PackedScene::8827578264553446947::1718454925::0::1::::<><>::res://shop/shop.gd<>uid://b320m003122x4::::res://images/UI Icons/AttackUp.png<>uid://d28itpfc8mnvo::::res://images/UI Icons/AffinityUP.png

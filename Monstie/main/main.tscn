@@ -26,3 +26,9 @@ modulate = Color(0.466667, 0.466667, 0, 1)
 layout_mode = 0
 offset_right = 109.0
 offset_bottom = 33.0
+
+[node name="Stats" type="Label" parent="."]
+layout_mode = 0
+offset_top = 522.0
+offset_right = 102.0
+offset_bottom = 648.0

@@ -2,6 +2,7 @@ extends Control
 var value
 var rand_monster
 var health = 100
+var difficulty = 0.2
 @onready var Monster_Button = $Monster
 @onready var Healthbar = $Healthbar
 
@@ -17,7 +18,6 @@ var monsters = {
 	"Pukei-Pukei": {"health":250, "zenny": 130, "path": "res://images/Pukei.png"},
 	"Tobi-Kadachi": {"health":275, "zenny": 150, "path": "res://images/Tobi.png"},
 	"Barroth": {"health":300, "zenny": 140, "path": "res://images/Barroth.png"},
-	
 }
 
 
@@ -42,13 +42,12 @@ func _on_Monster_pressed():
 #Damages the monster by clicking on it
 func damage(damage):
 	#Randomizes a number between the amount of purchased affinity upgrades and 100
-	var critical_hit = randi_range(Data.affinity, 100)
+	var random_number = randi_range(1, 100)
 	var amount = damage
-	#If the random number is 100 the next attack is increased with 25%
-	if critical_hit == 100:
-		amount *= 2.5
+	#If the random number is less than the affinity the next attack is increased with 25%
+	if random_number <= Data.affinity:
+		amount *= 1.25
 		print("Critical Hit!")
-	
 	health -= amount
 	round(health)
 	print("%s" % health)
@@ -60,8 +59,8 @@ func Reset():
 	print (rand_monster)
 	#Sets the random given key to a value variable so it can be easily accessed 
 	value = monsters[rand_monster]
-	#Scales the difficulty and amount of zenny gained
-	Data.difficulty_scale = Data.difficulty_scale + 0.2
+	#Scales the difficulty
+	Data.add_diff_scale(difficulty)
 	#Sets the healthbar to the new given HP value
 	health = value["health"] * Data.difficulty_scale
 	Healthbar.max_value = health

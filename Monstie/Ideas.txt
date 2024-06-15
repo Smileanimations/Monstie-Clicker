@@ -1,3 +1,8 @@
+Shop:
+	Elemental Damage:
+		Besides being able to upgrade your regular damage per click you will also be able to upgrade your elemental damage which will stack upon your regular damage if you hit the monster
+		with the corresponding element. Elemental damage will also be a neccesity for the Alatreon fight because your regular damage will have no effect on him.
+
 Items: 
 	Having a random chance of making one of these items appear:
 		Demondrug - Increasing attack with 5% for 2 minutes.
@@ -16,7 +21,10 @@ Hunters:
 
 Monsters:
 	New monsters will be added at certain tresholds.
-	For example after 30 monsters a new group will be added to the monster pool.
+	For example after reaching Hunter Rank 30 a new group will be added to the monster pool and so on until all pools have been added.
+	
+	Every monster will have its own elemental weakness which will be displayed in the top corner of the icon. If you have upgraded the corresponding elemental damage in the shop the damage
+	will be put on top of your regular damage giving you a damage boost.
 	
 	Instead of having to kill every monster you come across every monster has 2/3 minute (will most likely change) despawning period, meaning that you have 2/3 minutes to fight
 	and kill the monster before despawning and being replaced by a slightly nerfed new monster.
@@ -29,3 +37,12 @@ Monsters:
 			When a Elder Dragon is chosen there is a very slim chance for it to be Fatalis. When Fatalis has been chosen he will fade in while his theme starts playing at 50% mark his second phase
 			theme starts playing.
 			Fatalis will have massive health pool and take a long time to kill he will also have an extended despawning period. 
+		
+		Alatreon:
+			Besides Fatalis there is also a slim chance for Alatreon to spawn. When Alatreon spawns he will be in one of three modes:
+				Ice: When in ice mode Alatreon can only be damaged with Fire and Dragon damage, normal clicks and other elements will not have any effect on Alatreon.
+				Fire: When in fire mode Alatreon can only be damaged with Ice and Dragon damage, normal clicks and other elements will not have any effect on Alatreon.
+				Dragon: When in dragon mode Alatreon can be damaged with every element but dragon with have the best effect.
+			Alatreon will switch elements every 25% of the fight so it'll go in a pattern like: Ice or Fire -> Dragon -> Opposite element which it was in first phase.
+			Alatreon will also have an extended despawning period like Fatalis.
+			When Alatreon spawns his theme will also start playing

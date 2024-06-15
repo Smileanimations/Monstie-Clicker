@@ -15,17 +15,19 @@ func _process(delta):
 
 
 func _on_attack_up_pressed():
+	var damage_amount = 2.5
 	if Data.zenny >= price_atb:
 		Data.subtract_money(price_atb)
-		Data.damage += 2.5
+		Data.add_damage(damage_amount)
 		price_atb += 100 * 1.5
 		Attackbutton.text = "Increase Attack - %s" % price_atb
-		
+
 
 
 func _on_affinity_up_pressed():
+	var affinity_amount = 1
 	if Data.zenny >= price_aff:
 		Data.subtract_money(price_aff)
-		Data.affinity += 1
+		Data.add_affinity(affinity_amount)
 		price_aff += 500 + (price_aff * 2)
 		Affinitybutton.text = "Increase Affinity - %s" % price_aff
