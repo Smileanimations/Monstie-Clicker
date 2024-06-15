@@ -1,7 +1,7 @@
 extends Control
 var value
 var rand_monster
-var health = 100
+var health = 0
 var difficulty = 0.2
 @onready var Monster_Button = $Monster
 @onready var Healthbar = $Healthbar

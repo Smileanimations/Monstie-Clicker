@@ -1,9 +1,9 @@
 extends Node
-var zenny = 10000
+var zenny : int = 10000
 var damage = 10
-var affinity = 50
-var difficulty_scale = 1
-var hunter_rank = 0
+var affinity : int = 0
+var difficulty_scale =  1
+var hunter_rank : int = 0
 signal zenny_updated
 signal update_stat_display
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,7 @@ func add_money(amount):
 
 func subtract_money(amount):
 	zenny -= amount
-	round(zenny)
+	ceilf(zenny)
 	zenny_updated.emit()
 
 #Adds the given amount of damage and updates in on the display
