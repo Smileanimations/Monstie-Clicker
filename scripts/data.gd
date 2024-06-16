@@ -4,6 +4,14 @@ var damage = 10
 var affinity : int = 0
 var difficulty_scale =  1
 var hunter_rank : int = 0
+var elements = {
+	"Fire": {"Damage_amount": 0},
+	"Ice": {"Damage_amount": 0},
+	"Water": {"Damage_amount": 0},
+	"Thunder": {"Damage_amount": 0},
+	"Dragon": {"Damage_amount": 0}
+}
+
 signal zenny_updated
 signal update_stat_display
 # Called when the node enters the scene tree for the first time.

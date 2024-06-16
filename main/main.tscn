@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main/main.gd" id="1_dfd22"]
 [ext_resource type="PackedScene" uid="uid://j8e5yfle32sr" path="res://monster/monster.tscn" id="1_jdhfo"]
 [ext_resource type="PackedScene" uid="uid://dx1e6oqmrakdf" path="res://shop/shop.tscn" id="2_xntfy"]
-[ext_resource type="Texture2D" uid="uid://505qqyn1phe1" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
+[ext_resource type="Texture2D" uid="uid://bdjdxm4vdpco6" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 
 [node name="main" type="Control"]
 layout_mode = 3
