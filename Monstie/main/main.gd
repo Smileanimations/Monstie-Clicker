@@ -5,7 +5,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Sets the zenny display
-	Zenny_display.text = ("Zenny = %s" % Data.zenny)
+	Zenny_display.text = ("%sz" % Data.zenny)
 	Stats_display.text = ("
 	Damage = %s
 	Affinity = %s%%
@@ -21,7 +21,7 @@ func _process(delta):
 
 #Updates the zenny amount in the top left corner
 func updatezennydisp():
-	Zenny_display.text = ("Zenny = %s" % Data.zenny)
+	Zenny_display.text = ("%sz" % Data.zenny)
 
 func updatestatdisp():
 	Stats_display.text = ("

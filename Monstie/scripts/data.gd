@@ -15,15 +15,14 @@ func _ready():
 func _process(delta):
 	pass
 
-#Function that emits a signal when zenny amount is updated
+#Function that adds zenny and updates the display
 func add_money(amount):
 	zenny += amount
-	round(zenny)
 	zenny_updated.emit()
 
+#Function that subtracts zenny and updates the display
 func subtract_money(amount):
 	zenny -= amount
-	ceilf(zenny)
 	zenny_updated.emit()
 
 #Adds the given amount of damage and updates in on the display

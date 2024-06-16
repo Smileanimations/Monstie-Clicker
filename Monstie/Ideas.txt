@@ -18,6 +18,12 @@ Hunters:
 	
 	To add a hunter open the hunter menu via the shop and press the 'Add Hunter' button when you have enough Zenny.
 	A new menu will be added in which you can manage your hunter (Increasing attack, Weapon Choice and more).
+	
+	Hunters can have weapons with different Status ailments like:
+		Poison - will damage the monster over time 
+		Blast - will cause an explosion doing a lot of damage but having a far rarer chance of activating 
+		Sleep - will cause the monster to sleep and the next hit will do 50% more damage
+		Paralysis - will paralyse the monster giving all the hunters a 5% damage boost
 
 Monsters:
 	New monsters will be added at certain tresholds.
