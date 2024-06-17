@@ -52,3 +52,21 @@ Monsters:
 			Alatreon will switch elements every 25% of the fight so it'll go in a pattern like: Ice or Fire -> Dragon -> Opposite element which it was in first phase.
 			Alatreon will also have an extended despawning period like Fatalis.
 			When Alatreon spawns his theme will also start playing
+
+Decorations:
+	Being able to equip a certain amount of Decorations that can enhance specific statistics for example:
+		Attack Boost: Will increase the amount of raw damage dealt per click
+		Crit Boost: Will increase the amount of damage dealt per critical hit
+		Critical Eye: Will increase the amount of affinity you have
+		Heroics: instead of Doing more damage when you're low HP, You will deal more damage when the
+		monster is low hp
+		Peak Performance: Same as heroics but instead of low hp, will deal more damage when the monster
+		has more hp
+	
+	Decorations can drop from monsters when they're killed. More rare decorations will drop
+	from harder monsters.
+	Decorations will be devided in rarities, each rarity having their own pool of decorations.
+	
+	You will also be able to equip hunters with decorations that can further enhance their stats and
+	damage output.
+		
