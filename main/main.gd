@@ -23,6 +23,7 @@ func _process(delta):
 func updatezennydisp():
 	Zenny_display.text = ("%sz" % Data.zenny)
 
+#Updates the display that shows all the statistics
 func updatestatdisp():
 	Stats_display.text = ("
 	Damage = %s
