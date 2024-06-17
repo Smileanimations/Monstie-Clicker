@@ -1,21 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=9 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
-[ext_resource type="Texture2D" uid="uid://b320m003122x4" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
-[ext_resource type="Texture2D" uid="uid://d28itpfc8mnvo" path="res://images/UI Icons/AffinityUP.png" id="3_wil57"]
+[ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
+[ext_resource type="Texture2D" uid="uid://cnvbd40kgap22" path="res://images/UI Icons/AffinityUP.png" id="3_wil57"]
+[ext_resource type="Texture2D" uid="uid://q5nvhcqcdkqy" path="res://images/UI Icons/Fireblight.png" id="4_f27ni"]
+[ext_resource type="Texture2D" uid="uid://bq2qfl7hmvwaq" path="res://images/UI Icons/Iceblight.png" id="5_xqpy4"]
+[ext_resource type="Texture2D" uid="uid://c0md6vqkf4xyt" path="res://images/UI Icons/Thundeblight.png" id="6_8ppbf"]
+[ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
+[ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_yhuup")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
-offset_right = 280.0
+offset_left = 872.0
+offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="AttackUp" type="Button" parent="Panel"]
@@ -35,5 +37,68 @@ text = "Increase Affinity"
 icon = ExtResource("3_wil57")
 expand_icon = true
 
+[node name="ElementUp" type="Button" parent="Panel"]
+layout_mode = 0
+offset_top = 128.0
+offset_right = 279.0
+offset_bottom = 187.0
+text = "Element"
+icon = ExtResource("4_f27ni")
+expand_icon = true
+
+[node name="Popup" type="PopupPanel" parent="Panel/ElementUp"]
+position = Vector2i(521, 129)
+size = Vector2i(350, 200)
+unresizable = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ElementUp/Popup"]
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 346.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="FireUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
+layout_mode = 2
+text = "Increase Fire Dmg - 200"
+icon = ExtResource("4_f27ni")
+expand_icon = true
+
+[node name="IceUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
+layout_mode = 2
+text = "Increase Ice Dmg - 200"
+icon = ExtResource("5_xqpy4")
+expand_icon = true
+
+[node name="ThunderUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
+layout_mode = 2
+text = "Increase Thunder Dmg - 200"
+icon = ExtResource("6_8ppbf")
+expand_icon = true
+
+[node name="WaterUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
+layout_mode = 2
+text = "Increase Water Dmg - 200"
+icon = ExtResource("7_5cemc")
+expand_icon = true
+
+[node name="DragonUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
+layout_mode = 2
+text = "Increase Dragon Dmg - 200"
+icon = ExtResource("8_pbg7g")
+expand_icon = true
+
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
+[connection signal="pressed" from="Panel/ElementUp" to="." method="_on_element_up_pressed"]
+[connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/FireUp" to="." method="_on_element_button_pressed" binds= ["Fire"]]
+[connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/IceUp" to="." method="_on_element_button_pressed" binds= ["Ice"]]
+[connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/ThunderUp" to="." method="_on_element_button_pressed" binds= ["Thunder"]]
+[connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/WaterUp" to="." method="_on_element_button_pressed" binds= ["Water"]]
+[connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]

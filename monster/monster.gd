@@ -34,8 +34,8 @@ func _process(delta):
 
 #The simple button that removes HP from the monster
 func _on_Monster_pressed():
-	damage(Data.damage)
-	if health <= 0:
+	damage(Data.damage["Raw"]["Damage_amount"])
+	if health <= 1:
 		Reset()
 		Money()
 
@@ -45,7 +45,7 @@ func damage(damage):
 	var random_number = randi_range(1, 100)
 	var amount = damage
 	#If the random number is less than the affinity the next attack is increased with 25%
-	if random_number <= Data.affinity:
+	if random_number <= Data.damage["Affinity"]["Amount"]:
 		amount *= 1.25
 		print("Critical Hit!")
 	health -= amount

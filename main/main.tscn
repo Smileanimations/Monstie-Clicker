@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main/main.gd" id="1_dfd22"]
 [ext_resource type="PackedScene" uid="uid://j8e5yfle32sr" path="res://monster/monster.tscn" id="1_jdhfo"]
 [ext_resource type="PackedScene" uid="uid://dx1e6oqmrakdf" path="res://shop/shop.tscn" id="2_xntfy"]
-[ext_resource type="Texture2D" uid="uid://cyvf201om804b" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
+[ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -19,8 +19,6 @@ layout_mode = 1
 
 [node name="shop" parent="." instance=ExtResource("2_xntfy")]
 layout_mode = 1
-offset_left = 872.0
-offset_right = 872.0
 
 [node name="ZennyDisp" type="Label" parent="."]
 layout_mode = 0

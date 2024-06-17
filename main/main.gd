@@ -10,7 +10,7 @@ func _ready():
 	Damage = %s
 	Affinity = %s%%
 	Difficulty Scale = %s
-	Hunter Rank = %s" % [Data.damage, Data.affinity, Data.difficulty_scale, Data.hunter_rank])
+	Hunter Rank = %s" % [Data.damage.Raw.Damage_amount, Data.damage.Affinity.Amount, Data.difficulty_scale, Data.hunter_rank])
 	#Recieves a signal everytime zenny amount is updated 
 	Data.zenny_updated.connect(updatezennydisp)
 	Data.update_stat_display.connect(updatestatdisp)
@@ -29,4 +29,4 @@ func updatestatdisp():
 	Damage = %s
 	Affinity = %s%%
 	Difficulty Scale = %s
-	Hunter Rank = %s" % [Data.damage, Data.affinity, Data.difficulty_scale, Data.hunter_rank])
+	Hunter Rank = %s" % [Data.damage.Raw.Damage_amount, Data.damage.Affinity.Amount, Data.difficulty_scale, Data.hunter_rank])

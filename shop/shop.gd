@@ -1,9 +1,17 @@
 extends Control
-var price_atb = 100
-var price_aff = 500
+var price_atb : int = 100
+var price_aff : int = 500
 @onready var Attackbutton = $Panel/AttackUp
 @onready var Affinitybutton = $Panel/AffinityUp
-
+@onready var Elementpopup = $Panel/ElementUp/Popup
+@onready var ElementalButtons = {
+	"Fire": {"Price": 200, "Path": $Panel/ElementUp/Popup/VBoxContainer/FireUp},
+	"Ice": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/IceUp},
+	"Thunder": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/ThunderUp},
+	"Water": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/WaterUp},
+	"Dragon": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/DragonUp}
+}
+ 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Attackbutton.text = "Increase Attack - %s" % price_atb
@@ -19,7 +27,7 @@ func _on_attack_up_pressed():
 	if Data.zenny >= price_atb:
 		Data.subtract_money(price_atb)
 		Data.add_damage(damage_amount)
-		price_atb += 100 * 1.5
+		price_atb += 300
 		Attackbutton.text = "Increase Attack - %s" % price_atb
 
 
@@ -29,5 +37,21 @@ func _on_affinity_up_pressed():
 	if Data.zenny >= price_aff:
 		Data.subtract_money(price_aff)
 		Data.add_affinity(affinity_amount)
-		price_aff += 500 + (price_aff * 2)
+		price_aff += price_aff * 2
 		Affinitybutton.text = "Increase Affinity - %s" % price_aff
+
+
+
+func _on_element_up_pressed():
+	Elementpopup.popup()
+
+func _on_element_button_pressed(element):
+	var element_amount = 2
+	print("%s" % ElementalButtons[element]["Price"])
+	if Data.zenny >= ElementalButtons[element]["Price"]:
+		Data.subtract_money(ElementalButtons[element]["Price"])
+		Data.add_element(element, element_amount)
+		Data.damage[element]["Damage_amount"] += 2
+		ElementalButtons[element]["Price"] = int(ElementalButtons[element]["Price"] * 1.5)
+		ElementalButtons[element]["Path"].text = "Increase %s Dmg - %s" % [element, ElementalButtons[element]["Price"]]
+	
