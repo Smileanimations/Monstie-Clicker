@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://j8e5yfle32sr"]
 
 [ext_resource type="Script" path="res://monster/monster.gd" id="1_i3s2a"]
-[ext_resource type="Texture2D" uid="uid://dys6xobrxkfxg" path="res://images/Barroth.png" id="2_s06go"]
+[ext_resource type="Texture2D" uid="uid://bk6grexq3tnfa" path="res://images/Barroth.png" id="2_s06go"]
 
 [node name="monster" type="Control"]
 layout_mode = 3

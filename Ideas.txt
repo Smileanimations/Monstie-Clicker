@@ -35,12 +35,14 @@ Monsters:
 	Instead of having to kill every monster you come across every monster has 2/3 minute (will most likely change) despawning period, meaning that you have 2/3 minutes to fight
 	and kill the monster before despawning and being replaced by a slightly nerfed new monster.
 	
+	If enough DPS is being done monsters can enter an Enrage state. When a monster is enraged the timer will be reduced until the monster despawns.
+	
 	Elder Dragons:
 		After a treshold of 250 monsters has been reached (will most likely change) elder dragons will enter the monster pool.
 		Elder dragons will have a chance to spawn after every 10-20 monsters (again, will most likely change) instead of having a chance to spawn after every kill.
 		
 		Fatalis: 
-			When a Elder Dragon is chosen there is a very slim chance for it to be Fatalis. When Fatalis has been chosen he will fade in while his theme starts playing at 50% mark his second phase
+			When an Elder Dragon is chosen there is a very slim chance for it to be Fatalis. When Fatalis has been chosen he will fade in while his theme starts playing at 50% mark his second phase
 			theme starts playing.
 			Fatalis will have massive health pool and take a long time to kill he will also have an extended despawning period. 
 		
@@ -56,13 +58,17 @@ Monsters:
 Decorations:
 	Being able to equip a certain amount of Decorations that can enhance specific statistics for example:
 		Attack Boost: Will increase the amount of raw damage dealt per click
+		
 		Crit Boost: Will increase the amount of damage dealt per critical hit
+		
 		Critical Eye: Will increase the amount of affinity you have
-		Heroics: instead of Doing more damage when you're low HP, You will deal more damage when the
-		monster is low hp
-		Peak Performance: Same as heroics but instead of low hp, will deal more damage when the monster
-		has more hp
-	
+		
+		Heroics: instead of Doing more damage when you're low HP, You will deal more damage when the monster is low hp
+		
+		Peak Performance: Same as heroics but instead of low hp, will deal more damage when the monster has more hp
+		
+		Agitator: When a monsters enrages you gain a boost in attack and affinity
+		
 	Decorations can drop from monsters when they're killed. More rare decorations will drop
 	from harder monsters.
 	Decorations will be devided in rarities, each rarity having their own pool of decorations.
