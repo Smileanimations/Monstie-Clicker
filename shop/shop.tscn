@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=11 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c0md6vqkf4xyt" path="res://images/UI Icons/Thundeblight.png" id="6_8ppbf"]
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
+[ext_resource type="Texture2D" uid="uid://c8yucbhcbjjpj" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
+[ext_resource type="Script" path="res://shop/AddHunter.gd" id="10_vfudl"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -94,6 +96,16 @@ text = "Increase Dragon Dmg - 200"
 icon = ExtResource("8_pbg7g")
 expand_icon = true
 
+[node name="AddHunter" type="Button" parent="Panel"]
+layout_mode = 0
+offset_top = 192.0
+offset_right = 280.0
+offset_bottom = 251.0
+text = "Add Hunter"
+icon = ExtResource("9_1ullj")
+expand_icon = true
+script = ExtResource("10_vfudl")
+
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
 [connection signal="pressed" from="Panel/ElementUp" to="." method="_on_element_up_pressed"]
@@ -102,3 +114,4 @@ expand_icon = true
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/ThunderUp" to="." method="_on_element_button_pressed" binds= ["Thunder"]]
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/WaterUp" to="." method="_on_element_button_pressed" binds= ["Water"]]
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]
+[connection signal="pressed" from="Panel/AddHunter" to="." method="_on_add_hunter_pressed"]

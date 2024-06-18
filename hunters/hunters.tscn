@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbxgwa0m1b1hb"]
+[gd_scene load_steps=6 format=3 uid="uid://bbxgwa0m1b1hb"]
 
 [ext_resource type="Script" path="res://hunters/hunters.gd" id="1_l8ubf"]
-[ext_resource type="Texture2D" uid="uid://ct1b65kevgc4q" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="3_4n848"]
-[ext_resource type="Texture2D" uid="uid://b3osheh4vw252" path="res://images/UI Icons/Weapon Icons/Bow.png" id="3_npo8n"]
+[ext_resource type="Texture2D" uid="uid://b6824ovhswwq7" path="res://images/UI Icons/Weapon Icons/Sword_And_Shield.png" id="2_d8lb7"]
+[ext_resource type="Texture2D" uid="uid://2v1w2eg0fq8g" path="res://images/UI Icons/Weapon Icons/Gunlance.png" id="3_j8s5d"]
+[ext_resource type="Texture2D" uid="uid://b6xvmd6mk40di" path="res://images/UI Icons/Weapon Icons/Hammer.png" id="4_24q4t"]
+[ext_resource type="Texture2D" uid="uid://pcamvebexga3" path="res://images/UI Icons/Weapon Icons/Lance.png" id="5_y2ug4"]
 
 [node name="hunters" type="Control"]
 layout_mode = 3
@@ -10,20 +12,48 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -1.0
-offset_bottom = -1.0
+offset_bottom = -517.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l8ubf")
 
-[node name="HFlowContainer" type="HFlowContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 320.0
-offset_bottom = 193.0
+offset_right = 1152.0
+offset_bottom = 98.0
+theme_override_constants/separation = 75
+alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="HFlowContainer"]
-position = Vector2(160, 161)
-texture = ExtResource("3_npo8n")
+[node name="Hunter1" type="TextureRect" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_d8lb7")
+expand_mode = 3
 
-[node name="Sprite2D2" type="Sprite2D" parent="HFlowContainer"]
-position = Vector2(7, 7)
-texture = ExtResource("3_4n848")
+[node name="Timer" type="Timer" parent="HBoxContainer/Hunter1"]
+
+[node name="Hunter2" type="TextureRect" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_j8s5d")
+expand_mode = 3
+
+[node name="Timer" type="Timer" parent="HBoxContainer/Hunter2"]
+
+[node name="Hunter3" type="TextureRect" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_24q4t")
+expand_mode = 3
+
+[node name="Timer" type="Timer" parent="HBoxContainer/Hunter3"]
+
+[node name="Hunter4" type="TextureRect" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_y2ug4")
+expand_mode = 3
+
+[node name="Timer" type="Timer" parent="HBoxContainer/Hunter4"]
+
+[connection signal="timeout" from="HBoxContainer/Hunter1/Timer" to="." method="_on_timer_timeout"]

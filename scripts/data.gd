@@ -11,11 +11,16 @@ var damage = {
 	"Thunder": {"Damage_amount": 0},
 	"Dragon": {"Damage_amount": 0}
 }
-
+var weapons = {
+	"Greatsword": {"Damage_amount": 100, "Affinity": 0, "Cooldown": 5, "Path": "res://images/UI Icons/Weapon Icons/Great_Sword.png"},
+	"Longsword": {"Damage_amount": 15, "Affinity": 0, "Cooldown": 2, "Path": "res://images/UI Icons/Weapon Icons/Long_Sword.png"},
+	"Sword And Shield": {"Damage_Amount": 10, "Affinity": 0, "Cooldown": 0.5, "Path": "res://images/UI Icons/Weapon Icons/Sword_And_Shield.png"},
+	"Dual Blades": {"Damage_amount": 5, "Affinity": 0, "Cooldown": 0.2, "Path": "res://images/UI Icons/Weapon Icons/Dual_Blades.png"}
+}
 
 signal zenny_updated
 signal update_stat_display
-# Called when the node enters the scene tree for the first time.
+signal PurchasedHunter
 func _ready():
 	pass
 
@@ -49,3 +54,6 @@ func add_element(element, amount):
 func add_diff_scale(amount):
 	difficulty_scale = difficulty_scale + amount
 	update_stat_display.emit()
+
+func AddedHunter():
+	PurchasedHunter.emit()
