@@ -1,7 +1,7 @@
 extends Control
 var value
 var rand_monster
-var health = 0
+var health = 100
 var difficulty = 0.2
 @onready var Monster_Button = $Monster
 @onready var Healthbar = $Healthbar
@@ -34,24 +34,22 @@ func _process(delta):
 
 #The simple button that removes HP from the monster
 func _on_Monster_pressed():
-	damage(Data.damage["Raw"]["Damage_amount"])
-	if health <= 1:
-		Reset()
-		Money()
-
-#Damages the monster by clicking on it
-func damage(damage):
-	#Randomizes a number between the amount of purchased affinity upgrades and 100
 	var random_number = randi_range(1, 100)
-	var amount = damage
-	#If the random number is less than the affinity the next attack is increased with 25%
+	var amount = Data.damage["Raw"]["Damage_amount"]
 	if random_number <= Data.damage["Affinity"]["Amount"]:
 		amount *= 1.25
 		print("Critical Hit!")
-	health -= amount
-	round(health)
+	damage(amount)
+
+
+#Damages the monster by clicking on it
+func damage(damage):
+	health -= damage
 	print("%s" % health)
 	Healthbar.value = health
+	if health <= 0:
+		Reset()
+		Money()
 
 #Function that handles when a monster dies and is replaced by a new one
 func Reset():

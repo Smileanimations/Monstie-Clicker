@@ -1,5 +1,5 @@
 extends Node
-var zenny : int = 10000
+var zenny : int = 100000000
 var difficulty_scale =  1
 var hunter_rank : int = 0
 var damage = {
@@ -14,7 +14,7 @@ var damage = {
 var weapons = {
 	"Greatsword": {"Damage_amount": 100, "Affinity": 0, "Cooldown": 5, "Path": "res://images/UI Icons/Weapon Icons/Great_Sword.png"},
 	"Longsword": {"Damage_amount": 15, "Affinity": 0, "Cooldown": 2, "Path": "res://images/UI Icons/Weapon Icons/Long_Sword.png"},
-	"Sword And Shield": {"Damage_Amount": 10, "Affinity": 0, "Cooldown": 0.5, "Path": "res://images/UI Icons/Weapon Icons/Sword_And_Shield.png"},
+	"Sword And Shield": {"Damage_amount": 10, "Affinity": 0, "Cooldown": 0.5, "Path": "res://images/UI Icons/Weapon Icons/Sword_And_Shield.png"},
 	"Dual Blades": {"Damage_amount": 5, "Affinity": 0, "Cooldown": 0.2, "Path": "res://images/UI Icons/Weapon Icons/Dual_Blades.png"}
 }
 
@@ -54,6 +54,6 @@ func add_element(element, amount):
 func add_diff_scale(amount):
 	difficulty_scale = difficulty_scale + amount
 	update_stat_display.emit()
-
+#Sends the signal to hunter.gd which adds a hunter
 func AddedHunter():
 	PurchasedHunter.emit()

@@ -1,7 +1,7 @@
 extends Control
 @onready var Zenny_display = $ZennyDisp
 @onready var Stats_display = $Stats
-
+@onready var monster = $monster
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Sets the zenny display
