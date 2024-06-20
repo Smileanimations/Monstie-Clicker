@@ -18,6 +18,13 @@ var weapons = {
 	"Dual Blades": {"Damage_amount": 5, "Affinity": 0, "Cooldown": 0.2, "Path": "res://images/UI Icons/Weapon Icons/Dual_Blades.png"}
 }
 
+@onready var hunters = {
+	"Hunter1": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Greatsword"]},
+	"Hunter2": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Sword And Shield"]},
+	"Hunter3": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Dual Blades"]},
+	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"]}
+}
+
 signal zenny_updated
 signal update_stat_display
 signal PurchasedHunter
@@ -50,6 +57,9 @@ func add_affinity(amount):
 #Adds the given amount of elemental damage
 func add_element(element, amount):
 	damage[element]["Damage_amount"] += amount
+#Adds the given amount of damage to the hunter
+func add_hunterdamage(hunter):
+	Data.hunters[hunter]["HunterDamage"] += Data.hunters["Hunter1"]["Weapon"]["Damage_amount"] * 0.15
 #Adds the given amount of difficulty and updates in on the display
 func add_diff_scale(amount):
 	difficulty_scale = difficulty_scale + amount

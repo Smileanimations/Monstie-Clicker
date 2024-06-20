@@ -2,10 +2,14 @@ extends Control
 var price_atb : int = 100
 var price_aff : int = 500
 var price_hunter : int = 2000
+var price_hunterdmg : int = 300
+var hunters = 0
 @onready var Attackbutton = $Panel/AttackUp
 @onready var Affinitybutton = $Panel/AffinityUp
 @onready var Elementpopup = $Panel/ElementUp/Popup
 @onready var AddHunterbutton = $Panel/AddHunter
+@onready var ManageHunterpanel = $Panel/AddHunter/PopupPanel
+@onready var HunterAttackUpbutton = $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp"
 @onready var ElementalButtons = {
 	"Fire": {"Price": 200, "Path": $Panel/ElementUp/Popup/VBoxContainer/FireUp},
 	"Ice": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/IceUp},
@@ -67,10 +71,23 @@ func _on_element_button_pressed(element):
 
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
-	if Data.zenny >= price_hunter:
-		Data.subtract_money(price_hunter)
-		#Calls a function which sends a signal to hunters.gd
-		Data.AddedHunter()
-		#Sets the price increase for the next purchase 
-		price_hunter = price_hunter * 10
-		AddHunterbutton.text = "Add Hunter - %d" % price_hunter
+	if hunters == 1:
+		ManageHunterpanel.visible = true
+	else:
+		if Data.zenny >= price_hunter:
+			Data.subtract_money(price_hunter)
+			#Calls a function which sends a signal to hunters.gd
+			Data.AddedHunter()
+			#Sets the price increase for the next purchase 
+			price_hunter = price_hunter * 10
+			hunters += 1
+			AddHunterbutton.text = "Manage Hunters"
+
+
+func _on_hunter_attack_up_pressed(argument):
+	if Data.zenny >= price_hunterdmg:
+		Data.subtract_money(price_hunterdmg)
+		Data.add_hunterdamage(argument)
+		price_hunterdmg = price_hunterdmg + 400
+		HunterAttackUpbutton.text = "Increase Attack - %s" % price_hunterdmg
+	
