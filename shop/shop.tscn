@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0md6vqkf4xyt" path="res://images/UI Icons/Thundeblight.png" id="6_8ppbf"]
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
-[ext_resource type="Texture2D" uid="uid://c8yucbhcbjjpj" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
+[ext_resource type="Texture2D" uid="uid://dbw7mo7d015vu" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -144,3 +144,4 @@ expand_icon = true
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]
 [connection signal="pressed" from="Panel/AddHunter" to="." method="_on_add_hunter_pressed"]
 [connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp" to="." method="_on_hunter_attack_up_pressed" binds= ["Hunter1"]]
+[connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAffinityUp" to="." method="_on_hunter_affinity_up_pressed" binds= ["Hunter1"]]
