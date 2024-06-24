@@ -155,4 +155,3 @@ offset_bottom = 136.0
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]
 [connection signal="pressed" from="Panel/AddHunter" to="." method="_on_add_hunter_pressed"]
 [connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp" to="." method="_on_hunter_attack_up_pressed" binds= ["Hunter1"]]
-[connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAffinityUp" to="." method="_on_hunter_affinity_up_pressed" binds= ["Hunter1"]]

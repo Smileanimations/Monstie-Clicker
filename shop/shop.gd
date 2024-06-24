@@ -27,14 +27,6 @@ func _ready():
 func _process(delta):
 	pass
 
-func _update_button_texts():
-	Attackbutton.text = "Increase Attack - %d" % price_atb
-	Affinitybutton.text = "Increase Affinity - %d" % price_aff
-	for element in ElementalButtons.keys():
-		ElementalButtons[element]["Path"].text = "Increase %s Dmg - %d" % [element, ElementalButtons[element]["Price"]]
-	HunterAttackUpbutton.text = "Increase Attack - %s" % price_hunterdmg
-	HunterAffinityUpbutton.text = "Increase Affinity - %s" % price_hunteraff
-	
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():
 	#Adds 2.5 to your raw damage
@@ -90,7 +82,7 @@ func _on_add_hunter_pressed():
 			hunters += 1
 			Buttons["AddHunterButton"].text = "Manage Hunters"
 
-#Increases the damage of a specific hunter
+
 func _on_hunter_attack_up_pressed(argument):
 	if Data.zenny >= Data.prices["Price Hunterdmg"]:
 		Data.subtract_money(Data.prices["Price Hunterdmg"])

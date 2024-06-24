@@ -67,8 +67,6 @@ func add_element(element, amount):
 #Adds the given amount of damage to the hunter
 func add_hunterdamage(hunter):
 	Data.hunters[hunter]["HunterDamage"] += Data.hunters["Hunter1"]["Weapon"]["Damage_amount"] * 0.15
-func add_hunteraffinity(hunter):
-	Data.hunters[hunter]["HunterAffinity"] += 1
 #Adds the given amount of difficulty and updates in on the display
 func add_diff_scale(amount):
 	difficulty_scale = difficulty_scale + amount
