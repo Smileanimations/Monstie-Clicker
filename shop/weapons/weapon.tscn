@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqb2d40g7ao2g"]
+
+[ext_resource type="Script" path="res://shop/weapons/weapon.gd" id="1_ekm7j"]
+[ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="1_lreg7"]
+
+[node name="weapon" type="Button"]
+offset_right = 49.0
+offset_bottom = 49.0
+icon = ExtResource("1_lreg7")
+expand_icon = true
+script = ExtResource("1_ekm7j")

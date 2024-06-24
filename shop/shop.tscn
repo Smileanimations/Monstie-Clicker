@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=11 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://c0md6vqkf4xyt" path="res://images/UI Icons/Thundeblight.png" id="6_8ppbf"]
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
-[ext_resource type="Texture2D" uid="uid://c8yucbhcbjjpj" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
+[ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
+[ext_resource type="PackedScene" uid="uid://cqb2d40g7ao2g" path="res://shop/weapons/weapon.tscn" id="10_vrbuj"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -120,19 +121,29 @@ layout_mode = 2
 
 [node name="HunterAttackUp" type="Button" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1"]
 layout_mode = 0
-offset_right = 268.0
+offset_left = 2.0
+offset_right = 270.0
 offset_bottom = 39.0
 text = "Increase Attack - 300"
 icon = ExtResource("2_hka7q")
 expand_icon = true
 
 [node name="HunterAffinityUp" type="Button" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1"]
+layout_mode = 0
+offset_left = 2.0
 offset_top = 43.0
-offset_right = 268.0
+offset_right = 270.0
 offset_bottom = 82.0
 text = "Increase Affinity - 300"
 icon = ExtResource("3_wil57")
 expand_icon = true
+
+[node name="weapon" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1" instance=ExtResource("10_vrbuj")]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 87.0
+offset_right = 51.0
+offset_bottom = 136.0
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]

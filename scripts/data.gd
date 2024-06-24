@@ -25,6 +25,13 @@ var weapons = {
 	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"]}
 }
 
+var prices = {
+	"Price Attack" = int(100),
+	"Price Affinity" = int(500),
+	"Price Hunter" = int(2000),
+	"Price Hunterdmg" = int(300)
+}
+
 signal zenny_updated
 signal update_stat_display
 signal PurchasedHunter
