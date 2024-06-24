@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bbxgwa0m1b1hb"]
 
 [ext_resource type="Script" path="res://hunters/hunters.gd" id="1_l8ubf"]
-[ext_resource type="Texture2D" uid="uid://b6824ovhswwq7" path="res://images/UI Icons/Weapon Icons/Sword_And_Shield.png" id="2_d8lb7"]
-[ext_resource type="Texture2D" uid="uid://2v1w2eg0fq8g" path="res://images/UI Icons/Weapon Icons/Gunlance.png" id="3_j8s5d"]
-[ext_resource type="Texture2D" uid="uid://b6xvmd6mk40di" path="res://images/UI Icons/Weapon Icons/Hammer.png" id="4_24q4t"]
-[ext_resource type="Texture2D" uid="uid://pcamvebexga3" path="res://images/UI Icons/Weapon Icons/Lance.png" id="5_y2ug4"]
+[ext_resource type="Texture2D" uid="uid://olu55ity1x1s" path="res://images/UI Icons/Weapon Icons/Sword_And_Shield.png" id="2_d8lb7"]
+[ext_resource type="Texture2D" uid="uid://da4hmk5buv0x1" path="res://images/UI Icons/Weapon Icons/Gunlance.png" id="3_j8s5d"]
+[ext_resource type="Texture2D" uid="uid://c480qmm6qri10" path="res://images/UI Icons/Weapon Icons/Hammer.png" id="4_24q4t"]
+[ext_resource type="Texture2D" uid="uid://2iegqxbalw2d" path="res://images/UI Icons/Weapon Icons/Lance.png" id="5_y2ug4"]
 
 [node name="hunters" type="Control"]
 layout_mode = 3
