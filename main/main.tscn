@@ -23,7 +23,7 @@ layout_mode = 1
 
 [node name="hunters" parent="." instance=ExtResource("4_5xe81")]
 layout_mode = 1
-offset_left = -141.0
+offset_left = -134.0
 offset_top = 530.0
 offset_right = -271.0
 offset_bottom = 0.0

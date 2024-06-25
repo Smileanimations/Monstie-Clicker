@@ -9,3 +9,6 @@ offset_bottom = 49.0
 icon = ExtResource("1_lreg7")
 expand_icon = true
 script = ExtResource("1_ekm7j")
+
+[node name="PopupPanel" type="PopupPanel" parent="."]
+visible = true

@@ -9,17 +9,23 @@ var difficulty = 0.2
 
 #A Dictionary containing all current monsters
 var monsters = {
-	"Kulu-Ya-Ku": {"health":100, "zenny": 90, "path": "res://images/Kulu.png"},
-	"Tzitzi-Ya-Ku": {"health": 125, "zenny":100, "path": "res://images/Tzitzi.png"},
-	"Great Jagras": {"health": 150, "zenny": 100, "path": "res://images/Jagras.png"},
-	"Great Girros": {"health": 150, "zenny": 100, "path": "res://images/Girros.png"},
-	"Jyuratodus": {"health":200, "zenny": 110, "path": "res://images/Jyuratodus.png"},
-	"Dodogama": {"health": 225, "zenny": 120, "path": "res://images/Dodogama.png"},
-	"Pukei-Pukei": {"health":250, "zenny": 130, "path": "res://images/Pukei.png"},
-	"Tobi-Kadachi": {"health":275, "zenny": 150, "path": "res://images/Tobi.png"},
-	"Barroth": {"health":300, "zenny": 140, "path": "res://images/Barroth.png"},
+	"Kulu-Ya-Ku": {"health":100, "zenny": 90, "HRpoints": 5,"path": "res://images/Kulu.png"},
+	"Tzitzi-Ya-Ku": {"health": 125, "zenny":100, "HRpoints": 5,"path": "res://images/Tzitzi.png"},
+	"Great Jagras": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Jagras.png"},
+	"Great Girros": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Girros.png"},
+	"Jyuratodus": {"health":200, "zenny": 110, "HRpoints": 15,"path": "res://images/Jyuratodus.png"},
+	"Dodogama": {"health": 225, "zenny": 120, "HRpoints": 15,"path": "res://images/Dodogama.png"},
+	"Pukei-Pukei": {"health":250, "zenny": 130, "HRpoints": 20,"path": "res://images/Pukei.png"},
+	"Tobi-Kadachi": {"health":275, "zenny": 150, "HRpoints": 20,"path": "res://images/Tobi.png"},
+	"Barroth": {"health":300, "zenny": 140, "HRpoints": 25,"path": "res://images/Barroth.png"},
 }
 
+var batch1 = {
+	"Paolumu": {"health": 325, "zenny": 150, "HRpoints": 25,"path": "res://images/Paolumu.png"},
+	"Rathian": {"health": 350, "zenny": 175, "HRpoints": 30,"path": "res://images/Rathian.png"},
+	"Radobaan": {"health": 375, "zenny": 200, "HRpoints": 30,"path": "res://images/Radobaan.png"},
+	"Anjanath": {"health": 400, "zenny": 225, "HRpoints": 35,"path": "res://images/Anjanath.png"}
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,8 +54,10 @@ func damage(damage):
 	print("%s" % health)
 	Healthbar.value = health
 	if health <= 0:
+		Data.Hunterrank(monsters[rand_monster]["HRpoints"])
 		Reset()
 		Money()
+		
 
 #Function that handles when a monster dies and is replaced by a new one
 func Reset():

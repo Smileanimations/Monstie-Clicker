@@ -1,12 +1,25 @@
 extends Control
-var hunters = 0
+var hunters = false
 @onready var Buttons = {
-	"AttackButton": $Panel/AttackUp,
-	"AffinityButton": $Panel/AffinityUp,
+	"AttackUpButton": $Panel/AttackUp,
+	"AffinityUpButton": $Panel/AffinityUp,
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"AddHunterButton": $Panel/AddHunter,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
-	"HunterAttackUpButton": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
+	
+	"HunterAttackUpButton": {
+		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
+		"Hunter2": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAttackUp"
+	},
+	
+	"HunterAffinityUpButton": {
+		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAffinityUp",
+		"Hunter2": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAffinityUp"
+	},
+	
+	"WeaponButton": {
+		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/weapon"
+	},
 	
 	"ElementalButtons": {
 	"Fire": {"Price": 200, "Path": $Panel/ElementUp/Popup/VBoxContainer/FireUp},
@@ -18,8 +31,8 @@ var hunters = 0
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Buttons["AttackButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
-	Buttons["AffinityButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
+	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
+	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
 	Buttons["AddHunterButton"].text = "Add Hunter - %d" % Data.prices["Price Hunter"]
 	
 
@@ -36,7 +49,7 @@ func _on_attack_up_pressed():
 		Data.add_damage(damage_amount)
 		#Sets the price increase for the next purchase 
 		Data.prices["Price Attack"] += 300
-		Buttons["AttackButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
+		Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
 
 
 #When you purchase an Affinity Boost, functions from data.gd get called to subtract the money and add the affinity
@@ -44,11 +57,14 @@ func _on_affinity_up_pressed():
 	#Adds 1% affinity
 	var affinity_amount = 1
 	if Data.zenny >= Data.prices["Price Affinity"]:
-		Data.subtract_money(Data.prices["Price Affinity"])
-		Data.add_affinity(affinity_amount)
-		#Sets the price increase for the next purchase 
-		Data.prices["Price Affinity"] += Data.prices["Price Affinity"] * 2
-		Buttons["AffinityButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
+		if Data.damage["Affinity"]["Amount"] == 100:
+			Buttons["AffinityUpButton"].text ="Max Affinity"
+		else:
+			Data.subtract_money(Data.prices["Price Affinity"])
+			Data.add_affinity(affinity_amount)
+			#Sets the price increase for the next purchase 
+			Data.prices["Price Affinity"] += Data.prices["Price Affinity"] * 2
+			Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
 
 
 #Pops up a window containing all elemental buttons
@@ -70,7 +86,7 @@ func _on_element_button_pressed(element):
 
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
-	if hunters == 1:
+	if hunters == true:
 		Buttons["ManageHunterPanel"].visible = true
 	else:
 		if Data.zenny >= Data.prices["Price Hunter"]:
@@ -79,7 +95,7 @@ func _on_add_hunter_pressed():
 			Data.AddedHunter()
 			#Sets the price increase for the next purchase 
 			Data.prices["Price Hunter"] = Data.prices["Price Hunter"] * 10
-			hunters += 1
+			hunters = true
 			Buttons["AddHunterButton"].text = "Manage Hunters"
 
 
@@ -87,6 +103,18 @@ func _on_hunter_attack_up_pressed(argument):
 	if Data.zenny >= Data.prices["Price Hunterdmg"]:
 		Data.subtract_money(Data.prices["Price Hunterdmg"])
 		Data.add_hunterdamage(argument)
-		Data.prices["Price Hunterdmg"] = Data.prices["Price Hunterdmg"] + 400
-		Buttons["HunterAttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Hunterdmg"]
+		Data.prices["Price Hunterdmg"] += 600
+		Buttons["HunterAttackUpButton"][argument].text = "Increase Attack - %s" % Data.prices["Price Hunterdmg"]
 	
+
+
+func _on_hunter_affinity_up_pressed(argument):
+	if Data.zenny >= Data.prices["Price Hunteraff"]:
+		if Data.hunters[argument]["HunterAffinity"] == 100:
+			Buttons["HunterAffinityUpButton"][argument].text = "Max Affinity"
+		else:
+			Data.subtract_money(Data.prices["Price Hunteraff"])
+			Data.add_hunteraffinity(argument)
+			Data.prices["Price Hunteraff"] += 2000
+			print(Data.hunters[argument]["HunterAffinity"])
+			Buttons["HunterAffinityUpButton"][argument].text = "Increase Affinity - %s" % Data.prices["Price Hunteraff"]

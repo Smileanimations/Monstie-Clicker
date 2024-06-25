@@ -134,7 +134,7 @@ offset_left = 2.0
 offset_top = 43.0
 offset_right = 270.0
 offset_bottom = 82.0
-text = "Increase Affinity - 300"
+text = "Increase Affinity - 1000"
 icon = ExtResource("3_wil57")
 expand_icon = true
 
@@ -144,6 +144,31 @@ offset_left = 2.0
 offset_top = 87.0
 offset_right = 51.0
 offset_bottom = 136.0
+
+[node name="Hunter 2" type="Panel" parent="Panel/AddHunter/PopupPanel/ManageHunters"]
+visible = false
+layout_mode = 2
+
+[node name="HunterAttackUp" type="Button" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_right = 270.0
+offset_bottom = 39.0
+text = "Increase Attack - 300"
+icon = ExtResource("2_hka7q")
+expand_icon = true
+
+[node name="HunterAffinityUp" type="Button" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2"]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 43.0
+offset_right = 270.0
+offset_bottom = 82.0
+text = "Increase Affinity - 1000"
+icon = ExtResource("3_wil57")
+expand_icon = true
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
@@ -155,3 +180,6 @@ offset_bottom = 136.0
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]
 [connection signal="pressed" from="Panel/AddHunter" to="." method="_on_add_hunter_pressed"]
 [connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp" to="." method="_on_hunter_attack_up_pressed" binds= ["Hunter1"]]
+[connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAffinityUp" to="." method="_on_hunter_affinity_up_pressed" binds= ["Hunter1"]]
+[connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAttackUp" to="." method="_on_hunter_attack_up_pressed" binds= ["Hunter2"]]
+[connection signal="pressed" from="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAffinityUp" to="." method="_on_hunter_affinity_up_pressed" binds= ["Hunter2"]]
