@@ -35,7 +35,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 #The simple button that removes HP from the monster
@@ -49,8 +49,8 @@ func _on_Monster_pressed():
 
 
 #Damages the monster by clicking on it
-func damage(damage):
-	health -= damage
+func damage(damageamount):
+	health -= damageamount
 	print("%s" % health)
 	Healthbar.value = health
 	if health <= 0:

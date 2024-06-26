@@ -1,14 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqb2d40g7ao2g"]
+[gd_scene load_steps=2 format=3 uid="uid://cqb2d40g7ao2g"]
 
 [ext_resource type="Script" path="res://shop/weapons/weapon.gd" id="1_ekm7j"]
-[ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="1_lreg7"]
 
-[node name="weapon" type="Button"]
-offset_right = 49.0
-offset_bottom = 49.0
-icon = ExtResource("1_lreg7")
-expand_icon = true
+[node name="weapon" type="TextureButton"]
+layout_direction = 2
+offset_right = 25.0
+offset_bottom = 25.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+ignore_texture_size = true
+stretch_mode = 4
 script = ExtResource("1_ekm7j")
 
-[node name="PopupPanel" type="PopupPanel" parent="."]
-visible = true
+[connection signal="pressed" from="." to="." method="_on_pressed"]

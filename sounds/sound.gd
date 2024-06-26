@@ -2,8 +2,8 @@ extends AudioStreamPlayer
 
 var SoundDictionary = {
 	"NewUnlocked": preload("res://sounds/soundfiles/ItemFound(rarest).mp3"),
-	"TenRanksUp": preload("res://sounds/soundfiles/TenRanksUp.mp3"),
-	"HunterRankUp": preload("res://sounds/soundfiles/HunterRankUp.wav")
+	"TenRanksUp": preload("res://sounds/soundfiles/ItemFound(rare).mp3"),
+	"HunterRankUp": preload("res://sounds/soundfiles/ItemFound.mp3")
 }
 
 func playaudio(sound):
@@ -15,5 +15,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass

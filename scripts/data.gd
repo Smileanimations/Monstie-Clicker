@@ -1,7 +1,7 @@
 extends Node
 var zenny : int = 100000000
 var difficulty_scale =  1
-var hunter_rank : int = 1
+var hunter_rank : int = 0
 var hunter_rankxp : int = 20
 var audioscene = preload("res://sounds/sound.tscn")
 var damage = {
@@ -50,7 +50,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 #Function that adds zenny and updates the display

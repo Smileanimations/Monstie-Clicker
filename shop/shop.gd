@@ -1,11 +1,14 @@
 extends Control
 var hunters = false
+var weapons = preload("res://shop/weapons/weapon.tscn")
 @onready var Buttons = {
 	"AttackUpButton": $Panel/AttackUp,
 	"AffinityUpButton": $Panel/AffinityUp,
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"AddHunterButton": $Panel/AddHunter,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
+	"WeaponPanel": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon/PopupPanel",
+	"WeaponContainer": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon/PopupPanel/Container",
 	
 	"HunterAttackUpButton": {
 		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
@@ -18,7 +21,7 @@ var hunters = false
 	},
 	
 	"WeaponButton": {
-		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/weapon"
+		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon"
 	},
 	
 	"ElementalButtons": {
@@ -34,10 +37,19 @@ func _ready():
 	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
 	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
 	Buttons["AddHunterButton"].text = "Add Hunter - %d" % Data.prices["Price Hunter"]
+	await(get_parent().ready)
+	var hunter_node = get_parent().hunters
+	for value in Data.weapons:
+		var instance = weapons.instantiate()
+		instance.LoadWeapons(Data.weapons[value])
+		instance.weapon_changed.connect(Weaponupdated)
+		instance.weapon_changed.connect(hunter_node.Weaponupdated)
+		Buttons["WeaponContainer"].add_child(instance)
+		
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -118,3 +130,11 @@ func _on_hunter_affinity_up_pressed(argument):
 			Data.prices["Price Hunteraff"] += 2000
 			print(Data.hunters[argument]["HunterAffinity"])
 			Buttons["HunterAffinityUpButton"][argument].text = "Increase Affinity - %s" % Data.prices["Price Hunteraff"]
+
+
+func _on_weapon_pressed(argument):
+	Buttons["WeaponPanel"].visible = true
+
+func Weaponupdated(weapon):
+	Data.hunters["Hunter1"]["Weapon"] = weapon
+	Buttons["WeaponButton"]["Hunter1"].icon = load(weapon["Path"])

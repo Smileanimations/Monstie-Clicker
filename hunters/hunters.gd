@@ -14,6 +14,7 @@ func _ready():
 	current_hunter = Data.hunters.keys()
 	await(get_parent().ready)
 	monster = get_parent().monster
+	
 
 #When a hunter is purchased sets the weapon and sets it on screen
 func AddHunter():
@@ -35,3 +36,7 @@ func _on_timer_timeout(argument):
 	#Calls the function that damages the monster
 	monster.damage(amount)
 	
+
+func Weaponupdated(weapon):
+	Data.hunters["Hunter1"]["Path"].texture = load(weapon["Path"])
+	Data.hunters["Hunter1"]["Timer"].start(weapon["Cooldown"])
