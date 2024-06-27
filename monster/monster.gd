@@ -32,12 +32,6 @@ func _ready():
 	#Randomizes monster on startup
 	Reset()
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
 #The simple button that removes HP from the monster
 func _on_Monster_pressed():
 	var random_number = randi_range(1, 100)

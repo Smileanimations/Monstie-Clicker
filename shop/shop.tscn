@@ -145,17 +145,6 @@ offset_bottom = 140.0
 icon = ExtResource("9_1ullj")
 expand_icon = true
 
-[node name="PopupPanel" type="PopupPanel" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon"]
-position = Vector2i(471, 375)
-size = Vector2i(200, 200)
-
-[node name="Container" type="GridContainer" parent="Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon/PopupPanel"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 196.0
-offset_bottom = 196.0
-columns = 4
-
 [node name="Hunter 2" type="Panel" parent="Panel/AddHunter/PopupPanel/ManageHunters"]
 visible = false
 layout_mode = 2
@@ -180,6 +169,18 @@ offset_bottom = 82.0
 text = "Increase Affinity - 1000"
 icon = ExtResource("3_wil57")
 expand_icon = true
+
+[node name="WeaponPanel" type="PopupPanel" parent="Panel/AddHunter/PopupPanel"]
+position = Vector2i(471, 375)
+size = Vector2i(200, 200)
+
+[node name="Container" type="GridContainer" parent="Panel/AddHunter/PopupPanel/WeaponPanel"]
+layout_direction = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 196.0
+offset_bottom = 196.0
+columns = 4
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]

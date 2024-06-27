@@ -4,6 +4,7 @@ extends Control
 
 @onready var monster = $monster
 @onready var hunters = $hunters
+@onready var shop = $shop
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Sets the zenny display
@@ -16,10 +17,6 @@ func _ready():
 	#Recieves a signal everytime zenny amount is updated 
 	Data.zenny_updated.connect(updatezennydisp)
 	Data.update_stat_display.connect(updatestatdisp)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 #Updates the zenny amount in the top left corner
 func updatezennydisp():

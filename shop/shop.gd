@@ -1,4 +1,5 @@
 extends Control
+signal current_hunter(hunter)
 var hunters = false
 var weapons = preload("res://shop/weapons/weapon.tscn")
 @onready var Buttons = {
@@ -7,8 +8,9 @@ var weapons = preload("res://shop/weapons/weapon.tscn")
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"AddHunterButton": $Panel/AddHunter,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
-	"WeaponPanel": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon/PopupPanel",
-	"WeaponContainer": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon/PopupPanel/Container",
+	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
+	"WeaponPanel": $"Panel/AddHunter/PopupPanel/WeaponPanel",
+	"WeaponContainer": $"Panel/AddHunter/PopupPanel/WeaponPanel/Container",
 	
 	"HunterAttackUpButton": {
 		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
@@ -46,11 +48,6 @@ func _ready():
 		instance.weapon_changed.connect(hunter_node.Weaponupdated)
 		Buttons["WeaponContainer"].add_child(instance)
 		
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():
@@ -133,8 +130,12 @@ func _on_hunter_affinity_up_pressed(argument):
 
 
 func _on_weapon_pressed(argument):
+	var hunter = argument
+	print(hunter)
 	Buttons["WeaponPanel"].visible = true
+	current_hunter.emit(hunter)
 
 func Weaponupdated(weapon):
+	var hunter = "Hunter%s" % (Buttons.ManageHunterTab.current_tab+1)
 	Data.hunters["Hunter1"]["Weapon"] = weapon
 	Buttons["WeaponButton"]["Hunter1"].icon = load(weapon["Path"])

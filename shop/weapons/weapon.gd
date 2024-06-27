@@ -12,12 +12,7 @@ func LoadWeapons(weapon):
 func _ready():
 	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
 #Emits a signal that changes the weapon of the hunter and the icon in the manage hunter tab
 func _on_pressed():
 	weapon_changed.emit(current_weapon)
+
