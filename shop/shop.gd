@@ -5,12 +5,7 @@ var weapons = preload("res://shop/weapons/weapon.tscn")
 @onready var Buttons = {
 	"AttackUpButton": $Panel/AttackUp,
 	"AffinityUpButton": $Panel/AffinityUp,
-	"Elementpopup": $Panel/ElementUp/Popup,
 	"AddHunterButton": $Panel/AddHunter,
-	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
-	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
-	"WeaponPanel": $"Panel/AddHunter/PopupPanel/WeaponPanel",
-	"WeaponContainer": $"Panel/AddHunter/PopupPanel/WeaponPanel/Container",
 	
 	"HunterAttackUpButton": {
 		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
@@ -34,6 +29,15 @@ var weapons = preload("res://shop/weapons/weapon.tscn")
 	"Dragon": {"Price": 200,"Path": $Panel/ElementUp/Popup/VBoxContainer/DragonUp}
 }
 }
+
+@onready var Containers = {
+	"Elementpopup": $Panel/ElementUp/Popup,
+	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
+	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
+	"WeaponPanel": $"Panel/AddHunter/PopupPanel/WeaponPanel",
+	"WeaponContainer": $"Panel/AddHunter/PopupPanel/WeaponPanel/Container",
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
@@ -46,7 +50,7 @@ func _ready():
 		instance.LoadWeapons(Data.weapons[value])
 		instance.weapon_changed.connect(Weaponupdated)
 		instance.weapon_changed.connect(hunter_node.Weaponupdated)
-		Buttons["WeaponContainer"].add_child(instance)
+		Containers["WeaponContainer"].add_child(instance)
 		
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -78,7 +82,7 @@ func _on_affinity_up_pressed():
 
 #Pops up a window containing all elemental buttons
 func _on_element_up_pressed():
-	Buttons["Elementpopup"].popup()
+	Containers["Elementpopup"].popup()
 #Adds the corospondent element which you purchased to the damage array
 func _on_element_button_pressed(element):
 	#Adds 2 elemental damage 
@@ -96,7 +100,7 @@ func _on_element_button_pressed(element):
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	if hunters == true:
-		Buttons["ManageHunterPanel"].visible = true
+		Containers["ManageHunterPanel"].visible = true
 	else:
 		if Data.zenny >= Data.prices["Price Hunter"]:
 			Data.subtract_money(Data.prices["Price Hunter"])
@@ -132,10 +136,10 @@ func _on_hunter_affinity_up_pressed(argument):
 func _on_weapon_pressed(argument):
 	var hunter = argument
 	print(hunter)
-	Buttons["WeaponPanel"].visible = true
+	Containers["WeaponPanel"].visible = true
 	current_hunter.emit(hunter)
 
 func Weaponupdated(weapon):
-	var hunter = "Hunter%s" % (Buttons.ManageHunterTab.current_tab+1)
+	var hunter = "Hunter%s" % (Containers.ManageHunterTab.current_tab+1)
 	Data.hunters["Hunter1"]["Weapon"] = weapon
 	Buttons["WeaponButton"]["Hunter1"].icon = load(weapon["Path"])
