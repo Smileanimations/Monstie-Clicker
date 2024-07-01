@@ -1,5 +1,4 @@
 extends Panel
-var hunter = 1
 signal weapon_change(weapon, local_hunter)
 var local_hunter
 var weapons = preload("res://shop/weapons/weapon.tscn")
@@ -40,7 +39,9 @@ func _on_hunter_affinity_up_pressed(hunter):
 			print(Data.hunters[hunter]["HunterAffinity"])
 			HunterAffinityUpButton.text = "Increase Affinity - %s" % Data.prices["Price Hunteraff"]
 
+
 func _on_weapon_pressed(hunter):
+	print("Bozotje")
 	local_hunter = hunter
 	WeaponPanel.visible = true
 
@@ -49,5 +50,5 @@ func Weaponupdated(weapon):
 	WeaponButton.icon = load(weapon["Path"])
 	weapon_change.emit(weapon, local_hunter)
 
-func _on_purchase_hunter_pressed():
-	pass # Replace with function body.
+func _on_purchase_hunter_pressed(hunter):
+	Data.AddHunter(hunter)

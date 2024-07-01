@@ -1,5 +1,4 @@
 extends Control
-var number = 0
 var current_hunter
 @onready var monster 
 @onready var paths = {
@@ -20,12 +19,11 @@ func _ready():
 	
 
 #When a hunter is purchased sets the weapon and sets it on screen
-func AddHunter():
-	Data.hunters[current_hunter[number]].merge(paths[current_hunter[number]])
-	Data.hunters[current_hunter[number]]["Path"].visible = true
-	Data.hunters[current_hunter[number]]["Path"].texture = load(Data.hunters[current_hunter[number]]["Weapon"]["Path"])
-	Data.hunters[current_hunter[number]]["Timer"].start(Data.hunters[current_hunter[number]]["Weapon"]["Cooldown"])
-	number += 1
+func AddHunter(hunters):
+	Data.hunters[hunters].merge(paths[hunters])
+	Data.hunters[hunters]["Path"].visible = true
+	Data.hunters[hunters]["Path"].texture = load(Data.hunters[hunters]["Weapon"]["Path"])
+	Data.hunters[hunters]["Timer"].start(Data.hunters[hunters]["Weapon"]["Cooldown"])
 
 
 #When the weapon cooldown reaches zero calls the function that damages the monster

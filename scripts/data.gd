@@ -1,7 +1,7 @@
 extends Node
 var zenny : int = 100000000
 var difficulty_scale =  1
-var hunter_rank : int = 1
+var hunter_rank : int = 8
 var hunter_rankxp : int = 20
 var audioscene = preload("res://sounds/sound.tscn")
 var damage = {
@@ -86,8 +86,8 @@ func add_diff_scale(amount):
 	update_stat_display.emit()
 
 #Sends the signal to hunter.gd which adds a hunter
-func AddedHunter():
-	PurchasedHunter.emit()
+func AddedHunter(hunters):
+	PurchasedHunter.emit(hunters)
 
 func Hunterrank(HRpoints):
 	hunter_rankxp -= HRpoints

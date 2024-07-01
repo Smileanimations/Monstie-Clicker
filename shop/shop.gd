@@ -1,5 +1,6 @@
 extends Control
 var hunters = false
+var bozo = "Hunter1"
 var weapons = preload("res://shop/weapons/weapon.tscn")
 var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 @onready var Buttons = {
@@ -39,7 +40,7 @@ func _ready():
 		var PurchaseHunterButton = instance.get_node("PurchaseHunter")
 		AttackUpButton.pressed.connect(instance._on_hunter_attack_up_pressed.bind("Hunter%s" % i))
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
-		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
+		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -90,12 +91,11 @@ func _on_element_button_pressed(element):
 func _on_add_hunter_pressed():
 	if hunters == true:
 		Containers["ManageHunterPanel"].visible = true
-	else:
-		if Data.zenny >= Data.prices["Price Hunter"]:
-			Data.subtract_money(Data.prices["Price Hunter"])
-			#Calls a function which sends a signal to hunters.gd
-			Data.AddedHunter()
-			#Sets the price increase for the next purchase 
-			Data.prices["Price Hunter"] = Data.prices["Price Hunter"] * 10
-			hunters = true
-			Buttons["AddHunterButton"].text = "Manage Hunters"
+	elif Data.zenny >= Data.prices["Price Hunter"]:
+		Data.subtract_money(Data.prices["Price Hunter"])
+		#Calls a function which sends a signal to hunters.gd
+		Data.AddedHunter("Hunter1")
+		#Sets the price increase for the next purchase 
+		Data.prices["Price Hunter"] = Data.prices["Price Hunter"] * 10
+		hunters = true
+		Buttons["AddHunterButton"].text = "Manage Hunters"
