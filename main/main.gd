@@ -1,7 +1,6 @@
 extends Control
 @onready var Zenny_display = $ZennyDisp
 @onready var Stats_display = $Stats
-
 @onready var monster = $monster
 @onready var hunters = $hunters
 @onready var shop = $shop

@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://ct4fc87k16y8e"]
+[gd_scene load_steps=5 format=3 uid="uid://ct4fc87k16y8e"]
+
+[ext_resource type="Script" path="res://shop/hunterpanel/hunterpanel.gd" id="1_eqenj"]
+[ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_2xrto"]
+[ext_resource type="Texture2D" uid="uid://cnvbd40kgap22" path="res://images/UI Icons/AffinityUP.png" id="3_18adb"]
+[ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="4_bupn5"]
 
 [node name="HunterPanel" type="Panel"]
+script = ExtResource("1_eqenj")
+
+[node name="HunterAttackUp" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_right = 270.0
+offset_bottom = 39.0
+text = "Increase Attack - 300"
+icon = ExtResource("2_2xrto")
+expand_icon = true
+
+[node name="HunterAffinityUp" type="Button" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 43.0
+offset_right = 270.0
+offset_bottom = 82.0
+text = "Increase Affinity - 1000"
+icon = ExtResource("3_18adb")
+expand_icon = true
+
+[node name="Weapon" type="Button" parent="."]
+layout_mode = 0
+offset_top = 85.0
+offset_right = 55.0
+offset_bottom = 140.0
+icon = ExtResource("4_bupn5")
+expand_icon = true
+
+[node name="WeaponPanel" type="PopupPanel" parent="."]
+position = Vector2i(478, 343)
+size = Vector2i(200, 200)
+
+[node name="Container" type="GridContainer" parent="WeaponPanel"]
+layout_direction = 2
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 196.0
+offset_bottom = 196.0
+columns = 4

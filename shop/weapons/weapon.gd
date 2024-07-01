@@ -5,7 +5,6 @@ signal weapon_changed(current_weapon)
 #Loads the weapon texture and weapon
 func LoadWeapons(weapon):
 	texture_normal = load(weapon["Path"])
-	print(weapon)
 	current_weapon = weapon
 
 # Called when the node enters the scene tree for the first time.

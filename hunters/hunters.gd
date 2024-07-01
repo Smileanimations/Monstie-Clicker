@@ -14,6 +14,9 @@ func _ready():
 	current_hunter = Data.hunters.keys()
 	await(get_parent().ready)
 	monster = get_parent().monster
+	var weapon_scenes = get_tree().get_nodes_in_group("WeaponGroup")
+	var weapon_scene = weapon_scenes[0]
+	weapon_scene.weapon_change.connect(WeaponUpdated)
 	
 
 #When a hunter is purchased sets the weapon and sets it on screen
@@ -37,6 +40,6 @@ func _on_timer_timeout(argument):
 	monster.damage(amount)
 	
 
-func Weaponupdated(weapon):
-	Data.hunters["Hunter1"]["Path"].texture = load(weapon["Path"])
-	Data.hunters["Hunter1"]["Timer"].start(weapon["Cooldown"])
+func WeaponUpdated(weapon, hunter):
+	Data.hunters[hunter]["Path"].texture = load(weapon["Path"])
+	Data.hunters[hunter]["Timer"].start(weapon["Cooldown"])

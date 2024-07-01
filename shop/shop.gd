@@ -1,25 +1,13 @@
 extends Control
-signal current_hunter(hunter)
 var hunters = false
 var weapons = preload("res://shop/weapons/weapon.tscn")
+var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 @onready var Buttons = {
 	"AttackUpButton": $Panel/AttackUp,
 	"AffinityUpButton": $Panel/AffinityUp,
 	"AddHunterButton": $Panel/AddHunter,
 	
-	"HunterAttackUpButton": {
-		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAttackUp",
-		"Hunter2": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAttackUp"
-	},
 	
-	"HunterAffinityUpButton": {
-		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/HunterAffinityUp",
-		"Hunter2": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 2/HunterAffinityUp"
-	},
-	
-	"WeaponButton": {
-		"Hunter1": $"Panel/AddHunter/PopupPanel/ManageHunters/Hunter 1/Weapon"
-	},
 	
 	"ElementalButtons": {
 	"Fire": {"Price": 200, "Path": $Panel/ElementUp/Popup/VBoxContainer/FireUp},
@@ -34,8 +22,6 @@ var weapons = preload("res://shop/weapons/weapon.tscn")
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
 	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
-	"WeaponPanel": $"Panel/AddHunter/PopupPanel/WeaponPanel",
-	"WeaponContainer": $"Panel/AddHunter/PopupPanel/WeaponPanel/Container",
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -43,14 +29,16 @@ func _ready():
 	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
 	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
 	Buttons["AddHunterButton"].text = "Add Hunter - %d" % Data.prices["Price Hunter"]
-	await(get_parent().ready)
-	var hunter_node = get_parent().hunters
-	for value in Data.weapons:
-		var instance = weapons.instantiate()
-		instance.LoadWeapons(Data.weapons[value])
-		instance.weapon_changed.connect(Weaponupdated)
-		instance.weapon_changed.connect(hunter_node.Weaponupdated)
-		Containers["WeaponContainer"].add_child(instance)
+	for i in range (1, 5):
+		var instance = weaponpanel.instantiate()
+		instance.name = "Hunter %s" % i
+		Containers["ManageHunterTab"].add_child(instance)
+		var AttackUpButton = instance.get_node("HunterAttackUp")
+		var AffinityUpButton = instance.get_node("HunterAffinityUp")
+		var WeaponButton = instance.get_node("Weapon")
+		AttackUpButton.pressed.connect(instance._on_hunter_attack_up_pressed.bind("Hunter%s" % i))
+		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
+		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 		
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -110,36 +98,3 @@ func _on_add_hunter_pressed():
 			Data.prices["Price Hunter"] = Data.prices["Price Hunter"] * 10
 			hunters = true
 			Buttons["AddHunterButton"].text = "Manage Hunters"
-
-
-func _on_hunter_attack_up_pressed(argument):
-	if Data.zenny >= Data.prices["Price Hunterdmg"]:
-		Data.subtract_money(Data.prices["Price Hunterdmg"])
-		Data.add_hunterdamage(argument)
-		Data.prices["Price Hunterdmg"] += 600
-		Buttons["HunterAttackUpButton"][argument].text = "Increase Attack - %s" % Data.prices["Price Hunterdmg"]
-	
-
-
-func _on_hunter_affinity_up_pressed(argument):
-	if Data.zenny >= Data.prices["Price Hunteraff"]:
-		if Data.hunters[argument]["HunterAffinity"] == 100:
-			Buttons["HunterAffinityUpButton"][argument].text = "Max Affinity"
-		else:
-			Data.subtract_money(Data.prices["Price Hunteraff"])
-			Data.add_hunteraffinity(argument)
-			Data.prices["Price Hunteraff"] += 2000
-			print(Data.hunters[argument]["HunterAffinity"])
-			Buttons["HunterAffinityUpButton"][argument].text = "Increase Affinity - %s" % Data.prices["Price Hunteraff"]
-
-
-func _on_weapon_pressed(argument):
-	var hunter = argument
-	print(hunter)
-	Containers["WeaponPanel"].visible = true
-	current_hunter.emit(hunter)
-
-func Weaponupdated(weapon):
-	var hunter = "Hunter%s" % (Containers.ManageHunterTab.current_tab+1)
-	Data.hunters["Hunter1"]["Weapon"] = weapon
-	Buttons["WeaponButton"]["Hunter1"].icon = load(weapon["Path"])
