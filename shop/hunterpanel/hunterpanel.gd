@@ -1,4 +1,5 @@
 extends Panel
+var hunter = 1
 signal weapon_change(weapon, local_hunter)
 var local_hunter
 var weapons = preload("res://shop/weapons/weapon.tscn")
@@ -48,4 +49,5 @@ func Weaponupdated(weapon):
 	WeaponButton.icon = load(weapon["Path"])
 	weapon_change.emit(weapon, local_hunter)
 
-
+func _on_purchase_hunter_pressed():
+	pass # Replace with function body.
