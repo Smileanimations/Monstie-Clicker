@@ -29,7 +29,6 @@ var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 func _ready():
 	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
 	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
-	Buttons["AddHunterButton"].text = "Add Hunter - %d" % Data.prices["Price Hunter"]
 	for i in range (1, 5):
 		var instance = weaponpanel.instantiate()
 		instance.name = "Hunter %s" % i
@@ -41,6 +40,7 @@ func _ready():
 		AttackUpButton.pressed.connect(instance._on_hunter_attack_up_pressed.bind("Hunter%s" % i))
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
 		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
+		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
 
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -89,13 +89,5 @@ func _on_element_button_pressed(element):
 
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
-	if hunters == true:
-		Containers["ManageHunterPanel"].visible = true
-	elif Data.zenny >= Data.prices["Price Hunter"]:
-		Data.subtract_money(Data.prices["Price Hunter"])
-		#Calls a function which sends a signal to hunters.gd
-		Data.AddedHunter("Hunter1")
-		#Sets the price increase for the next purchase 
-		Data.prices["Price Hunter"] = Data.prices["Price Hunter"] * 10
-		hunters = true
-		Buttons["AddHunterButton"].text = "Manage Hunters"
+	Containers["ManageHunterPanel"].visible = true
+

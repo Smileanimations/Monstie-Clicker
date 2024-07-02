@@ -1,6 +1,6 @@
 extends TextureButton
 var current_weapon
-signal weapon_changed(current_weapon)
+signal weapon_change(current_weapon)
 
 #Loads the weapon texture and weapon
 func LoadWeapons(weapon):
@@ -13,5 +13,5 @@ func _ready():
 
 #Emits a signal that changes the weapon of the hunter and the icon in the manage hunter tab
 func _on_pressed():
-	weapon_changed.emit(current_weapon)
+	weapon_change.emit(current_weapon)
 

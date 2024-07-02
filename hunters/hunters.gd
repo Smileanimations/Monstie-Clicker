@@ -1,6 +1,7 @@
 extends Control
 var current_hunter
 @onready var monster 
+@onready var hunterpanel
 @onready var paths = {
 	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer},
 	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer},
@@ -10,12 +11,11 @@ var current_hunter
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Data.PurchasedHunter.connect(AddHunter)
-	current_hunter = Data.hunters.keys()
 	await(get_parent().ready)
 	monster = get_parent().monster
-	var weapon_scenes = get_tree().get_nodes_in_group("WeaponGroup")
-	var weapon_scene = weapon_scenes[0]
-	weapon_scene.weapon_change.connect(WeaponUpdated)
+	#Gets the nodes from weapon group and calls the function that loops through them
+	var hunterpanel = get_tree().get_nodes_in_group("WeaponGroup")
+	Hunterpanel(hunterpanel)
 	
 
 #When a hunter is purchased sets the weapon and sets it on screen
@@ -23,7 +23,9 @@ func AddHunter(hunters):
 	Data.hunters[hunters].merge(paths[hunters])
 	Data.hunters[hunters]["Path"].visible = true
 	Data.hunters[hunters]["Path"].texture = load(Data.hunters[hunters]["Weapon"]["Path"])
+	#Starts the timer for the weapon cooldown
 	Data.hunters[hunters]["Timer"].start(Data.hunters[hunters]["Weapon"]["Cooldown"])
+	current_hunter = hunters
 
 
 #When the weapon cooldown reaches zero calls the function that damages the monster
@@ -36,8 +38,16 @@ func _on_timer_timeout(argument):
 		print("Hunter Critical Hit!")
 	#Calls the function that damages the monster
 	monster.damage(amount)
-	
 
+#Connects each hunter node to the WeaponUpdated function
+func Hunterpanel(hunters):
+	for hunter in hunters:
+		hunter.weapon_changed.connect(WeaponUpdated)
+
+#Changes the weapon based on which hunters requests a weapon change
 func WeaponUpdated(weapon, hunter):
+	print(hunter)
+	print(weapon)
+	Data.hunters[hunter]["Weapon"] = weapon
 	Data.hunters[hunter]["Path"].texture = load(weapon["Path"])
 	Data.hunters[hunter]["Timer"].start(weapon["Cooldown"])

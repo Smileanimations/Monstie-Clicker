@@ -93,7 +93,7 @@ expand_icon = true
 [node name="AddHunter" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "Add Hunter"
+text = "Manage Hunters"
 icon = ExtResource("9_1ullj")
 expand_icon = true
 
