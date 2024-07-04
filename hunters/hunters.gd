@@ -1,7 +1,6 @@
 extends Control
 var current_hunter
 @onready var monster 
-@onready var hunterpanel
 @onready var paths = {
 	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer},
 	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer},

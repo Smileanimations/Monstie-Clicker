@@ -1,5 +1,6 @@
 extends Panel
 signal weapon_changed(weapon, local_hunter)
+var nodegroup
 var local_hunter
 var weapons = preload("res://shop/weapons/weapon.tscn")
 @onready var HunterAttackUpButton = $HunterAttackUp
@@ -23,7 +24,7 @@ func _ready():
 		WeaponContainer.add_child(instance)
 	#Adds the all the hunter nodes to a group
 	add_to_group("WeaponGroup") 
-
+	nodegroup = get_tree().get_nodes_in_group("WeaponGroup")
 
 #Increases attack damage of the hunter when purchased
 func _on_hunter_attack_up_pressed(hunter):
@@ -50,13 +51,17 @@ func _on_hunter_affinity_up_pressed(hunter):
 func _on_weapon_pressed(hunter):
 	local_hunter = hunter
 	WeaponPanel.visible = true
+
 #Updates the weapon icon to the weapon currently equiped by the hunter
 func Weaponupdated(weapon):
 	WeaponButton.icon = load(weapon["Path"])
 	weapon_changed.emit(weapon, local_hunter)
+
 #When pressed purchases the selected hunter and hides the purchase button whilst showing all stat increase buttons
 func _on_purchase_hunter_pressed(hunter):
 	if Data.zenny >= Data.prices["Price Hunter"]: 
+		Data.subtract_money(Data.prices["Price Hunter"])
+		Data.prices["Price Hunter"] *= 20
 		PurchaseHunterButton.visible = false
 		HunterAttackUpButton.visible = true
 		HunterAffinityUpButton.visible = true

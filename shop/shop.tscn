@@ -91,6 +91,7 @@ icon = ExtResource("8_pbg7g")
 expand_icon = true
 
 [node name="AddHunter" type="Button" parent="Panel"]
+visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Manage Hunters"

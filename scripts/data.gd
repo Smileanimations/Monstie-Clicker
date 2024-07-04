@@ -1,7 +1,8 @@
 extends Node
-var zenny : int = 100000000
+signal HunterUnlocked
+var zenny : int = 0
 var difficulty_scale =  1
-var hunter_rank : int = 1
+var hunter_rank : int = 3
 var hunter_rankxp : int = 20
 var audioscene = preload("res://sounds/sound.tscn")
 var damage = {
@@ -15,9 +16,9 @@ var damage = {
 }
 var weapons = {
 	"Greatsword": {"Damage_amount": 100, "Affinity": 0, "Cooldown": 5, "Path": "res://images/UI Icons/Weapon Icons/Great_Sword.png"},
-	"Longsword": {"Damage_amount": 15, "Affinity": 0, "Cooldown": 2, "Path": "res://images/UI Icons/Weapon Icons/Long_Sword.png"},
+	"Longsword": {"Damage_amount": 30, "Affinity": 0, "Cooldown": 2, "Path": "res://images/UI Icons/Weapon Icons/Long_Sword.png"},
 	"Sword And Shield": {"Damage_amount": 10, "Affinity": 0, "Cooldown": 0.5, "Path": "res://images/UI Icons/Weapon Icons/Sword_And_Shield.png"},
-	"Dual Blades": {"Damage_amount": 5, "Affinity": 0, "Cooldown": 0.2, "Path": "res://images/UI Icons/Weapon Icons/Dual_Blades.png"}
+	"Dual Blades": {"Damage_amount": 2, "Affinity": 0, "Cooldown": 0.2, "Path": "res://images/UI Icons/Weapon Icons/Dual_Blades.png"}
 }
 
 @onready var hunters = {
@@ -96,7 +97,10 @@ func Hunterrank(HRpoints):
 		hunter_rankxp = 20 * difficulty_scale
 		update_stat_display.emit()
 		if hunter_rank % 10 == 0:
-			Playsound("TenRanksUp")
+			Audiohandler.queue_sound("TenRanksUp")
 		else:
-			Playsound("HunterRankUp")
-
+			Audiohandler.queue_sound("HunterRankUp")
+		match hunter_rank:
+			5:
+				Audiohandler.queue_sound("NewUnlocked")
+				HunterUnlocked.emit()

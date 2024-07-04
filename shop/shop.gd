@@ -1,6 +1,5 @@
 extends Control
 var hunters = false
-var bozo = "Hunter1"
 var weapons = preload("res://shop/weapons/weapon.tscn")
 var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 @onready var Buttons = {
@@ -29,6 +28,7 @@ var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 func _ready():
 	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
 	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
+	Data.HunterUnlocked.connect(huntersunlocked)
 	for i in range (1, 5):
 		var instance = weaponpanel.instantiate()
 		instance.name = "Hunter %s" % i
@@ -41,7 +41,7 @@ func _ready():
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
 		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
-
+	
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():
@@ -87,7 +87,9 @@ func _on_element_button_pressed(element):
 		Buttons["ElementalButtons"][element]["Path"].text = "Increase %s Dmg - %s" % [element, Buttons["ElementalButtons"][element]["Price"]]
 	
 
+func huntersunlocked():
+	Buttons["AddHunterButton"].visible = true
+
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	Containers["ManageHunterPanel"].visible = true
-
