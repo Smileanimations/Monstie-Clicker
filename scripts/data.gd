@@ -1,10 +1,11 @@
 extends Node
+signal MonstersUnlocked(batch)
 signal HunterUnlocked
-var zenny : int = 0
+var batch = 1
+var zenny : int = 1000000000
 var difficulty_scale =  1
-var hunter_rank : int = 3
+var hunter_rank : int = 1
 var hunter_rankxp : int = 20
-var audioscene = preload("res://sounds/sound.tscn")
 var damage = {
 	"Raw": {"Damage_amount": 10},
 	"Affinity": {"Amount": 0},
@@ -22,29 +23,21 @@ var weapons = {
 }
 
 @onready var hunters = {
-	"Hunter1": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Greatsword"]},
-	"Hunter2": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Sword And Shield"]},
-	"Hunter3": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Dual Blades"]},
-	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"]}
+	"Hunter1": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Greatsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
+	"Hunter2": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Sword And Shield"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
+	"Hunter3": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Dual Blades"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
+	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)}
 }
 
 var prices = {
 	"Price Attack" = int(100),
 	"Price Affinity" = int(500),
 	"Price Hunter" = int(2000),
-	"Price Hunterdmg" = int(300),
-	"Price Hunteraff" = int(1000)
 }
 
 signal zenny_updated
 signal update_stat_display
 signal PurchasedHunter
-
-func Playsound(sound):
-	var instance = audioscene.instantiate()
-	instance.playaudio(sound)
-	add_child(instance)
-	
 
 func _ready():
 	pass
@@ -104,3 +97,7 @@ func Hunterrank(HRpoints):
 			5:
 				Audiohandler.queue_sound("NewUnlocked")
 				HunterUnlocked.emit()
+			10:
+				Audiohandler.queue_sound("NewUnlocked")
+				MonstersUnlocked.emit(batch)
+				batch += 1

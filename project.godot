@@ -18,3 +18,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 Data="*res://scripts/data.gd"
+Audiohandler="*res://sounds/audiohandler.gd"

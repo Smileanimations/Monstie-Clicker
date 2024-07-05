@@ -20,18 +20,24 @@ var monsters = {
 	"Barroth": {"health":300, "zenny": 140, "HRpoints": 25,"path": "res://images/Barroth.png"},
 }
 
-var batch1 = {
-	"Paolumu": {"health": 325, "zenny": 150, "HRpoints": 25,"path": "res://images/Paolumu.png"},
-	"Rathian": {"health": 350, "zenny": 175, "HRpoints": 30,"path": "res://images/Rathian.png"},
-	"Radobaan": {"health": 375, "zenny": 200, "HRpoints": 30,"path": "res://images/Radobaan.png"},
-	"Anjanath": {"health": 400, "zenny": 225, "HRpoints": 35,"path": "res://images/Anjanath.png"}
-}
+var batches = [
+	{
+		"Paolumu": {"health": 325, "zenny": 150, "HRpoints": 40,"path": "res://images/Paolumu.png"},
+		"Rathian": {"health": 350, "zenny": 175, "HRpoints": 45,"path": "res://images/Rathian.png"},
+		"Radobaan": {"health": 375, "zenny": 200, "HRpoints": 40,"path": "res://images/Radobaan.png"},
+		"Anjanath": {"health": 400, "zenny": 225, "HRpoints": 45,"path": "res://images/Anjanath.png"}
+	}
+]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Data.MonstersUnlocked.connect(BatchMerge)
 	#Randomizes monster on startup
 	Reset()
 
+func BatchMerge(batchnumber):
+	monsters.merge(batches[batchnumber - 1])
+	
 #The simple button that removes HP from the monster
 func _on_Monster_pressed():
 	var random_number = randi_range(1, 100)
@@ -39,11 +45,11 @@ func _on_Monster_pressed():
 	if random_number <= Data.damage["Affinity"]["Amount"]:
 		amount *= 1.25
 		print("Critical Hit!")
-	damage(amount)
+	Damage(amount)
 
 
 #Damages the monster by clicking on it
-func damage(damageamount):
+func Damage(damageamount):
 	health -= damageamount
 	print("%s" % health)
 	Healthbar.value = health

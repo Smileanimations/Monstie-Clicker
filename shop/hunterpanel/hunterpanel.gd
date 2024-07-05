@@ -28,24 +28,24 @@ func _ready():
 
 #Increases attack damage of the hunter when purchased
 func _on_hunter_attack_up_pressed(hunter):
-	if Data.zenny >= Data.prices["Price Hunterdmg"]:
-		Data.subtract_money(Data.prices["Price Hunterdmg"])
+	if Data.zenny >= Data.hunters[hunter]["Price Hunterdmg"]:
+		Data.subtract_money(Data.hunters[hunter]["Price Hunterdmg"])
 		Data.add_hunterdamage(hunter)
-		Data.prices["Price Hunterdmg"] += 600
-		HunterAttackUpButton.text = "Increase Attack - %s" % Data.prices["Price Hunterdmg"]
+		Data.hunters[hunter]["Price Hunterdmg"] += 600
+		HunterAttackUpButton.text = "Increase Attack - %s" % Data.hunters[hunter]["Price Hunterdmg"]
 	
 
 #Increases affinity of the hunter when purchased
 func _on_hunter_affinity_up_pressed(hunter):
-	if Data.zenny >= Data.prices["Price Hunteraff"]:
+	if Data.zenny >= Data.hunters[hunter]["Price Hunteraff"]:
 		if Data.hunters[hunter]["HunterAffinity"] == 100:
 			HunterAffinityUpButton[hunter].text = "Max Affinity"
 		else:
 			Data.subtract_money(Data.prices["Price Hunteraff"])
 			Data.add_hunteraffinity(hunter)
-			Data.prices["Price Hunteraff"] += 2000
+			Data.hunters[hunter]["Price Hunteraff"] += 2000
 			print(Data.hunters[hunter]["HunterAffinity"])
-			HunterAffinityUpButton.text = "Increase Affinity - %s" % Data.prices["Price Hunteraff"]
+			HunterAffinityUpButton.text = "Increase Affinity - %s" % Data.hunters[hunter]["Price Hunteraff"]
 
 #Opens a tab showing all available weapons
 func _on_weapon_pressed(hunter):
