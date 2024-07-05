@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt0dt5dy6p1a4"]
+
+[ext_resource type="Texture2D" uid="uid://cc2sbcdftcwk0" path="res://images/Background Images/Elders Recess.png" id="1_u1hru"]
+[ext_resource type="Script" path="res://main/background/background.gd" id="2_67onp"]
+
+[node name="background" type="TextureRect"]
+offset_right = 2304.0
+offset_bottom = 1296.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_u1hru")
+script = ExtResource("2_67onp")

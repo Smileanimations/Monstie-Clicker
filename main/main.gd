@@ -4,6 +4,7 @@ extends Control
 @onready var monster = $monster
 @onready var hunters = $hunters
 @onready var shop = $shop
+@onready var background = $background
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Sets the zenny display

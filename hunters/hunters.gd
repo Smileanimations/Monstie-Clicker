@@ -36,7 +36,7 @@ func _on_timer_timeout(argument):
 		amount *= 1.25
 		print("Hunter Critical Hit!")
 	#Calls the function that damages the monster
-	monster.damage(amount)
+	monster.Damage(amount)
 
 #Connects each hunter node to the WeaponUpdated function
 func Hunterpanel(hunters):

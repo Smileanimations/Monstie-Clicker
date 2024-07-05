@@ -3,29 +3,30 @@ var value
 var rand_monster
 var health = 100
 var difficulty = 0.2
+signal change_locale
 @onready var Monster_Button = $Monster
 @onready var Healthbar = $Healthbar
 
 
 #A Dictionary containing all current monsters
 var monsters = {
-	"Kulu-Ya-Ku": {"health":100, "zenny": 90, "HRpoints": 5,"path": "res://images/Kulu.png"},
-	"Tzitzi-Ya-Ku": {"health": 125, "zenny":100, "HRpoints": 5,"path": "res://images/Tzitzi.png"},
-	"Great Jagras": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Jagras.png"},
-	"Great Girros": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Girros.png"},
-	"Jyuratodus": {"health":200, "zenny": 110, "HRpoints": 15,"path": "res://images/Jyuratodus.png"},
-	"Dodogama": {"health": 225, "zenny": 120, "HRpoints": 15,"path": "res://images/Dodogama.png"},
-	"Pukei-Pukei": {"health":250, "zenny": 130, "HRpoints": 20,"path": "res://images/Pukei.png"},
-	"Tobi-Kadachi": {"health":275, "zenny": 150, "HRpoints": 20,"path": "res://images/Tobi.png"},
-	"Barroth": {"health":300, "zenny": 140, "HRpoints": 25,"path": "res://images/Barroth.png"},
+	"Kulu-Ya-Ku": {"health":100, "zenny": 90, "HRpoints": 5,"path": "res://images/Kulu.png", "Locale": "Ancient Forest"},
+	"Tzitzi-Ya-Ku": {"health": 125, "zenny":100, "HRpoints": 5,"path": "res://images/Tzitzi.png", "Locale": "Coral Highlands"},
+	"Great Jagras": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Jagras.png", "Locale": "Ancient Forest"},
+	"Great Girros": {"health": 150, "zenny": 100, "HRpoints": 10,"path": "res://images/Girros.png", "Locale": "Rotten Vale"},
+	"Jyuratodus": {"health":200, "zenny": 110, "HRpoints": 15,"path": "res://images/Jyuratodus.png", "Locale": "Wildspire Waste"},
+	"Dodogama": {"health": 225, "zenny": 120, "HRpoints": 15,"path": "res://images/Dodogama.png", "Locale": "Elders Recess"},
+	"Pukei-Pukei": {"health":250, "zenny": 130, "HRpoints": 20,"path": "res://images/Pukei.png", "Locale": "Ancient Forest"},
+	"Tobi-Kadachi": {"health":275, "zenny": 150, "HRpoints": 20,"path": "res://images/Tobi.png", "Locale": "Ancient Forest"},
+	"Barroth": {"health":300, "zenny": 140, "HRpoints": 25,"path": "res://images/Barroth.png", "Locale": "Wildspire Waste"},
 }
 
 var batches = [
 	{
-		"Paolumu": {"health": 325, "zenny": 150, "HRpoints": 40,"path": "res://images/Paolumu.png"},
-		"Rathian": {"health": 350, "zenny": 175, "HRpoints": 45,"path": "res://images/Rathian.png"},
-		"Radobaan": {"health": 375, "zenny": 200, "HRpoints": 40,"path": "res://images/Radobaan.png"},
-		"Anjanath": {"health": 400, "zenny": 225, "HRpoints": 45,"path": "res://images/Anjanath.png"}
+		"Paolumu": {"health": 325, "zenny": 250, "HRpoints": 50,"path": "res://images/Paolumu.png", "Locale": "Coral Highlands"},
+		"Rathian": {"health": 350, "zenny": 275, "HRpoints": 55,"path": "res://images/Rathian.png", "Locale": "Wildspire Waste"},
+		"Radobaan": {"health": 375, "zenny": 300, "HRpoints": 50,"path": "res://images/Radobaan.png", "Locale": "Rotten Vale"},
+		"Anjanath": {"health": 400, "zenny": 325, "HRpoints": 55,"path": "res://images/Anjanath.png", "Locale": "Ancient Forest"}
 	}
 ]
 
@@ -74,6 +75,7 @@ func Reset():
 	print ("Max HP = %s" % health)
 	#Sets the image for a new monster
 	Monster_Button.set_texture_normal(load(value["path"])) 
+	change_locale.emit(value["Locale"])
 
 func Money():
 	#Scales the money with the difficulty scaling
