@@ -7,15 +7,13 @@ var background_images = {
 	"Coral Highlands" = "res://images/Background Images/Coral Highlands.png",
 	"Rotten Vale" = "res://images/Background Images/Rotten Vale.png",
 	"Elders Recess" = "res://images/Background Images/Elders Recess.png"
-	
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await(get_parent().ready)
-	background = get_parent().background
 	var monster_node = get_parent().monster
 	monster_node.change_locale.connect(BackgroundChange)
 
 func BackgroundChange(locale):
-	background.texture = load(background_images[locale])
+	texture = load(background_images[locale])

@@ -27,7 +27,7 @@ var batches = [
 		"Rathian": {"health": 350, "zenny": 275, "HRpoints": 55,"path": "res://images/Rathian.png", "Locale": "Wildspire Waste"},
 		"Radobaan": {"health": 375, "zenny": 300, "HRpoints": 50,"path": "res://images/Radobaan.png", "Locale": "Rotten Vale"},
 		"Anjanath": {"health": 400, "zenny": 325, "HRpoints": 55,"path": "res://images/Anjanath.png", "Locale": "Ancient Forest"}
-	}
+	},
 ]
 
 # Called when the node enters the scene tree for the first time.

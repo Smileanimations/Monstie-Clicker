@@ -41,7 +41,7 @@ func _on_hunter_affinity_up_pressed(hunter):
 		if Data.hunters[hunter]["HunterAffinity"] == 100:
 			HunterAffinityUpButton[hunter].text = "Max Affinity"
 		else:
-			Data.subtract_money(Data.prices["Price Hunteraff"])
+			Data.subtract_money(Data.hunters[hunter]["Price Hunteraff"])
 			Data.add_hunteraffinity(hunter)
 			Data.hunters[hunter]["Price Hunteraff"] += 2000
 			print(Data.hunters[hunter]["HunterAffinity"])

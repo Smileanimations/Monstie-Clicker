@@ -76,3 +76,40 @@ Decorations:
 	You will also be able to equip hunters with decorations that can further enhance their stats and
 	damage output.
 		
+
+HR Unlocks:
+	HR 5:
+		Unlocks Hunters and first 4 weapons: Great Sword, Longsword, Sword and Shield and the Dual Blades
+	
+	HR 10:
+		Unlocks the first batch of monsters, containing:
+			Radobaan
+			Anjanath
+			Rathian
+			Paolumu
+	
+	HR 15:
+		Unlocks the next 4 weapons: Hammer, Hunting Horn, Lance and the Gunlance
+	
+	HR 20:
+		Unlocks the second batch of monsters, containing:
+			Rathalos
+			Diablos
+			Odogaron
+			Legiana
+			Lavasioth
+	
+	HR 25:
+		Unlocks the next 4 weapons: Switch Axe, Charge Blade, Insect Glaive and the Bow
+	
+	HR 30:
+		Entering High Rank
+		Introduction of Decorations, Jewels and Decoration Slots
+		Unlucks the third batch of monsters, containing:
+			Uragaan
+			Pink Rathian
+			Azure Rathalos
+			Black Diablos
+	
+	HR 35:
+		
