@@ -12,6 +12,7 @@ var weapons = preload("res://shop/weapons/weapon.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Data.PurchasedHunter.connect(update_huntercost)
 	HunterAttackUpButton.visible = false
 	HunterAffinityUpButton.visible = false
 	WeaponButton.visible = false
@@ -25,6 +26,9 @@ func _ready():
 	#Adds the all the hunter nodes to a group
 	add_to_group("WeaponGroup") 
 	nodegroup = get_tree().get_nodes_in_group("WeaponGroup")
+
+func update_huntercost(_ignore):
+	PurchaseHunterButton.text = "Purchase Hunter - %s" % Data.prices["Price Hunter"]
 
 #Increases attack damage of the hunter when purchased
 func _on_hunter_attack_up_pressed(hunter):
@@ -68,3 +72,4 @@ func _on_purchase_hunter_pressed(hunter):
 		WeaponButton.visible = true
 		WeaponButton.icon = load(Data.hunters[hunter]["Weapon"]["Path"])
 		Data.AddHunter(hunter)
+

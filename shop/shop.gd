@@ -2,6 +2,7 @@ extends Control
 var hunters = false
 var weapons = preload("res://shop/weapons/weapon.tscn")
 var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
+var PurchaseHunterButton
 @onready var Buttons = {
 	"AttackUpButton": $Panel/AttackUp,
 	"AffinityUpButton": $Panel/AffinityUp,
@@ -36,12 +37,11 @@ func _ready():
 		var AttackUpButton = instance.get_node("HunterAttackUp")
 		var AffinityUpButton = instance.get_node("HunterAffinityUp")
 		var WeaponButton = instance.get_node("Weapon")
-		var PurchaseHunterButton = instance.get_node("PurchaseHunter")
+		PurchaseHunterButton = instance.get_node("PurchaseHunter")
 		AttackUpButton.pressed.connect(instance._on_hunter_attack_up_pressed.bind("Hunter%s" % i))
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
 		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
-	
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():

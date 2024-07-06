@@ -2,9 +2,9 @@ extends Node
 signal MonstersUnlocked(batch)
 signal HunterUnlocked
 var batch = 1
-var zenny : int = 0
+var zenny : int = 100000
 var difficulty_scale : int =  0
-var hunter_rank : int = 1
+var hunter_rank : int = 4
 var hunter_rankxp : int = 20
 var damage = {
 	"Raw": {"Damage_amount": 10},
