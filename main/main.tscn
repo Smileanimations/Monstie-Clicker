@@ -34,7 +34,6 @@ show_behind_parent = true
 clip_contents = true
 layout_mode = 1
 anchors_preset = -1
-scale = Vector2(0.45, 0.45)
 mouse_filter = 2
 
 [node name="ZennyDisp" type="Label" parent="."]

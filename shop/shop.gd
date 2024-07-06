@@ -46,7 +46,7 @@ func _ready():
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():
 	#Adds 2.5 to your raw damage
-	var damage_amount = 2.5
+	var damage_amount = 3
 	if Data.zenny >= Data.prices["Price Attack"]:
 		Data.subtract_money(Data.prices["Price Attack"])
 		Data.add_damage(damage_amount)

@@ -17,6 +17,12 @@ func _ready():
 	#Recieves a signal everytime zenny amount is updated 
 	Data.zenny_updated.connect(updatezennydisp)
 	Data.update_stat_display.connect(updatestatdisp)
+	set_connections()
+	#Randomizes monster on startup
+	monster.Reset()
+	
+func set_connections():
+	monster.change_locale.connect(background.BackgroundChange)
 
 #Updates the zenny amount in the top left corner
 func updatezennydisp():

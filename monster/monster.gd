@@ -1,8 +1,8 @@
 extends Control
 var value
 var rand_monster
-var health = 100
-var difficulty = 0.2
+var health : int = 100
+var difficulty : int = 1
 signal change_locale
 @onready var Monster_Button = $Monster
 @onready var Healthbar = $Healthbar
@@ -33,8 +33,7 @@ var batches = [
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Data.MonstersUnlocked.connect(BatchMerge)
-	#Randomizes monster on startup
-	Reset()
+
 
 func BatchMerge(batchnumber):
 	monsters.merge(batches[batchnumber - 1])
@@ -69,7 +68,7 @@ func Reset():
 	#Scales the difficulty
 	Data.add_diff_scale(difficulty)
 	#Sets the healthbar to the new given HP value
-	health = value["health"] * Data.difficulty_scale
+	health = value["health"] * (Data.difficulty_scale * 0.2)
 	Healthbar.max_value = health
 	Healthbar.value = health
 	print ("Max HP = %s" % health)
@@ -80,7 +79,7 @@ func Reset():
 func Money():
 	#Scales the money with the difficulty scaling
 	value = monsters[rand_monster]
-	Data.add_money(value["zenny"] * Data.difficulty_scale)
+	Data.add_money(value["zenny"] * (Data.difficulty_scale * 0.5))
 
 #Randomizes a monster from a dictionary and returns said monster
 func Rand_Monster():
