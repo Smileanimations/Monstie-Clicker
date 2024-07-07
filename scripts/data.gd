@@ -2,10 +2,10 @@ extends Node
 signal MonstersUnlocked(batch)
 signal HunterUnlocked
 var batch = 1
-var zenny : int = 100000
+var zenny : int = 1500
 var difficulty_scale : int =  0
-var hunter_rank : int = 4
-var hunter_rankxp : int = 20
+var hunter_rank : int = 1
+var hunter_rankxp : int = 30
 var damage = {
 	"Raw": {"Damage_amount": 10},
 	"Affinity": {"Amount": 0},
@@ -87,7 +87,7 @@ func Hunterrank(HRpoints):
 	hunter_rankxp -= HRpoints
 	if hunter_rankxp <= 0:
 		hunter_rank += 1
-		hunter_rankxp = 20 * (difficulty_scale * 0.5)
+		hunter_rankxp = 20 * (difficulty_scale * 0.2)
 		update_stat_display.emit()
 		if hunter_rank % 10 == 0:
 			Audiohandler.queue_sound("TenRanksUp")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=11 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
+[ext_resource type="Texture2D" uid="uid://cs1301tpyf117" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -19,7 +20,7 @@ script = ExtResource("1_yhuup")
 layout_mode = 1
 offset_left = 882.0
 offset_right = 1152.0
-offset_bottom = 500.0
+offset_bottom = 647.0
 
 [node name="AttackUp" type="Button" parent="Panel"]
 custom_minimum_size = Vector2(0, 50)
@@ -108,6 +109,13 @@ offset_left = 4.0
 offset_top = 4.0
 offset_right = 396.0
 offset_bottom = 176.0
+
+[node name="ItemShop" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Purchase Items"
+icon = ExtResource("10_ll7bm")
+expand_icon = true
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
