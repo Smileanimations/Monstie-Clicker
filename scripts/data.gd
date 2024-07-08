@@ -29,6 +29,14 @@ var weapons = {
 	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)}
 }
 
+var iteminventory = {
+	"Whetstone": {"Amount": 0, "Price": 750, "Duration": 120},
+	"Armorskin Potion": {"Amount": 0, "Price": 1250, "Duration": 60},
+	"Mega Armorskin Potion": {"Amount": 0, "Price": 2250, "Duration": 120},
+	"Hardshell Powder": {"Amount": 0, "Price": 2500, "Duration": 30},
+	
+}
+
 var prices = {
 	"Price Attack" = int(100),
 	"Price Affinity" = int(500),

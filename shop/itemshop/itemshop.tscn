@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1txx5hoh6an5"]
+
+[ext_resource type="Script" path="res://shop/itemshop/itemshop.gd" id="1_4mg0d"]
+
+[node name="itemshop" type="Panel"]
+script = ExtResource("1_4mg0d")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

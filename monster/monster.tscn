@@ -27,7 +27,7 @@ texture_normal = ExtResource("2_s06go")
 stretch_mode = 4
 
 [node name="Healthbar" type="ProgressBar" parent="."]
-modulate = Color(0.843137, 0.00392157, 0, 1)
+modulate = Color(1, 0.247059, 0.188235, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

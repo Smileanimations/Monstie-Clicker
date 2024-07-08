@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0k6enl8dyovw"]
+
+[sub_resource type="GDScript" id="GDScript_65ulh"]
+script/source = "extends AudioStreamPlayer
+
+var SoundDictionary = {
+	\"NewUnlocked\": preload(\"res://sounds/soundfiles/ItemFound(rarest).mp3\"),
+	\"TenRanksUp\": preload(\"res://sounds/soundfiles/ItemFound(rare).mp3\"),
+	\"HunterRankUp\": preload(\"res://sounds/soundfiles/ItemFound.mp3\")
+}
+
+func playaudio(sound):
+	stream = SoundDictionary[sound]
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+func _on_finished():
+	queue_free()
+"
+
+[node name="sound" type="AudioStreamPlayer"]
+autoplay = true
+script = SubResource("GDScript_65ulh")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
