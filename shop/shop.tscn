@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
-[ext_resource type="Texture2D" uid="uid://b2lbmo5bdt8uq" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
+[ext_resource type="Texture2D" uid="uid://cs1301tpyf117" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
 [ext_resource type="PackedScene" uid="uid://d1txx5hoh6an5" path="res://shop/itemshop/itemshop.tscn" id="11_rbq6a"]
 
 [node name="shop" type="Control"]
@@ -123,14 +123,15 @@ icon = ExtResource("10_ll7bm")
 expand_icon = true
 
 [node name="PopupPanel" type="PopupPanel" parent="Panel/ItemShop"]
-position = Vector2i(780, 548)
+position = Vector2i(630, 408)
+size = Vector2i(250, 240)
 visible = true
 
 [node name="itemshop" parent="Panel/ItemShop/PopupPanel" instance=ExtResource("11_rbq6a")]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 96.0
+offset_right = 246.0
+offset_bottom = 236.0
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]
@@ -141,3 +142,4 @@ offset_bottom = 96.0
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/WaterUp" to="." method="_on_element_button_pressed" binds= ["Water"]]
 [connection signal="pressed" from="Panel/ElementUp/Popup/VBoxContainer/DragonUp" to="." method="_on_element_button_pressed" binds= ["Dragon"]]
 [connection signal="pressed" from="Panel/AddHunter" to="." method="_on_add_hunter_pressed"]
+[connection signal="pressed" from="Panel/ItemShop" to="." method="_on_item_shop_pressed"]

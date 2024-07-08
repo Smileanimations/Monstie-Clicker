@@ -7,7 +7,7 @@ var PurchaseHunterButton
 	"AttackUpButton": $Panel/AttackUp,
 	"AffinityUpButton": $Panel/AffinityUp,
 	"AddHunterButton": $Panel/AddHunter,
-	
+	"ItemShopButton": $Panel/ItemShop,
 	
 	
 	"ElementalButtons": {
@@ -23,6 +23,8 @@ var PurchaseHunterButton
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
 	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
+	"ItemShopPanel": $Panel/ItemShop/PopupPanel,
+	"ItemShopTab": $Panel/ItemShop/PopupPanel/itemshop
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -93,3 +95,7 @@ func huntersunlocked():
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	Containers["ManageHunterPanel"].visible = true
+
+
+func _on_item_shop_pressed():
+	Containers["ItemShopPanel"].visible = true
