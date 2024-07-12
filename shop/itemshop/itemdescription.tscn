@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://k31ltyqxhst6"]
+
+[ext_resource type="Script" path="res://shop/itemshop/itemdescription.gd" id="1_5qq22"]
+[ext_resource type="Texture2D" uid="uid://dogduf7gkpuuu" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
+
+[node name="itemdescription" type="Panel"]
+visible = false
+offset_left = 460.0
+offset_top = 381.0
+offset_right = 636.0
+offset_bottom = 648.0
+script = ExtResource("1_5qq22")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 46.0
+offset_right = 131.0
+offset_bottom = 26.0
+text = "Whetstone"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_direction = 1
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -33.0
+offset_top = 30.43
+offset_right = 33.0
+offset_bottom = 96.43
+grow_horizontal = 2
+texture = ExtResource("2_215gy")
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 2
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -25.5
+offset_right = 318.0
+offset_bottom = 98.5
+grow_vertical = 2
+scale = Vector2(0.55, 0.55)
+text = "Using a Whetstone will restore the
+sharpness of a hunters weapon
+ (including from the Handicraft Skill)"
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.5
+offset_top = -26.0
+offset_right = 45.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Costs - 500z"
+horizontal_alignment = 1
