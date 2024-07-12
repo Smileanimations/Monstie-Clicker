@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=11 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
-[ext_resource type="Texture2D" uid="uid://cs1301tpyf117" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
-[ext_resource type="PackedScene" uid="uid://d1txx5hoh6an5" path="res://shop/itemshop/itemshop.tscn" id="11_rbq6a"]
+[ext_resource type="Texture2D" uid="uid://b2lbmo5bdt8uq" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -122,16 +121,22 @@ text = "Purchase Items"
 icon = ExtResource("10_ll7bm")
 expand_icon = true
 
-[node name="PopupPanel" type="PopupPanel" parent="Panel/ItemShop"]
-position = Vector2i(630, 408)
-size = Vector2i(250, 240)
-visible = true
+[node name="ItemPopupPanel" type="PopupPanel" parent="Panel/ItemShop"]
+position = Vector2i(508, 416)
+size = Vector2i(337, 232)
 
-[node name="itemshop" parent="Panel/ItemShop/PopupPanel" instance=ExtResource("11_rbq6a")]
+[node name="ItemScrollContainer" type="ScrollContainer" parent="Panel/ItemShop/ItemPopupPanel"]
 offset_left = 4.0
 offset_top = 4.0
-offset_right = 246.0
-offset_bottom = 236.0
+offset_right = 333.0
+offset_bottom = 228.0
+horizontal_scroll_mode = 0
+
+[node name="HBoxContainer" type="GridContainer" parent="Panel/ItemShop/ItemPopupPanel/ItemScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 5
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]

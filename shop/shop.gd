@@ -2,6 +2,7 @@ extends Control
 var hunters = false
 var weapons = preload("res://shop/weapons/weapon.tscn")
 var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
+var itemshop = preload("res://shop/itemshop/itemshop.tscn")
 var PurchaseHunterButton
 @onready var Buttons = {
 	"AttackUpButton": $Panel/AttackUp,
@@ -23,8 +24,9 @@ var PurchaseHunterButton
 	"Elementpopup": $Panel/ElementUp/Popup,
 	"ManageHunterPanel": $Panel/AddHunter/PopupPanel,
 	"ManageHunterTab": $Panel/AddHunter/PopupPanel/ManageHunters,
-	"ItemShopPanel": $Panel/ItemShop/PopupPanel,
-	"ItemShopTab": $Panel/ItemShop/PopupPanel/itemshop
+	"ItemShopPanel": $Panel/ItemShop/ItemPopupPanel,
+	"ItemScrollContainer": $Panel/ItemShop/ItemPopupPanel/ItemScrollContainer,
+	"ItemShopTab": $Panel/ItemShop/ItemPopupPanel/ItemScrollContainer/HBoxContainer
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +46,11 @@ func _ready():
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
 		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
+	for i in Data.iteminventory:
+		var iteminstance = itemshop.instantiate()
+		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
+		iteminstance.item = i
+		Containers["ItemShopTab"].add_child(iteminstance)
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
 func _on_attack_up_pressed():
@@ -95,7 +102,6 @@ func huntersunlocked():
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	Containers["ManageHunterPanel"].visible = true
-
 
 func _on_item_shop_pressed():
 	Containers["ItemShopPanel"].visible = true

@@ -1,14 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1txx5hoh6an5"]
+[gd_scene load_steps=3 format=3 uid="uid://c5w70nexfi8nf"]
 
 [ext_resource type="Script" path="res://shop/itemshop/itemshop.gd" id="1_4mg0d"]
+[ext_resource type="Texture2D" uid="uid://bmjf1ccvmvqip" path="res://images/UI Icons/Item Icons/Mega Star.png" id="2_k10sy"]
 
-[node name="itemshop" type="Panel"]
+[node name="itemshop" type="TextureButton"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch_mode = 5
 script = ExtResource("1_4mg0d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Sprite2D" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+texture = ExtResource("2_k10sy")
 
-[node name="Button" type="Button" parent="HBoxContainer"]
-layout_mode = 2
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

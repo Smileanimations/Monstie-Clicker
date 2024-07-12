@@ -30,11 +30,17 @@ var weapons = {
 }
 
 var iteminventory = {
-	"Whetstone": {"Amount": 0, "Price": 750, "Duration": 120},
-	"Armorskin Potion": {"Amount": 0, "Price": 1250, "Duration": 60},
-	"Mega Armorskin Potion": {"Amount": 0, "Price": 2250, "Duration": 120},
-	"Hardshell Powder": {"Amount": 0, "Price": 2500, "Duration": 30},
-	
+	"Whetstone": {"Amount": 0, "Price": 750, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Whetstone.png"},
+	"Armorskin Potion": {"Amount": 0, "Price": 1250, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
+	"Mega Armorskin Potion": {"Amount": 0, "Price": 2250, "Star": true ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
+	"Hardshell Powder": {"Amount": 0, "Price": 2500, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Hardshell Powder.png"},
+	"Demondrug": {"Amount": 0, "Price": 1200, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Demondrug.png"},
+	"Mega Demondrug": {"Amount": 0, "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Demondrug.png"},
+	"Demonpowder": {"Amount": 0, "Price": 3250, "Star": false, "Path": "res://images/UI Icons/Item Icons/Demon Powder.png"},
+	"Barrel Bomb": {"Amount": 0, "Price": 1500, "Star": false, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png"},
+	"Mega Barrel Bomb": {"Amount": 0, "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png"},
+	"Shock Trap": {"Amount": 0, "Price": 1700, "Star": false, "Path": "res://images/UI Icons/Item Icons/Shock Trao.png"},
+	"Pitfall Trap": {"Amount": 0, "Price": 2000, "Star": false, "Path": "res://images/UI Icons/Item Icons/Pitfall Trap.png"},
 }
 
 var prices = {

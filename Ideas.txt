@@ -24,6 +24,20 @@ Hunters:
 		Blast - will cause an explosion doing a lot of damage but having a far rarer chance of activating 
 		Sleep - will cause the monster to sleep and the next hit will do 50% more damage
 		Paralysis - will paralyse the monster giving all the hunters a 5% damage boost
+	
+	Adding an HP bar to every hunter giving them the ability to heal, take damage and buff their stats
+	When a hunters reaches 0 HP they'll faint (they will not be able to attack for a set while). 
+	Weapons with a faster cooldown take more damage compared to weapons with a slower cooldown.
+	Hunters can take Potions, Mega Potions and Max Potions to restore health.
+	Every hunter has a certain weapon sharpness that decreases over the fight and must be restored
+	with whetstones the damage scaling would look as following:
+		Red = 0.25x
+		Orange = 0.50x
+		Yellow = 0.75x
+		Green = 1.0x
+		Blue = 1.25x
+		White = 1.50x
+		Purple = 1.75x or 2.0x
 
 Monsters:
 	New monsters will be added at certain tresholds.
@@ -75,41 +89,4 @@ Decorations:
 	
 	You will also be able to equip hunters with decorations that can further enhance their stats and
 	damage output.
-		
-
-HR Unlocks:
-	HR 5:
-		Unlocks Hunters and first 4 weapons: Great Sword, Longsword, Sword and Shield and the Dual Blades
-	
-	HR 10:
-		Unlocks the first batch of monsters, containing:
-			Radobaan
-			Anjanath
-			Rathian
-			Paolumu
-	
-	HR 15:
-		Unlocks the next 4 weapons: Hammer, Hunting Horn, Lance and the Gunlance
-	
-	HR 20:
-		Unlocks the second batch of monsters, containing:
-			Rathalos
-			Diablos
-			Odogaron
-			Legiana
-			Lavasioth
-	
-	HR 25:
-		Unlocks the next 4 weapons: Switch Axe, Charge Blade, Insect Glaive and the Bow
-	
-	HR 30:
-		Entering High Rank
-		Introduction of Decorations, Jewels and Decoration Slots
-		Unlucks the third batch of monsters, containing:
-			Uragaan
-			Pink Rathian
-			Azure Rathalos
-			Black Diablos
-	
-	HR 35:
 		
