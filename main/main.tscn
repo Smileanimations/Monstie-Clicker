@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4xcrhxjnwdc4"]
+[gd_scene load_steps=8 format=3 uid="uid://4xcrhxjnwdc4"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_dfd22"]
 [ext_resource type="PackedScene" uid="uid://j8e5yfle32sr" path="res://monster/monster.tscn" id="1_jdhfo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bbxgwa0m1b1hb" path="res://hunters/hunters.tscn" id="4_5xe81"]
 [ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 [ext_resource type="PackedScene" uid="uid://dt0dt5dy6p1a4" path="res://main/background/background.tscn" id="5_cif16"]
+[ext_resource type="Texture2D" uid="uid://tcokex3qhg0x" path="res://images/UI Icons/Points.png" id="7_vocq6"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -18,16 +19,19 @@ script = ExtResource("1_dfd22")
 
 [node name="monster" parent="." instance=ExtResource("1_jdhfo")]
 layout_mode = 1
+offset_left = 147.0
+offset_right = 147.0
 
 [node name="shop" parent="." instance=ExtResource("2_xntfy")]
 layout_mode = 1
 
 [node name="hunters" parent="." instance=ExtResource("4_5xe81")]
 layout_mode = 1
-offset_left = -134.0
-offset_top = 530.0
-offset_right = -271.0
-offset_bottom = 0.0
+offset_left = 1.0
+offset_top = 78.305
+offset_right = -899.0
+offset_bottom = 41.305
+scale = Vector2(0.525, 0.525)
 
 [node name="background" parent="." instance=ExtResource("5_cif16")]
 show_behind_parent = true
@@ -38,10 +42,17 @@ mouse_filter = 2
 
 [node name="ZennyDisp" type="Label" parent="."]
 layout_mode = 0
-offset_left = 29.0
+offset_left = 31.0
 offset_top = 2.0
-offset_right = 88.0
+offset_right = 90.0
 offset_bottom = 28.0
+
+[node name="PointsDisp" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 109.0
+offset_bottom = 65.0
 
 [node name="Stats" type="Label" parent="."]
 layout_mode = 0
@@ -50,6 +61,11 @@ offset_right = 102.0
 offset_bottom = 648.0
 
 [node name="Zenny" type="Sprite2D" parent="."]
-position = Vector2(15, 14)
-scale = Vector2(0.0835938, 0.0828125)
+position = Vector2(15, 16)
+scale = Vector2(0.45, 0.431)
 texture = ExtResource("4_vwv2k")
+
+[node name="Points" type="Sprite2D" parent="."]
+position = Vector2(15, 48)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("7_vocq6")

@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
-[ext_resource type="Texture2D" uid="uid://cs1301tpyf117" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
+[ext_resource type="Texture2D" uid="uid://216ij2ypu2c8" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
 
 [node name="shop" type="Control"]
 layout_mode = 3

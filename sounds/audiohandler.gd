@@ -3,7 +3,9 @@ extends Node
 const SOUNDS = {
 	"NewUnlocked": preload("res://sounds/soundfiles/ItemFound(rarest).mp3"),
 	"TenRanksUp": preload("res://sounds/soundfiles/ItemFound(rare).mp3"),
-	"HunterRankUp": preload("res://sounds/soundfiles/ItemFound.mp3")
+	"HunterRankUp": preload("res://sounds/soundfiles/ItemFound.mp3"),
+	"Purchase": preload("res://sounds/soundfiles/Purchase.wav"),
+	"PurchasedHunter": preload("res://sounds/soundfiles/CombineItem.mp3")
 }
 
 #Plays the sounds in the queue

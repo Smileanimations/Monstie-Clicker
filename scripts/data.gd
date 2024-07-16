@@ -2,9 +2,10 @@ extends Node
 signal MonstersUnlocked(batch)
 signal HunterUnlocked
 var batch = 1
-var zenny : int = 1500
+var zenny : int = 150000000
+var points : int = 0
 var difficulty_scale : int =  0
-var hunter_rank : int = 1
+var hunter_rank : int = 4
 var hunter_rankxp : int = 30
 var damage = {
 	"Raw": {"Damage_amount": 10},
@@ -31,6 +32,8 @@ var weapons = {
 
 var iteminventory = {
 	"Whetstone": {"Amount": 0, "Price": 750, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Whetstone.png"},
+	"Potion": {"Amount": 10, "Price": 200, "Star": false, "Path": "res://images/UI Icons/Item Icons/Potion.png"},
+	"Mega Potion": {"Amount": 0, "Price": 500, "Star": true, "Path": "res://images/UI Icons/Item Icons/Potion.png"},
 	"Armorskin Potion": {"Amount": 0, "Price": 1250, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
 	"Mega Armorskin Potion": {"Amount": 0, "Price": 2250, "Star": true ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
 	"Hardshell Powder": {"Amount": 0, "Price": 2500, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Hardshell Powder.png"},
@@ -59,6 +62,7 @@ func _ready():
 #Function that adds zenny and updates the display
 func add_money(amount):
 	zenny += amount
+	points += amount / 5
 	zenny_updated.emit()
 
 #Function that subtracts zenny and updates the display

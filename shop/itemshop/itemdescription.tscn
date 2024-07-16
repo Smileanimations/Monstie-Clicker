@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://k31ltyqxhst6"]
 
 [ext_resource type="Script" path="res://shop/itemshop/itemdescription.gd" id="1_5qq22"]
-[ext_resource type="Texture2D" uid="uid://dogduf7gkpuuu" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
+[ext_resource type="Texture2D" uid="uid://c4caioy013v44" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
 
 [node name="itemdescription" type="Panel"]
 visible = false

@@ -2,10 +2,10 @@ extends Control
 var current_hunter
 @onready var monster 
 @onready var paths = {
-	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer},
-	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer},
-	"Hunter3": {"Path": $HBoxContainer/Hunter3, "Timer": $HBoxContainer/Hunter3/Timer},
-	'Hunter4': {"Path": $HBoxContainer/Hunter4, "Timer": $HBoxContainer/Hunter4/Timer}
+	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer, "Healthbar": $HBoxContainer/Hunter1/TextureProgressBar},
+	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer, "Healthbar": $HBoxContainer/Hunter2/TextureProgressBar},
+	"Hunter3": {"Path": $HBoxContainer/Hunter3, "Timer": $HBoxContainer/Hunter3/Timer, "Healthbar": $HBoxContainer/Hunter3/TextureProgressBar},
+	'Hunter4': {"Path": $HBoxContainer/Hunter4, "Timer": $HBoxContainer/Hunter4/Timer, "Healthbar": $HBoxContainer/Hunter4/TextureProgressBar}
 }
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbxgwa0m1b1hb"]
+[gd_scene load_steps=9 format=3 uid="uid://bbxgwa0m1b1hb"]
 
 [ext_resource type="Script" path="res://hunters/hunters.gd" id="1_l8ubf"]
 [ext_resource type="Texture2D" uid="uid://dn7lnmkatqepc" path="res://images/UI Icons/Weapon Icons/Sword_And_Shield.png" id="2_d8lb7"]
+[ext_resource type="Texture2D" uid="uid://b4xbdm401uxo0" path="res://images/UI Icons/HealthbarBackground.png" id="3_c1j21"]
 [ext_resource type="Texture2D" uid="uid://bt136ber8y101" path="res://images/UI Icons/Weapon Icons/Gunlance.png" id="3_j8s5d"]
 [ext_resource type="Texture2D" uid="uid://dad38veuij53s" path="res://images/UI Icons/Weapon Icons/Hammer.png" id="4_24q4t"]
+[ext_resource type="Texture2D" uid="uid://dbvf55eex8m3w" path="res://images/UI Icons/Healthbar.png" id="4_h4fi7"]
+[ext_resource type="Texture2D" uid="uid://cnbonadfu8sn4" path="res://images/UI Icons/Staminabar.png" id="5_u4dct"]
 [ext_resource type="Texture2D" uid="uid://bif5sm8ejumvu" path="res://images/UI Icons/Weapon Icons/Lance.png" id="5_y2ug4"]
 
 [node name="hunters" type="Control"]
@@ -12,15 +15,16 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -1.0
-offset_bottom = -517.0
+offset_right = -1152.0
+offset_bottom = -649.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l8ubf")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 98.0
+offset_right = 76.0
+offset_bottom = 529.0
 theme_override_constants/separation = 75
 alignment = 1
 
@@ -28,33 +32,114 @@ alignment = 1
 visible = false
 layout_mode = 2
 texture = ExtResource("2_d8lb7")
-expand_mode = 3
+expand_mode = 5
 
 [node name="Timer" type="Timer" parent="HBoxContainer/Hunter1"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Hunter1"]
+offset_left = 73.0
+offset_top = 20.0
+offset_right = 591.0
+offset_bottom = 57.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("4_h4fi7")
+texture_progress_offset = Vector2(12.745, 5.735)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/Hunter1"]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 598.0
+offset_bottom = 77.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("5_u4dct")
+texture_progress_offset = Vector2(0.6, -0.045)
 
 [node name="Hunter2" type="TextureRect" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("3_j8s5d")
-expand_mode = 3
+expand_mode = 5
 
 [node name="Timer" type="Timer" parent="HBoxContainer/Hunter2"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Hunter2"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 20.0
+offset_right = 591.0
+offset_bottom = 57.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("4_h4fi7")
+texture_progress_offset = Vector2(12.19, 5.285)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/Hunter2"]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 598.0
+offset_bottom = 77.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("5_u4dct")
+texture_progress_offset = Vector2(0.6, -0.045)
 
 [node name="Hunter3" type="TextureRect" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("4_24q4t")
-expand_mode = 3
+expand_mode = 5
 
 [node name="Timer" type="Timer" parent="HBoxContainer/Hunter3"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Hunter3"]
+offset_left = 73.0
+offset_top = 20.0
+offset_right = 591.0
+offset_bottom = 57.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("4_h4fi7")
+texture_progress_offset = Vector2(12.19, 5.285)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/Hunter3"]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 598.0
+offset_bottom = 77.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("5_u4dct")
+texture_progress_offset = Vector2(0.6, -0.045)
 
 [node name="Hunter4" type="TextureRect" parent="HBoxContainer"]
 visible = false
 layout_mode = 2
 texture = ExtResource("5_y2ug4")
-expand_mode = 3
+expand_mode = 5
 
 [node name="Timer" type="Timer" parent="HBoxContainer/Hunter4"]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Hunter4"]
+offset_left = 73.0
+offset_top = 20.0
+offset_right = 591.0
+offset_bottom = 57.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("4_h4fi7")
+texture_progress_offset = Vector2(12.19, 5.285)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="HBoxContainer/Hunter4"]
+offset_left = 80.0
+offset_top = 40.0
+offset_right = 598.0
+offset_bottom = 77.0
+value = 100.0
+texture_under = ExtResource("3_c1j21")
+texture_progress = ExtResource("5_u4dct")
+texture_progress_offset = Vector2(0.6, -0.045)
 
 [connection signal="timeout" from="HBoxContainer/Hunter1/Timer" to="." method="_on_timer_timeout" binds= ["Hunter1"]]
 [connection signal="timeout" from="HBoxContainer/Hunter2/Timer" to="." method="_on_timer_timeout" binds= ["Hunter2"]]

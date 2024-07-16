@@ -71,5 +71,6 @@ func _on_purchase_hunter_pressed(hunter):
 		HunterAffinityUpButton.visible = true
 		WeaponButton.visible = true
 		WeaponButton.icon = load(Data.hunters[hunter]["Weapon"]["Path"])
+		Audiohandler.play_audio("PurchasedHunter")
 		Data.AddHunter(hunter)
 
