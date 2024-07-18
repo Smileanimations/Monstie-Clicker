@@ -24,10 +24,10 @@ var weapons = {
 }
 
 @onready var hunters = {
-	"Hunter1": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Greatsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
-	"Hunter2": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Sword And Shield"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
-	"Hunter3": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Dual Blades"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)},
-	"Hunter4": {"HunterDamage": 0, "HunterAffinity": 0, "Weapon": Data.weapons["Longsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000)}
+	"Hunter1": {"Health": 100, "Stamina": 100, "HunterDamage": int(0), "HunterAffinity": int(0), "Weapon": Data.weapons["Greatsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000), "Damage": int(0)},
+	"Hunter2": {"Health": 100, "Stamina": 100, "HunterDamage": int(0), "HunterAffinity": int(0), "Weapon": Data.weapons["Sword And Shield"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000), "Damage": int(0)},
+	"Hunter3": {"Health": 100, "Stamina": 100, "HunterDamage": int(0), "HunterAffinity": int(0), "Weapon": Data.weapons["Dual Blades"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000), "Damage": int(0)},
+	"Hunter4": {"Health": 100, "Stamina": 100, "HunterDamage": int(0), "HunterAffinity": int(0), "Weapon": Data.weapons["Longsword"], "Price Hunterdmg": int(300), "Price Hunteraff": int(1000), "Damage": int(0)}
 }
 
 var iteminventory = {

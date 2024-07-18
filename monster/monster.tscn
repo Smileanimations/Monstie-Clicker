@@ -16,10 +16,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -386.0
+offset_left = -398.0
 offset_top = 1.0
 offset_right = 114.0
-offset_bottom = 501.0
+offset_bottom = 513.0
 grow_horizontal = 0
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -44,4 +44,7 @@ size_flags_horizontal = 6
 size_flags_vertical = 8
 rounded = true
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="pressed" from="Monster" to="." method="_on_Monster_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
