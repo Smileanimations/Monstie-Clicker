@@ -20,7 +20,7 @@ func _ready():
 func _process(delta):
 	for i in Data.hunters:
 		if paths[i]["Healthbar"].value < Data.hunters[i]["Health"]:
-			paths[i]["Healthbar"].value = clamp(paths[i]["Healthbar"].value + (delta * 450), 0, Data.hunters[i]["Health"])
+			paths[i]["Healthbar"].value = clamp(paths[i]["Healthbar"].value + (delta * 100), 0, Data.hunters[i]["Health"])
 
 #When a hunter is purchased sets the weapon and sets it on screen
 func AddHunter(hunters):

@@ -16,7 +16,7 @@ func _ready():
 	HunterAttackUpButton.visible = false
 	HunterAffinityUpButton.visible = false
 	WeaponButton.visible = false
-	PurchaseHunterButton.text = "Purchase Hunter - %s" % Data.prices["Price Hunter"]
+	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
 	#Loads all the weapons when you open the weapon tab
 	for value in Data.weapons:
 		var instance = weapons.instantiate()
@@ -28,7 +28,7 @@ func _ready():
 	nodegroup = get_tree().get_nodes_in_group("WeaponGroup")
 
 func update_huntercost(_ignore):
-	PurchaseHunterButton.text = "Purchase Hunter - %s" % Data.prices["Price Hunter"]
+	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
 
 #Increases attack damage of the hunter when purchased
 func _on_hunter_attack_up_pressed(hunter):
@@ -36,7 +36,7 @@ func _on_hunter_attack_up_pressed(hunter):
 		Data.subtract_money(Data.hunters[hunter]["Price Hunterdmg"])
 		Data.add_hunterdamage(hunter)
 		Data.hunters[hunter]["Price Hunterdmg"] += 600
-		HunterAttackUpButton.text = "Increase Attack - %s" % Data.hunters[hunter]["Price Hunterdmg"]
+		HunterAttackUpButton.text = "Increase Attack - %sz" % Data.hunters[hunter]["Price Hunterdmg"]
 	
 
 #Increases affinity of the hunter when purchased
@@ -49,7 +49,7 @@ func _on_hunter_affinity_up_pressed(hunter):
 			Data.add_hunteraffinity(hunter)
 			Data.hunters[hunter]["Price Hunteraff"] += 2000
 			print(Data.hunters[hunter]["HunterAffinity"])
-			HunterAffinityUpButton.text = "Increase Affinity - %s" % Data.hunters[hunter]["Price Hunteraff"]
+			HunterAffinityUpButton.text = "Increase Affinity - %sz" % Data.hunters[hunter]["Price Hunteraff"]
 
 #Opens a tab showing all available weapons
 func _on_weapon_pressed(hunter):

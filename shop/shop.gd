@@ -32,8 +32,8 @@ var iteminstance
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
-	Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
+	Buttons["AttackUpButton"].text = "Increase Attack - %sz" % Data.prices["Price Attack"]
+	Buttons["AffinityUpButton"].text = "Increase Affinity - %sz" % Data.prices["Price Affinity"]
 	Data.HunterUnlocked.connect(huntersunlocked)
 	for i in range (1, 5):
 		var instance = weaponpanel.instantiate()
@@ -63,7 +63,7 @@ func _on_attack_up_pressed():
 		Data.add_damage(damage_amount)
 		#Sets the price increase for the next purchase 
 		Data.prices["Price Attack"] += 300
-		Buttons["AttackUpButton"].text = "Increase Attack - %s" % Data.prices["Price Attack"]
+		Buttons["AttackUpButton"].text = "Increase Attack - %sz" % Data.prices["Price Attack"]
 
 
 #When you purchase an Affinity Boost, functions from data.gd get called to subtract the money and add the affinity
@@ -78,7 +78,7 @@ func _on_affinity_up_pressed():
 			Data.add_affinity(affinity_amount)
 			#Sets the price increase for the next purchase 
 			Data.prices["Price Affinity"] += Data.prices["Price Affinity"] * 2
-			Buttons["AffinityUpButton"].text = "Increase Affinity - %s" % Data.prices["Price Affinity"]
+			Buttons["AffinityUpButton"].text = "Increase Affinity - %sz" % Data.prices["Price Affinity"]
 
 
 #Pops up a window containing all elemental buttons
@@ -95,7 +95,7 @@ func _on_element_button_pressed(element):
 		Data.damage[element]["Damage_amount"] += 2
 		#Sets the price increase for the next purchase 
 		Buttons["ElementalButtons"][element]["Price"] = int(Buttons["ElementalButtons"][element]["Price"] * 1.5)
-		Buttons["ElementalButtons"][element]["Path"].text = "Increase %s Dmg - %s" % [element, Buttons["ElementalButtons"][element]["Price"]]
+		Buttons["ElementalButtons"][element]["Path"].text = "Increase %s Dmg - %sz" % [element, Buttons["ElementalButtons"][element]["Price"]]
 	
 
 func huntersunlocked():
