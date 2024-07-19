@@ -6,6 +6,7 @@ extends Control
 @onready var hunters = $hunters
 @onready var shop = $shop
 @onready var background = $background
+@onready var xpbar = $XPbar
 var current_zenny : int
 var current_points : int
 # Called when the node enters the scene tree for the first time.
@@ -32,12 +33,18 @@ func _process(delta):
 	if current_points != Data.points:
 		current_points = lerp(current_points, Data.points, delta * 15)
 		Points_Display.text = ("%sp" % current_points)
+	if xpbar.value < Data.hunterrankpoints:
+			xpbar.value = clamp(xpbar.value + (delta * 100), 0, Data.hunterrankpoints)
+
 
 func set_connections():
 	monster.change_locale.connect(background.BackgroundChange)
 
 #Updates the display that shows all the statistics
 func updatestatdisp():
+	if Data.hunterrankpoints == 0:
+		xpbar.value = 0
+	xpbar.max_value = Data.hunter_rankxp
 	Stats_display.text = ("
 	Damage = %s
 	Affinity = %s%%

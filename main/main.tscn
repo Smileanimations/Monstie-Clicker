@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4xcrhxjnwdc4"]
+[gd_scene load_steps=10 format=3 uid="uid://4xcrhxjnwdc4"]
 
 [ext_resource type="Script" path="res://main/main.gd" id="1_dfd22"]
 [ext_resource type="PackedScene" uid="uid://j8e5yfle32sr" path="res://monster/monster.tscn" id="1_jdhfo"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 [ext_resource type="PackedScene" uid="uid://dt0dt5dy6p1a4" path="res://main/background/background.tscn" id="5_cif16"]
 [ext_resource type="Texture2D" uid="uid://bk37wg1wfsq6a" path="res://images/UI Icons/Points.png" id="7_vocq6"]
+[ext_resource type="Texture2D" uid="uid://bm4455jprwfe6" path="res://images/UI Icons/HealthbarBackground.png" id="8_m6smf"]
+[ext_resource type="Texture2D" uid="uid://c064xcc38wf2a" path="res://images/UI Icons/XPBar.png" id="9_o4gqk"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -69,3 +71,17 @@ texture = ExtResource("4_vwv2k")
 position = Vector2(15, 48)
 scale = Vector2(0.47, 0.47)
 texture = ExtResource("7_vocq6")
+
+[node name="XPbar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.0
+offset_right = 343.0
+offset_bottom = 35.0
+grow_horizontal = 2
+scale = Vector2(0.655, 0.655)
+texture_under = ExtResource("8_m6smf")
+texture_progress = ExtResource("9_o4gqk")
+texture_progress_offset = Vector2(15.215, 0.88)
