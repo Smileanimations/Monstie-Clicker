@@ -6,7 +6,7 @@ var batch = 1
 var zenny : int = 150000000
 var points : int = 0
 var difficulty_scale : int =  0
-var hunter_rank : int = 0
+var hunter_rank : int = 4
 var hunter_rankxp : int = 30
 var damage = {
 	"Raw": {"Damage_amount": 10},
@@ -32,19 +32,19 @@ var weapons = {
 }
 
 var iteminventory = {
-	"Whetstone": {"Amount": 0, "Price": 750, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Whetstone.png"},
-	"Potion": {"Amount": 10, "Price": 200, "Star": false, "Path": "res://images/UI Icons/Item Icons/Potion.png"},
-	"Mega Potion": {"Amount": 0, "Price": 500, "Star": true, "Path": "res://images/UI Icons/Item Icons/Potion.png"},
-	"Armorskin Potion": {"Amount": 0, "Price": 1250, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
-	"Mega Armorskin Potion": {"Amount": 0, "Price": 2250, "Star": true ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png"},
-	"Hardshell Powder": {"Amount": 0, "Price": 2500, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Hardshell Powder.png"},
-	"Demondrug": {"Amount": 0, "Price": 1200, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Demondrug.png"},
-	"Mega Demondrug": {"Amount": 0, "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Demondrug.png"},
-	"Demonpowder": {"Amount": 0, "Price": 3250, "Star": false, "Path": "res://images/UI Icons/Item Icons/Demon Powder.png"},
-	"Barrel Bomb": {"Amount": 0, "Price": 1500, "Star": false, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png"},
-	"Mega Barrel Bomb": {"Amount": 0, "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png"},
-	"Shock Trap": {"Amount": 0, "Price": 1700, "Star": false, "Path": "res://images/UI Icons/Item Icons/Shock Trao.png"},
-	"Pitfall Trap": {"Amount": 0, "Price": 2000, "Star": false, "Path": "res://images/UI Icons/Item Icons/Pitfall Trap.png"},
+	"Whetstone": {"Amount": 0, "Rarity": "Rarity 4", "Price": 750, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Whetstone.png", "Description": "A standard-sized whetstone. Use it to restore a weapon's sharpness"},
+	"Potion": {"Amount": 10, "Rarity": "Rarity 1", "Price": 200, "Star": false, "Path": "res://images/UI Icons/Item Icons/Potion.png", "Description": "Restores a small amount of health."},
+	"Mega Potion": {"Amount": 0, "Rarity": "Rarity 2", "Price": 500, "Star": true, "Path": "res://images/UI Icons/Item Icons/Potion.png", "Description": "Restores a moderate amount of health."},
+	"Armorskin Potion": {"Amount": 0, "Rarity": "Rarity 4", "Price": 1250, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png", "Description": "Boosts a hunter's defense by turning your skin as hard as rock."},
+	"Mega Armorskin Potion": {"Amount": 0, "Rarity": "Rarity 5", "Price": 2250, "Star": true ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png", "Description": "Boosts a hunter's defense even more than a regular armorskin."},
+	"Hardshell Powder": {"Amount": 0, "Rarity": "Rarity 4", "Price": 2500, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Hardshell Powder.png", "Description": "A mysterious powder that produces a cloud around the area that temporarily strengthens the defense of all hunters."},
+	"Demondrug": {"Amount": 0, "Rarity": "Rarity 4", "Price": 1200, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Demondrug.png", "Description": "Boosts a hunter's attack power by filling them with-guess what?-demonic strength."},
+	"Mega Demondrug": {"Amount": 0, "Rarity": "Rarity 5", "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Demondrug.png", "Description": "Boosts a hunter's attack power even more than a regular Demondrug."},
+	"Demonpowder": {"Amount": 0, "Rarity": "Rarity 4", "Price": 3250, "Star": false, "Path": "res://images/UI Icons/Item Icons/Demon Powder.png", "Description": "A mysterious powder that produces a cloud around the area that temporarily strengthens the attack of all hunters."},
+	"Barrel Bomb": {"Amount": 0, "Rarity": "Rarity 3", "Price": 1500, "Star": false, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png", "Description": "A powerful bomb triggered by physical impact."},
+	"Mega Barrel Bomb": {"Amount": 0, "Rarity": "Rarity 4", "Price": 3000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Barrel Bomb.png", "Description": "An upgraded large barrel bomb. Effective against large monsters."},
+	"Shock Trap": {"Amount": 0, "Rarity": "Rarity 3", "Price": 1700, "Star": false, "Path": "res://images/UI Icons/Item Icons/Shock Trao.png", "Description": "A trap that immobilizes a target."},
+	"Pitfall Trap": {"Amount": 0, "Rarity": "Rarity 3", "Price": 2000, "Star": false, "Path": "res://images/UI Icons/Item Icons/Pitfall Trap.png", "Description": "A trap for catching certain large monsters. It is tripped by a heavy weight"},
 }
 
 var prices = {

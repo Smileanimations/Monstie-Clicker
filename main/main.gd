@@ -13,7 +13,7 @@ var current_points : int
 func _ready():
 	#Sets the zenny display
 	Zenny_display.text = ("%sz" % Data.zenny)
-	Points_Display.text = ("%sp" % Data.points)
+	Points_Display.text = ("%spts" % Data.points)
 	Stats_display.text = ("
 	Damage = %s
 	Affinity = %s%%
@@ -32,7 +32,7 @@ func _process(delta):
 		Zenny_display.text = ("%sz" % current_zenny)
 	if current_points != Data.points:
 		current_points = lerp(current_points, Data.points, delta * 15)
-		Points_Display.text = ("%sp" % current_points)
+		Points_Display.text = ("%spts" % current_points)
 	if xpbar.value < Data.hunterrankpoints:
 			xpbar.value = clamp(xpbar.value + (delta * 100), 0, Data.hunterrankpoints)
 

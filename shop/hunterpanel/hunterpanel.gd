@@ -2,13 +2,18 @@ extends Panel
 signal weapon_changed(weapon, local_hunter)
 var nodegroup
 var local_hunter
+var iteminstance
 var weapons = preload("res://shop/weapons/weapon.tscn")
+var items = preload("res://shop/itemshop/itemshop.tscn")
 @onready var HunterAttackUpButton = $HunterAttackUp
 @onready var HunterAffinityUpButton = $HunterAffinityUp
 @onready var WeaponButton = $Weapon
+@onready var InventoryButton = $Inventory
 @onready var PurchaseHunterButton= $PurchaseHunter
 @onready var WeaponPanel = $WeaponPanel
 @onready var WeaponContainer = $WeaponPanel/Container
+@onready var ItemPanel = $ItemPanel
+@onready var ItemContainer = $ItemPanel/Container
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,6 +21,7 @@ func _ready():
 	HunterAttackUpButton.visible = false
 	HunterAffinityUpButton.visible = false
 	WeaponButton.visible = false
+	InventoryButton.visible = false
 	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
 	#Loads all the weapons when you open the weapon tab
 	for value in Data.weapons:
@@ -26,6 +32,15 @@ func _ready():
 	#Adds the all the hunter nodes to a group
 	add_to_group("WeaponGroup") 
 	nodegroup = get_tree().get_nodes_in_group("WeaponGroup")
+	for i in Data.iteminventory:
+		iteminstance = items.instantiate()
+		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
+		iteminstance.item = i
+		ItemContainer.add_child(iteminstance)
+		if Data.iteminventory[i]["Amount"] >= 1:
+			iteminstance.visible = true
+		else:
+			iteminstance.visible = false
 
 func update_huntercost(_ignore):
 	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
@@ -70,7 +85,15 @@ func _on_purchase_hunter_pressed(hunter):
 		HunterAttackUpButton.visible = true
 		HunterAffinityUpButton.visible = true
 		WeaponButton.visible = true
+		InventoryButton.visible = true
 		WeaponButton.icon = load(Data.hunters[hunter]["Weapon"]["Path"])
 		Audiohandler.play_audio("PurchasedHunter")
 		Data.AddHunter(hunter)
 
+
+
+func _on_inventory_pressed():
+	ItemPanel.visible = true
+	for i in Data.iteminventory:
+		if Data.iteminventory[i]["Amount"] >= 1:
+			iteminstance.visible = true

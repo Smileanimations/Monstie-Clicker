@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx1e6oqmrakdf"]
+[gd_scene load_steps=12 format=3 uid="uid://dx1e6oqmrakdf"]
 
 [ext_resource type="Script" path="res://shop/shop.gd" id="1_yhuup"]
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_hka7q"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
-[ext_resource type="Texture2D" uid="uid://puxuwxxgoqxq" path="res://images/UI Icons/Item_Icon.png" id="10_ll7bm"]
+[ext_resource type="Texture2D" uid="uid://bxw3sx53whojf" path="res://images/UI Icons/Chest_IconM.png" id="10_p012g"]
+[ext_resource type="PackedScene" uid="uid://k31ltyqxhst6" path="res://shop/itemshop/itemdescription.tscn" id="11_kjwmx"]
 
 [node name="shop" type="Control"]
 layout_mode = 3
@@ -63,31 +64,31 @@ alignment = 1
 
 [node name="FireUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
 layout_mode = 2
-text = "Increase Fire Dmg - 200"
+text = "Increase Fire Dmg - 200z"
 icon = ExtResource("4_f27ni")
 expand_icon = true
 
 [node name="IceUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
 layout_mode = 2
-text = "Increase Ice Dmg - 200"
+text = "Increase Ice Dmg - 200z"
 icon = ExtResource("5_xqpy4")
 expand_icon = true
 
 [node name="ThunderUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
 layout_mode = 2
-text = "Increase Thunder Dmg - 200"
+text = "Increase Thunder Dmg - 200z"
 icon = ExtResource("6_8ppbf")
 expand_icon = true
 
 [node name="WaterUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
 layout_mode = 2
-text = "Increase Water Dmg - 200"
+text = "Increase Water Dmg - 200z"
 icon = ExtResource("7_5cemc")
 expand_icon = true
 
 [node name="DragonUp" type="Button" parent="Panel/ElementUp/Popup/VBoxContainer"]
 layout_mode = 2
-text = "Increase Dragon Dmg - 200"
+text = "Increase Dragon Dmg - 200z"
 icon = ExtResource("8_pbg7g")
 expand_icon = true
 
@@ -103,6 +104,7 @@ expand_icon = true
 transparent_bg = true
 position = Vector2i(478, 162)
 size = Vector2i(400, 180)
+visible = true
 
 [node name="ManageHunters" type="TabContainer" parent="Panel/AddHunter/PopupPanel"]
 offset_left = 4.0
@@ -115,10 +117,10 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ItemShop" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(0, 35)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Purchase Items"
-icon = ExtResource("10_ll7bm")
+icon = ExtResource("10_p012g")
 expand_icon = true
 
 [node name="ItemPopupPanel" type="PopupPanel" parent="Panel/ItemShop"]
@@ -137,6 +139,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 5
+
+[node name="itemdescription" parent="." instance=ExtResource("11_kjwmx")]
+visible = false
+self_modulate = Color(0, 0, 0, 0.74902)
+layout_mode = 0
+offset_left = 134.0
+offset_top = 417.0
+offset_right = 500.0
+offset_bottom = 590.0
 
 [connection signal="pressed" from="Panel/AttackUp" to="." method="_on_attack_up_pressed"]
 [connection signal="pressed" from="Panel/AffinityUp" to="." method="_on_affinity_up_pressed"]

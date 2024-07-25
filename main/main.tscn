@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bbxgwa0m1b1hb" path="res://hunters/hunters.tscn" id="4_5xe81"]
 [ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 [ext_resource type="PackedScene" uid="uid://dt0dt5dy6p1a4" path="res://main/background/background.tscn" id="5_cif16"]
-[ext_resource type="Texture2D" uid="uid://bk37wg1wfsq6a" path="res://images/UI Icons/Points.png" id="7_vocq6"]
-[ext_resource type="Texture2D" uid="uid://bm4455jprwfe6" path="res://images/UI Icons/HealthbarBackground.png" id="8_m6smf"]
-[ext_resource type="Texture2D" uid="uid://c064xcc38wf2a" path="res://images/UI Icons/XPBar.png" id="9_o4gqk"]
+[ext_resource type="Texture2D" uid="uid://or6be3a8uihj" path="res://images/UI Icons/Points.png" id="7_vocq6"]
+[ext_resource type="Texture2D" uid="uid://drcvsqhrdg0ro" path="res://images/UI Icons/Hud Elements/HealthbarBackground.png" id="8_n4ghs"]
+[ext_resource type="Texture2D" uid="uid://1blb2by4x7f" path="res://images/UI Icons/XPBar.png" id="9_o4gqk"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -43,18 +43,22 @@ anchors_preset = -1
 mouse_filter = 2
 
 [node name="ZennyDisp" type="Label" parent="."]
+modulate = Color(0.898039, 0.85098, 0.588235, 1)
 layout_mode = 0
 offset_left = 31.0
 offset_top = 2.0
-offset_right = 90.0
+offset_right = 48.0
 offset_bottom = 28.0
+text = "0z"
 
 [node name="PointsDisp" type="Label" parent="."]
+modulate = Color(0.698039, 0.85098, 0.678431, 1)
 layout_mode = 0
 offset_left = 30.0
 offset_top = 35.0
 offset_right = 109.0
 offset_bottom = 65.0
+text = "0pts"
 
 [node name="Stats" type="Label" parent="."]
 layout_mode = 0
@@ -82,6 +86,6 @@ offset_right = 343.0
 offset_bottom = 35.0
 grow_horizontal = 2
 scale = Vector2(0.655, 0.655)
-texture_under = ExtResource("8_m6smf")
+texture_under = ExtResource("8_n4ghs")
 texture_progress = ExtResource("9_o4gqk")
 texture_progress_offset = Vector2(15.215, 0.88)

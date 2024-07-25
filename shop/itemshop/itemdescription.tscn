@@ -1,60 +1,150 @@
-[gd_scene load_steps=3 format=3 uid="uid://k31ltyqxhst6"]
+[gd_scene load_steps=7 format=3 uid="uid://k31ltyqxhst6"]
 
 [ext_resource type="Script" path="res://shop/itemshop/itemdescription.gd" id="1_5qq22"]
-[ext_resource type="Texture2D" uid="uid://dm7221qgltj58" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
+[ext_resource type="Texture2D" uid="uid://c5xoqx7ggghaq" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
+[ext_resource type="Texture2D" uid="uid://c5nh8jjx6rx45" path="res://images/UI Icons/Item Icons/Mega Star.png" id="3_tq7bi"]
+[ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_g7a54"]
+[ext_resource type="Texture2D" uid="uid://bxw3sx53whojf" path="res://images/UI Icons/Chest_IconM.png" id="5_eeg1u"]
+[ext_resource type="Texture2D" uid="uid://djulkciqntcdg" path="res://images/UI Icons/Hud Elements/Box Border.png" id="6_pvlc2"]
 
 [node name="itemdescription" type="Panel"]
-visible = false
-offset_left = 460.0
-offset_top = 381.0
-offset_right = 636.0
-offset_bottom = 648.0
+self_modulate = Color(0, 0, 0, 0.87451)
+offset_left = 201.0
+offset_top = 383.0
+offset_right = 567.0
+offset_bottom = 556.0
 script = ExtResource("1_5qq22")
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 2
-offset_left = 46.0
-offset_right = 131.0
-offset_bottom = 26.0
+layout_mode = 1
+offset_left = 9.0
+offset_top = 13.0
+offset_right = 94.0
+offset_bottom = 39.0001
+scale = Vector2(1.2, 1.2)
 text = "Whetstone"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Icon" type="TextureRect" parent="."]
 layout_direction = 1
-layout_mode = 2
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -33.0
-offset_top = 30.43
-offset_right = 33.0
-offset_bottom = 96.43
-grow_horizontal = 2
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 9.0
+offset_top = -41.0
+offset_right = 75.0
+offset_bottom = 25.0001
+grow_vertical = 2
 texture = ExtResource("2_215gy")
 
+[node name="Star" type="TextureRect" parent="Icon"]
+visible = false
+layout_mode = 0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("3_tq7bi")
+
 [node name="Description" type="Label" parent="."]
+modulate = Color(0.760784, 0.760784, 0.760784, 1)
 layout_mode = 2
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -25.5
-offset_right = 318.0
-offset_bottom = 98.5
+offset_left = 81.0
+offset_top = -40.5
+offset_right = 413.0
+offset_bottom = 75.5
 grow_vertical = 2
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.8, 0.8)
 text = "Using a Whetstone will restore the
 sharpness of a hunters weapon
  (including from the Handicraft Skill)"
+autowrap_mode = 2
+
+[node name="Zenny" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 138.0
+offset_right = 160.0
+offset_bottom = 204.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_g7a54")
 
 [node name="Price" type="Label" parent="."]
+modulate = Color(0.898039, 0.85098, 0.588235, 1)
+custom_minimum_size = Vector2(-4.425, 0)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -45.5
-offset_top = -26.0
-offset_right = 45.5
+offset_left = -20.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Costs - 500z"
-horizontal_alignment = 1
+text = "500z"
+
+[node name="Rarity" type="Label" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 114.0
+offset_right = 71.0
+offset_bottom = 140.0
+text = "Rarity 2
+"
+
+[node name="Value" type="Label" parent="."]
+self_modulate = Color(0.760784, 0.760784, 0.760784, 1)
+layout_mode = 0
+offset_left = 12.0
+offset_top = 138.0
+offset_right = 56.0
+offset_bottom = 164.0
+text = "Value"
+
+[node name="ChestIconM" type="TextureRect" parent="."]
+self_modulate = Color(0.752941, 0.403922, 0.254902, 1)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 138.0
+offset_right = 328.0
+offset_bottom = 196.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_eeg1u")
+
+[node name="Amount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 138.0
+offset_right = 343.0
+offset_bottom = 164.0
+text = "4025"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+self_modulate = Color(0.196078, 0.192157, 0.192157, 1)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 153.41
+offset_right = 367.0
+offset_bottom = 174.41
+texture = ExtResource("6_pvlc2")
+region_rect = Rect2(8, 0, 376, 24)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+self_modulate = Color(0.196078, 0.192157, 0.192157, 1)
+layout_mode = 0
+offset_left = 367.0
+offset_top = 20.0
+offset_right = 735.0
+offset_bottom = 41.0
+rotation = 3.14159
+texture = ExtResource("6_pvlc2")
+region_rect = Rect2(8, 0, 376, 24)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16

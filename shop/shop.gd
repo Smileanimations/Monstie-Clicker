@@ -28,6 +28,7 @@ var iteminstance
 	"ItemShopPanel": $Panel/ItemShop/ItemPopupPanel,
 	"ItemScrollContainer": $Panel/ItemShop/ItemPopupPanel/ItemScrollContainer,
 	"ItemShopTab": $Panel/ItemShop/ItemPopupPanel/ItemScrollContainer/HBoxContainer,
+	"ItemDescriptionPanel": $itemdescription
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -51,7 +52,13 @@ func _ready():
 		iteminstance = itemshop.instantiate()
 		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
 		iteminstance.item = i
+		iteminstance.item_hover.connect(itemhover)
+		iteminstance.item_exit.connect(itemexit)
+		iteminstance.pressed.connect(_on_item_pressed.bind(i))
+		iteminstance.mouse_entered.connect(itemhover.bind(i))
+		iteminstance.mouse_exited.connect(itemexit)
 		Containers["ItemShopTab"].add_child(iteminstance)
+		
 
 
 #When you purchase an Attack Boost, functions from data.gd get called to subtract the money and add the damage
@@ -107,3 +114,26 @@ func _on_add_hunter_pressed():
 
 func _on_item_shop_pressed():
 	Containers["ItemShopPanel"].visible = true
+
+func itemhover(item):
+	Containers["ItemDescriptionPanel"].nodes["Title"].text = item
+	Containers["ItemDescriptionPanel"].nodes["Price"].text = "%sz" % Data.iteminventory[item]["Price"]
+	Containers["ItemDescriptionPanel"].nodes["Rarity"].text = Data.iteminventory[item]["Rarity"]
+	Containers["ItemDescriptionPanel"].nodes["Description"].text = Data.iteminventory[item]["Description"]
+	Containers["ItemDescriptionPanel"].nodes["Icon"].texture = load(Data.iteminventory[item]["Path"])
+	if Data.iteminventory[item]["Star"] == true:
+		Containers["ItemDescriptionPanel"].star.visible = true
+	else:
+		Containers["ItemDescriptionPanel"].star.visible = false
+	Containers["ItemDescriptionPanel"].nodes["Amount"].text = "%s" % Data.iteminventory[item]["Amount"]
+	Containers["ItemDescriptionPanel"].visible = true
+
+func itemexit():
+	Containers["ItemDescriptionPanel"].visible = false
+
+func _on_item_pressed(item):
+	if Data.zenny >= Data.iteminventory[item]["Price"]:
+		Data.iteminventory[item]["Amount"] += 1
+		Audiohandler.play_audio("Purchase")
+		Data.subtract_money(Data.iteminventory[item]["Price"])
+		Containers["ItemDescriptionPanel"].nodes["Amount"].text = "%s" % Data.iteminventory[item]["Amount"]
