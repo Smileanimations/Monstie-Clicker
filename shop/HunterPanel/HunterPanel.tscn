@@ -71,8 +71,10 @@ size = Vector2i(200, 200)
 
 [node name="Container" type="GridContainer" parent="ItemPanel"]
 layout_direction = 2
-offset_right = 192.0
-offset_bottom = 192.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 196.0
+offset_bottom = 196.0
 columns = 4
 
 [connection signal="pressed" from="Inventory" to="." method="_on_inventory_pressed"]

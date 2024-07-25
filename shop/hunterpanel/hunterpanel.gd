@@ -37,10 +37,6 @@ func _ready():
 		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
 		iteminstance.item = i
 		ItemContainer.add_child(iteminstance)
-		if Data.iteminventory[i]["Amount"] >= 1:
-			iteminstance.visible = true
-		else:
-			iteminstance.visible = false
 
 func update_huntercost(_ignore):
 	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
@@ -96,4 +92,4 @@ func _on_inventory_pressed():
 	ItemPanel.visible = true
 	for i in Data.iteminventory:
 		if Data.iteminventory[i]["Amount"] >= 1:
-			iteminstance.visible = true
+			pass
