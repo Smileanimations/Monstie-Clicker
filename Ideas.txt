@@ -77,9 +77,9 @@ Decorations:
 		
 		Critical Eye: Will increase the amount of affinity you have
 		
-		Heroics: instead of Doing more damage when you're low HP, You will deal more damage when the monster is low hp
+		Heroics: Doing more Damage when the hunter is low HP
 		
-		Peak Performance: Same as heroics but instead of low hp, will deal more damage when the monster has more hp
+		Peak Performance: Doing more Damage when the hunter has full HP
 		
 		Agitator: When a monsters enrages you gain a boost in attack and affinity
 		

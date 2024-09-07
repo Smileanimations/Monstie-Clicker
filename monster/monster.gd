@@ -92,7 +92,7 @@ func Rand_Monster():
 	rand_monster = monsters.keys()[randi() % monsters.size()]
 	return rand_monster
 
-
+#Checks which hunter does the most DPS and damage that hunter
 func _on_timer_timeout():
 	var damage_checker = 0
 	for i in Data.hunters:

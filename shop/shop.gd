@@ -48,12 +48,12 @@ func _ready():
 		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
 		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
 		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
+		instance.hunter_item_hover.connect(itemhover)
+		instance.hunter_item_exit.connect(itemexit)
 	for i in Data.iteminventory:
 		iteminstance = itemshop.instantiate()
 		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
 		iteminstance.item = i
-		iteminstance.item_hover.connect(itemhover)
-		iteminstance.item_exit.connect(itemexit)
 		iteminstance.pressed.connect(_on_item_pressed.bind(i))
 		iteminstance.mouse_entered.connect(itemhover.bind(i))
 		iteminstance.mouse_exited.connect(itemexit)
@@ -111,9 +111,11 @@ func huntersunlocked():
 #Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	Containers["ManageHunterPanel"].visible = true
+	Containers["ItemDescriptionPanel"].position = Vector2(168, 344)
 
 func _on_item_shop_pressed():
 	Containers["ItemShopPanel"].visible = true
+	Containers["ItemDescriptionPanel"].position = Vector2(134, 417)
 
 func itemhover(item):
 	Containers["ItemDescriptionPanel"].nodes["Title"].text = item

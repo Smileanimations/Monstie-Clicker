@@ -1,5 +1,7 @@
 extends Panel
 signal weapon_changed(weapon, local_hunter)
+signal hunter_item_hover
+signal hunter_item_exit
 var nodegroup
 var local_hunter
 var iteminstance
@@ -14,7 +16,6 @@ var items = preload("res://shop/itemshop/itemshop.tscn")
 @onready var WeaponContainer = $WeaponPanel/Container
 @onready var ItemPanel = $ItemPanel
 @onready var ItemContainer = $ItemPanel/Container
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Data.PurchasedHunter.connect(update_huntercost)
@@ -36,7 +37,10 @@ func _ready():
 		iteminstance = items.instantiate()
 		iteminstance.texture_normal = load(Data.iteminventory[i]["Path"])
 		iteminstance.item = i
+		iteminstance.mouse_entered.connect(itemhover.bind(i))
+		iteminstance.mouse_exited.connect(itemexit)
 		ItemContainer.add_child(iteminstance)
+		iteminstance.visible = false
 
 func update_huntercost(_ignore):
 	PurchaseHunterButton.text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
@@ -86,10 +90,17 @@ func _on_purchase_hunter_pressed(hunter):
 		Audiohandler.play_audio("PurchasedHunter")
 		Data.AddHunter(hunter)
 
-
-
 func _on_inventory_pressed():
+	var itemnodes = ItemContainer.get_children()
+	for i in itemnodes:
+		if Data.iteminventory[i.item]["Amount"] > 0:
+			i.visible = true
+		else:
+			i.visible = false
 	ItemPanel.visible = true
-	for i in Data.iteminventory:
-		if Data.iteminventory[i]["Amount"] >= 1:
-			pass
+
+func itemhover(item):
+	hunter_item_hover.emit(item)
+
+func itemexit():
+	hunter_item_exit.emit()

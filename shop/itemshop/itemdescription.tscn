@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://k31ltyqxhst6"]
 
 [ext_resource type="Script" path="res://shop/itemshop/itemdescription.gd" id="1_5qq22"]
-[ext_resource type="Texture2D" uid="uid://c5xoqx7ggghaq" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
-[ext_resource type="Texture2D" uid="uid://c5nh8jjx6rx45" path="res://images/UI Icons/Item Icons/Mega Star.png" id="3_tq7bi"]
+[ext_resource type="Texture2D" uid="uid://c3k3hfek3fmdv" path="res://images/UI Icons/Item Icons/Whetstone.png" id="2_215gy"]
+[ext_resource type="Texture2D" uid="uid://73pjqysav03k" path="res://images/UI Icons/Item Icons/Mega Star.png" id="3_tq7bi"]
 [ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_g7a54"]
-[ext_resource type="Texture2D" uid="uid://bxw3sx53whojf" path="res://images/UI Icons/Chest_IconM.png" id="5_eeg1u"]
-[ext_resource type="Texture2D" uid="uid://djulkciqntcdg" path="res://images/UI Icons/Hud Elements/Box Border.png" id="6_pvlc2"]
+[ext_resource type="Texture2D" uid="uid://citq05btjlc2o" path="res://images/UI Icons/Chest_IconM.png" id="5_eeg1u"]
+[ext_resource type="Texture2D" uid="uid://dhiivmh33ljk3" path="res://images/UI Icons/Hud Elements/Box Border.png" id="6_pvlc2"]
 
 [node name="itemdescription" type="Panel"]
 self_modulate = Color(0, 0, 0, 0.87451)
