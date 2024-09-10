@@ -47,6 +47,8 @@ func _on_Monster_pressed():
 	var amount = Data.damage["Raw"]["Damage_amount"]
 	if random_number <= Data.damage["Affinity"]["Amount"]:
 		amount *= 1.25
+		
+		$Icon.global_position = get_global_mouse_position()
 		print("Critical Hit!")
 	Damage(amount)
 

@@ -10,7 +10,7 @@ var hunter_rank : int = 4
 var hunter_rankxp : int = 30
 var damage = {
 	"Raw": {"Damage_amount": 10},
-	"Affinity": {"Amount": 0},
+	"Affinity": {"Amount": 50},
 	"Fire": {"Damage_amount": 0},
 	"Ice": {"Damage_amount": 0},
 	"Water": {"Damage_amount": 0},

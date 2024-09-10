@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dx0p642gdh4dc" path="res://images/UI Icons/AttackUp.png" id="2_2xrto"]
 [ext_resource type="Texture2D" uid="uid://cnvbd40kgap22" path="res://images/UI Icons/AffinityUP.png" id="3_18adb"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="4_bupn5"]
-[ext_resource type="Texture2D" uid="uid://713cmfxiqm7v" path="res://images/UI Icons/Inventory_IconM.png" id="5_bw2jt"]
-[ext_resource type="Texture2D" uid="uid://d141ivyg2jgvd" path="res://images/UI Icons/InventoryOpen_IconM.png" id="6_3tmne"]
+[ext_resource type="Texture2D" uid="uid://dncfxlb8ahbpw" path="res://images/UI Icons/Inventory_IconM.png" id="5_bw2jt"]
+[ext_resource type="Texture2D" uid="uid://cns86ayvmy5b3" path="res://images/UI Icons/InventoryOpen_IconM.png" id="6_3tmne"]
 
 [node name="HunterPanel" type="Panel"]
 script = ExtResource("1_eqenj")

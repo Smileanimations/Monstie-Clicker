@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://hunters/hunters.gd" id="1_l8ubf"]
 [ext_resource type="Texture2D" uid="uid://dn7lnmkatqepc" path="res://images/UI Icons/Weapon Icons/Sword_And_Shield.png" id="2_d8lb7"]
-[ext_resource type="Texture2D" uid="uid://d3vt2kcu0m17q" path="res://images/UI Icons/Hud Elements/HealthbarBackground.png" id="3_i7mxx"]
+[ext_resource type="Texture2D" uid="uid://gppr0bdaoc3h" path="res://images/UI Icons/Hud Elements/HealthbarBackground.png" id="3_i7mxx"]
 [ext_resource type="Texture2D" uid="uid://bt136ber8y101" path="res://images/UI Icons/Weapon Icons/Gunlance.png" id="3_j8s5d"]
-[ext_resource type="Texture2D" uid="uid://cpesdbp5ja12j" path="res://images/UI Icons/Hud Elements/Healthbar.png" id="4_3ktgc"]
+[ext_resource type="Texture2D" uid="uid://buewhb3jfv2dv" path="res://images/UI Icons/Hud Elements/Healthbar.png" id="4_3ktgc"]
 [ext_resource type="Texture2D" uid="uid://dad38veuij53s" path="res://images/UI Icons/Weapon Icons/Hammer.png" id="4_24q4t"]
-[ext_resource type="Texture2D" uid="uid://cdxvjp0e3k6wm" path="res://images/UI Icons/Hud Elements/Staminabar.png" id="5_ixfjp"]
+[ext_resource type="Texture2D" uid="uid://bu4nia1upu6ms" path="res://images/UI Icons/Hud Elements/Staminabar.png" id="5_ixfjp"]
 [ext_resource type="Texture2D" uid="uid://bif5sm8ejumvu" path="res://images/UI Icons/Weapon Icons/Lance.png" id="5_y2ug4"]
 
 [node name="hunters" type="Control"]

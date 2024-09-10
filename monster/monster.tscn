@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://j8e5yfle32sr"]
+[gd_scene load_steps=4 format=3 uid="uid://j8e5yfle32sr"]
 
 [ext_resource type="Script" path="res://monster/monster.gd" id="1_i3s2a"]
 [ext_resource type="Texture2D" uid="uid://bk6grexq3tnfa" path="res://images/Barroth.png" id="2_s06go"]
+[ext_resource type="Texture2D" uid="uid://7v6qocxiktp4" path="res://icon.svg" id="3_if6r2"]
 
 [node name="monster" type="Control"]
 layout_mode = 3
@@ -45,6 +46,11 @@ size_flags_vertical = 8
 rounded = true
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-158, 275)
+texture = ExtResource("3_if6r2")
 
 [connection signal="pressed" from="Monster" to="." method="_on_Monster_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

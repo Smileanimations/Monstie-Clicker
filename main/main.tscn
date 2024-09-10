@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bbxgwa0m1b1hb" path="res://hunters/hunters.tscn" id="4_5xe81"]
 [ext_resource type="Texture2D" uid="uid://bm6afhhbn42dh" path="res://images/UI Icons/Zenny.png" id="4_vwv2k"]
 [ext_resource type="PackedScene" uid="uid://dt0dt5dy6p1a4" path="res://main/background/background.tscn" id="5_cif16"]
-[ext_resource type="Texture2D" uid="uid://dq1qo3qaf2s02" path="res://images/UI Icons/Points.png" id="7_vocq6"]
-[ext_resource type="Texture2D" uid="uid://d3vt2kcu0m17q" path="res://images/UI Icons/Hud Elements/HealthbarBackground.png" id="8_n4ghs"]
-[ext_resource type="Texture2D" uid="uid://c5cxplfghs0vl" path="res://images/UI Icons/XPBar.png" id="9_o4gqk"]
+[ext_resource type="Texture2D" uid="uid://berocqolx7s5f" path="res://images/UI Icons/Points.png" id="7_vocq6"]
+[ext_resource type="Texture2D" uid="uid://gppr0bdaoc3h" path="res://images/UI Icons/Hud Elements/HealthbarBackground.png" id="8_n4ghs"]
+[ext_resource type="Texture2D" uid="uid://bi8o0agh0im85" path="res://images/UI Icons/XPBar.png" id="9_o4gqk"]
 
 [node name="main" type="Control"]
 layout_mode = 3

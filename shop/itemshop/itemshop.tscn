@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5w70nexfi8nf"]
 
 [ext_resource type="Script" path="res://shop/itemshop/itemshop.gd" id="1_4mg0d"]
-[ext_resource type="Texture2D" uid="uid://73pjqysav03k" path="res://images/UI Icons/Item Icons/Mega Star.png" id="2_k10sy"]
+[ext_resource type="Texture2D" uid="uid://dpshohs3d47lx" path="res://images/UI Icons/Item Icons/Mega Star.png" id="2_k10sy"]
 
 [node name="itemshop" type="TextureButton"]
 offset_right = 25.0

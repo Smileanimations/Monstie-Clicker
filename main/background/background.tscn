@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dt0dt5dy6p1a4"]
 
-[ext_resource type="Texture2D" uid="uid://darmv3guw0y11" path="res://images/Background Images/Elders Recess.png" id="1_u1hru"]
+[ext_resource type="Texture2D" uid="uid://xfa6khbnsv8v" path="res://images/Background Images/Elders Recess.png" id="1_u1hru"]
 [ext_resource type="Script" path="res://main/background/background.gd" id="2_67onp"]
 
 [node name="background" type="TextureRect"]
