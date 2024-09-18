@@ -56,7 +56,6 @@ func _on_Monster_pressed():
 #Damages the monster by clicking on it
 func Damage(damageamount):
 	health -= damageamount
-	print("%s" % health)
 	Healthbar.value = health
 	if health <= 0:
 		Data.Hunterrank(monsters[rand_monster]["HRpoints"])

@@ -1,7 +1,7 @@
 extends Control
 var hunters = false
 var weapons = preload("res://shop/weapons/weapon.tscn")
-var weaponpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
+var hunterpanel = preload("res://shop/hunterpanel/hunterpanel.tscn")
 var itemshop = preload("res://shop/itemshop/itemshop.tscn")
 var PurchaseHunterButton
 var iteminstance
@@ -37,17 +37,9 @@ func _ready():
 	Buttons["AffinityUpButton"].text = "Increase Affinity - %sz" % Data.prices["Price Affinity"]
 	Data.HunterUnlocked.connect(huntersunlocked)
 	for i in range (1, 5):
-		var instance = weaponpanel.instantiate()
-		instance.name = "Hunter %s" % i
+		var instance = hunterpanel.instantiate()
+		instance.name = "Hunter%s" % i
 		Containers["ManageHunterTab"].add_child(instance)
-		var AttackUpButton = instance.get_node("HunterAttackUp")
-		var AffinityUpButton = instance.get_node("HunterAffinityUp")
-		var WeaponButton = instance.get_node("Weapon")
-		PurchaseHunterButton = instance.get_node("PurchaseHunter")
-		AttackUpButton.pressed.connect(instance._on_hunter_attack_up_pressed.bind("Hunter%s" % i))
-		AffinityUpButton.pressed.connect(instance._on_hunter_affinity_up_pressed.bind("Hunter%s" % i))
-		WeaponButton.pressed.connect(instance._on_weapon_pressed.bind("Hunter%s" % i))
-		PurchaseHunterButton.pressed.connect(instance._on_purchase_hunter_pressed.bind("Hunter%s" % i))
 		instance.hunter_item_hover.connect(itemhover)
 		instance.hunter_item_exit.connect(itemexit)
 	for i in Data.iteminventory:
@@ -108,7 +100,6 @@ func _on_element_button_pressed(element):
 func huntersunlocked():
 	Buttons["AddHunterButton"].visible = true
 
-#Sets the price for the next hunter purchased. Does not set the hunter themselves
 func _on_add_hunter_pressed():
 	Containers["ManageHunterPanel"].visible = true
 	Containers["ItemDescriptionPanel"].position = Vector2(168, 344)

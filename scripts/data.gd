@@ -10,7 +10,7 @@ var hunter_rank : int = 4
 var hunter_rankxp : int = 30
 var damage = {
 	"Raw": {"Damage_amount": 10},
-	"Affinity": {"Amount": 50},
+	"Affinity": {"Amount": 0},
 	"Fire": {"Damage_amount": 0},
 	"Ice": {"Damage_amount": 0},
 	"Water": {"Damage_amount": 0},
@@ -35,6 +35,8 @@ var iteminventory = {
 	"Whetstone": {"Amount": 0, "Rarity": "Rarity 4", "Price": 750, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Whetstone.png", "Description": "A standard-sized whetstone. Use it to restore a weapon's sharpness"},
 	"Potion": {"Amount": 10, "Rarity": "Rarity 1", "Price": 200, "Star": false, "Path": "res://images/UI Icons/Item Icons/Potion.png", "Description": "Restores a small amount of health."},
 	"Mega Potion": {"Amount": 0, "Rarity": "Rarity 2", "Price": 500, "Star": true, "Path": "res://images/UI Icons/Item Icons/Potion.png", "Description": "Restores a moderate amount of health."},
+	"Lifepowder": {"Amount": 0, "Rarity": "Rarity 3", "Price": 1045, "Star": false, "Path": "res://images/UI Icons/Item Icons/Lifepowder.png", "Description": "Produces a healing cloud in the area around the user, healing other hunters."},
+	"Dust of Life": {"Amount": 0, "Rarity": "Rarity 6", "Price": 2000, "Star": true, "Path": "res://images/UI Icons/Item Icons/Lifepowder.png", "Description": "Produces a cloud in the area around the user with strong healing properties, healing other hunters."},
 	"Armorskin Potion": {"Amount": 0, "Rarity": "Rarity 4", "Price": 1250, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png", "Description": "Boosts a hunter's defense by turning your skin as hard as rock."},
 	"Mega Armorskin Potion": {"Amount": 0, "Rarity": "Rarity 5", "Price": 2250, "Star": true ,"Path": "res://images/UI Icons/Item Icons/Armorskin Potion.png", "Description": "Boosts a hunter's defense even more than a regular armorskin."},
 	"Hardshell Powder": {"Amount": 0, "Rarity": "Rarity 4", "Price": 2500, "Star": false ,"Path": "res://images/UI Icons/Item Icons/Hardshell Powder.png", "Description": "A mysterious powder that produces a cloud around the area that temporarily strengthens the defense of all hunters."},
@@ -100,6 +102,7 @@ func add_diff_scale(amount):
 
 #Sends the signal to hunter.gd which adds a hunter
 func AddHunter(hunter_add):
+	print("%s" % hunter_add)
 	PurchasedHunter.emit(hunter_add)
 
 func Hunterrank(HRpoints):

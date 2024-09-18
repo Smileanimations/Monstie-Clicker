@@ -5,7 +5,9 @@ const SOUNDS = {
 	"TenRanksUp": preload("res://sounds/soundfiles/TenHunterRanksUp.mp3"),
 	"HunterRankUp": preload("res://sounds/soundfiles/HunterRankUp.mp3"),
 	"Purchase": preload("res://sounds/soundfiles/Purchase.wav"),
-	"PurchasedHunter": preload("res://sounds/soundfiles/CombineItem.mp3")
+	"PurchasedHunter": preload("res://sounds/soundfiles/CombineItem.mp3"),
+	"Denied": preload("res://sounds/soundfiles/denied.wav"),
+	"ItemUse": preload("res://sounds/soundfiles/itemuse.wav")
 }
 
 #Plays the sounds in the queue
