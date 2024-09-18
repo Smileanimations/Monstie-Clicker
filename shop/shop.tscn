@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7w7cm8ycak1n" path="res://images/UI Icons/Waterblight.png" id="7_5cemc"]
 [ext_resource type="Texture2D" uid="uid://ckb1h037bybpx" path="res://images/UI Icons/Dragonblight.png" id="8_pbg7g"]
 [ext_resource type="Texture2D" uid="uid://dratwcpywc1cd" path="res://images/UI Icons/Weapon Icons/Great_Sword.png" id="9_1ullj"]
-[ext_resource type="Texture2D" uid="uid://crryvawvhidhv" path="res://images/UI Icons/Chest_IconM.png" id="10_p012g"]
+[ext_resource type="Texture2D" uid="uid://jm7dstt6joes" path="res://images/UI Icons/Chest_IconM.png" id="10_p012g"]
 [ext_resource type="PackedScene" uid="uid://k31ltyqxhst6" path="res://shop/itemshop/itemdescription.tscn" id="11_kjwmx"]
 
 [node name="shop" type="Control"]
@@ -140,7 +140,7 @@ columns = 5
 
 [node name="itemdescription" parent="." instance=ExtResource("11_kjwmx")]
 visible = false
-self_modulate = Color(0, 0, 0, 0.74902)
+self_modulate = Color(0, 0, 0, 0.823529)
 layout_mode = 0
 offset_left = 168.0
 offset_top = 200.0
