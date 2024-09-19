@@ -1,4 +1,5 @@
 extends Control
+signal resetbuffs()
 var hunter_amount = 0
 @onready var monster 
 @onready var paths = {
@@ -62,6 +63,8 @@ func HunterDamaged(hunter):
 	if Data.hunters[hunter]["Health"] <= 0:
 		paths[hunter]["Timer"].stop()
 		paths[hunter]["ResetTimer"].start()
+		resetbuffs.emit()
+		
 
 func _on_reset_timer_timeout(argument):
 	Data.hunters[argument]["Health"] = 100

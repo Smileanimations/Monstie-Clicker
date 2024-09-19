@@ -2,6 +2,12 @@ extends Panel
 signal weapon_changed(weapon, local_hunter)
 signal hunter_item_hover
 signal hunter_item_exit
+
+var armorskin = false
+var mega_armorskin = false
+var hardshell = false
+var demondrug = false
+var mega_demondrug = false
 var nodegroup
 var local_hunter
 var iteminstance
@@ -25,6 +31,10 @@ var items = preload("res://shop/itemshop/itemshop.tscn")
 	"PurchaseHunter" = $PurchaseHunter
 }
 
+@onready var Timers = {
+	"Hardshell Timer" = $HardshellTimer,
+	"Demondrug Timer" = $DrugsTimer
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#Binds the all 4 hunters to the buttons that increase stats and other changes 
@@ -56,6 +66,10 @@ func _ready():
 		iteminstance.pressed.connect(_on_item_pressed.bind(i))
 		Containers["ItemContainer"].add_child(iteminstance)
 		iteminstance.visible = false
+	var hunters = get_node("/root/main/hunters")
+	var monsters = get_node("/root/main/monster")
+	hunters.resetbuffs.connect(resetbuffs)
+	monsters.resetbuffs.connect(resetbuffs)
 
 func update_huntercost(_ignore):
 	Buttons["PurchaseHunter"].text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
@@ -132,6 +146,7 @@ func _on_item_pressed(item):
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
+				print("%s" % Data.hunters[name]["Health"])
 			"Mega Potion":
 				Data.hunters[name]["Health"] += 70
 				Data.iteminventory[item]["Amount"] -= 1
@@ -144,3 +159,61 @@ func _on_item_pressed(item):
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
+			"Dust of Life":
+				for i in range (1, 5):
+					if Data.hunters["Hunter%s" % i]["Health"] > 0:
+						Data.hunters["Hunter%s" % i]["Health"] += 70
+				Data.iteminventory[item]["Amount"] -= 1
+				itemhover(item)
+				Audiohandler.play_audio("ItemUse")
+			"Armorskin Potion":
+				if armorskin:
+					Audiohandler.play_audio("Denied")
+				else:
+					Data.hunters[name]["Defense"] += 15
+					Data.iteminventory[item]["Amount"] -= 1
+					itemhover(item)
+					Audiohandler.play_audio("ItemUse")
+					armorskin = true
+			"Mega Armorskin Potion":
+				if mega_armorskin:
+					Audiohandler.play_audio("Denied")
+				else:
+					if armorskin:
+						Data.hunters[name]["Defense"] -= 15
+					Data.hunters[name]["Defense"] += 25
+					Data.iteminventory[item]["Amount"] -= 1
+					itemhover(item)
+					Audiohandler.play_audio("ItemUse")
+					armorskin = true
+					mega_armorskin = true
+			"Hardshell Powder":
+				if hardshell:
+					Timers["Hardshell Timer"].start()
+				else:
+					for i in range (1, 5):
+						Data.hunters["Hunter%s" % i]["Defense"] += 20
+					Data.iteminventory[item]["Amount"] -= 1
+					itemhover(item)
+					Audiohandler.play_audio("ItemUse")
+					hardshell = true
+					Timers["Hardshell Timer"].start()
+
+func resetbuffs():
+	for i in range (1, 5):
+		if mega_armorskin:
+			Data.hunters["Hunter%s" % i]["Defense"] -= 25
+			armorskin = false
+			mega_armorskin = false
+		elif armorskin:
+			Data.hunters["Hunter%s" % i]["Defense"] -= 15
+			armorskin = false
+		if hardshell:
+			Data.hunters["Hunter%s" % i]["Defense"] -= 20
+			hardshell = false
+
+func _on_hardshell_timer_timeout():
+	for i in range (1, 5):
+		if hardshell:
+			Data.hunters["Hunter%s" % i]["Defense"] -= 20
+			hardshell = false
