@@ -105,6 +105,9 @@ func _on_timer_timeout():
 			hunter = i
 			Data.hunters[i]["Damage"] = 0 
 	trueValue = value["damage"] - Data.hunters[hunter]["Defense"]
+	print("Damage: %s" % value["damage"])
+	print("Hunter Defense: %s" % Data.hunters[hunter]["Defense"])
+	print("True Damage: %s" % trueValue)
 	Data.hunters[hunter]["Health"] -= max(5, trueValue)
 	damage_hunter.emit(hunter)
 	

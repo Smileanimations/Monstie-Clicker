@@ -3,12 +3,12 @@ signal resetbuffs()
 var hunter_amount = 0
 @onready var monster 
 @onready var paths = {
-	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer, "ResetTimer": $HBoxContainer/Hunter1/ResetTimer, "Healthbar": $HBoxContainer/Hunter1/Healthbar},
-	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer, "ResetTimer": $HBoxContainer/Hunter2/ResetTimer, "Healthbar": $HBoxContainer/Hunter2/Healthbar},
-	"Hunter3": {"Path": $HBoxContainer/Hunter3, "Timer": $HBoxContainer/Hunter3/Timer, "ResetTimer": $HBoxContainer/Hunter3/ResetTimer, "Healthbar": $HBoxContainer/Hunter3/Healthbar},
-	'Hunter4': {"Path": $HBoxContainer/Hunter4, "Timer": $HBoxContainer/Hunter4/Timer, "ResetTimer": $HBoxContainer/Hunter4/ResetTimer, "Healthbar": $HBoxContainer/Hunter4/Healthbar}
+	"Hunter1": {"Path": $HBoxContainer/Hunter1, "Timer": $HBoxContainer/Hunter1/Timer, "ResetTimer": $HBoxContainer/Hunter1/ResetTimer, "Healthbar": $HBoxContainer/Hunter1/Healthbar, "BuffIcon": $HBoxContainer/Hunter1/BuffIcon},
+	"Hunter2": {"Path": $HBoxContainer/Hunter2, "Timer": $HBoxContainer/Hunter2/Timer, "ResetTimer": $HBoxContainer/Hunter2/ResetTimer, "Healthbar": $HBoxContainer/Hunter2/Healthbar, "BuffIcon": $HBoxContainer/Hunter2/BuffIcon},
+	"Hunter3": {"Path": $HBoxContainer/Hunter3, "Timer": $HBoxContainer/Hunter3/Timer, "ResetTimer": $HBoxContainer/Hunter3/ResetTimer, "Healthbar": $HBoxContainer/Hunter3/Healthbar, "BuffIcon": $HBoxContainer/Hunter3/BuffIcon},
+	'Hunter4': {"Path": $HBoxContainer/Hunter4, "Timer": $HBoxContainer/Hunter4/Timer, "ResetTimer": $HBoxContainer/Hunter4/ResetTimer, "Healthbar": $HBoxContainer/Hunter4/Healthbar, "BuffIcon": $HBoxContainer/Hunter4/BuffIcon}
 }
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	Data.PurchasedHunter.connect(AddHunter)
 	await(get_parent().ready)

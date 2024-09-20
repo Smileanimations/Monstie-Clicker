@@ -3,17 +3,21 @@ signal weapon_changed(weapon, local_hunter)
 signal hunter_item_hover
 signal hunter_item_exit
 
-var armorskin = false
-var mega_armorskin = false
-var hardshell = false
-var demondrug = false
-var mega_demondrug = false
 var nodegroup
 var local_hunter
 var iteminstance
 var weapons = preload("res://shop/weapons/weapon.tscn")
 var items = preload("res://shop/itemshop/itemshop.tscn")
 
+var buffs = {
+	"Armorskin": false,
+	"Mega Armorskin": false,
+	"Hardshell Powder": false,
+	
+	"Demondrug": false,
+	"Mega Demondrug": false,
+	"Demonpowder": false,
+}
 #Dictionary containing all the panels and containers
 @onready var Containers = {
 	"WeaponPanel" = $WeaponPanel,
@@ -68,8 +72,6 @@ func _ready():
 		iteminstance.visible = false
 	var hunters = get_node("/root/main/hunters")
 	var monsters = get_node("/root/main/monster")
-	hunters.resetbuffs.connect(resetbuffs)
-	monsters.resetbuffs.connect(resetbuffs)
 
 func update_huntercost(_ignore):
 	Buttons["PurchaseHunter"].text = "Purchase Hunter - %sz" % Data.prices["Price Hunter"]
@@ -142,53 +144,53 @@ func _on_item_pressed(item):
 	else:
 		match item:
 			"Potion":
-				Data.hunters[name]["Health"] += 35
+				Data.hunters[name]["Health"] = min(100, Data.hunters[name]["Health"] + 35)
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
 				print("%s" % Data.hunters[name]["Health"])
 			"Mega Potion":
-				Data.hunters[name]["Health"] += 70
+				Data.hunters[name]["Health"] = min(100, Data.hunters[name]["Health"] + 70)
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
 			"Lifepowder":
 				for i in range (1, 5):
 					if Data.hunters["Hunter%s" % i]["Health"] > 0:
-						Data.hunters["Hunter%s" % i]["Health"] += 35
+						Data.hunters["Hunter%s" % i]["Health"] = min(100, Data.hunters["Hunter%s" % i]["Health"] + 35)
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
 			"Dust of Life":
 				for i in range (1, 5):
 					if Data.hunters["Hunter%s" % i]["Health"] > 0:
-						Data.hunters["Hunter%s" % i]["Health"] += 70
+						min(100, Data.hunters["Hunter%s" % i]["Health"] + 70) 
 				Data.iteminventory[item]["Amount"] -= 1
 				itemhover(item)
 				Audiohandler.play_audio("ItemUse")
 			"Armorskin Potion":
-				if armorskin:
+				if buffs["Armorskin"]:
 					Audiohandler.play_audio("Denied")
 				else:
 					Data.hunters[name]["Defense"] += 15
 					Data.iteminventory[item]["Amount"] -= 1
 					itemhover(item)
 					Audiohandler.play_audio("ItemUse")
-					armorskin = true
+					buffs["Armorskin"] = true
 			"Mega Armorskin Potion":
-				if mega_armorskin:
+				if buffs["Mega Armorskin"]:
 					Audiohandler.play_audio("Denied")
 				else:
-					if armorskin:
+					if buffs["Armorskin"]:
 						Data.hunters[name]["Defense"] -= 15
 					Data.hunters[name]["Defense"] += 25
 					Data.iteminventory[item]["Amount"] -= 1
 					itemhover(item)
 					Audiohandler.play_audio("ItemUse")
-					armorskin = true
-					mega_armorskin = true
+					buffs["Armorskin"] = true
+					buffs["Mega Armorskin"] = true
 			"Hardshell Powder":
-				if hardshell:
+				if buffs["Hardshell Powder"]:
 					Timers["Hardshell Timer"].start()
 				else:
 					for i in range (1, 5):
@@ -196,24 +198,24 @@ func _on_item_pressed(item):
 					Data.iteminventory[item]["Amount"] -= 1
 					itemhover(item)
 					Audiohandler.play_audio("ItemUse")
-					hardshell = true
+					buffs["Hardshell"] = true
 					Timers["Hardshell Timer"].start()
 
 func resetbuffs():
 	for i in range (1, 5):
-		if mega_armorskin:
+		if buffs["Mega Armorskin"]:
 			Data.hunters["Hunter%s" % i]["Defense"] -= 25
-			armorskin = false
-			mega_armorskin = false
-		elif armorskin:
+			buffs["Armorskin"] = false
+			buffs["Mega Armorskin"] = false
+		elif buffs["Armorskin"]:
 			Data.hunters["Hunter%s" % i]["Defense"] -= 15
-			armorskin = false
-		if hardshell:
+			buffs["Armorskin"] = false
+		if "Hardshell":
 			Data.hunters["Hunter%s" % i]["Defense"] -= 20
-			hardshell = false
+			buffs["Hardshell Powder"] = false
 
 func _on_hardshell_timer_timeout():
 	for i in range (1, 5):
-		if hardshell:
+		if buffs["Hardshell"]:
 			Data.hunters["Hunter%s" % i]["Defense"] -= 20
-			hardshell = false
+			buffs["Hardshell"] = false
